@@ -4,4 +4,7 @@ Requirements:
 Xcode 13.4
 Cocoapods 1.11.2
 
-First task in backlog: Setup project -> Install CocoaPod with Alamofire and set programatically init in SceneDelegate (Delete Storyboard).
+Useful reads for work:
+ Gitflow -> https://www.atlassian.com/es/git/tutorials/comparing-workflows/gitflow-workflow
+ How to commit -> https://www.conventionalcommits.org/en/v1.0.0-beta.4/ 
+ Good practices for branch and merge -> https://gist.github.com/calaway/ea880263b0c0495bb00ee877f001dc59
