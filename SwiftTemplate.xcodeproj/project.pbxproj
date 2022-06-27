@@ -15,6 +15,13 @@
 		038D34992863278600648978 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038D34982863278600648978 /* HomeViewModel.swift */; };
 		038D34A228632C2A00648978 /* SwiftTemplateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038D34A128632C2A00648978 /* SwiftTemplateTests.swift */; };
 		5991E638B37381C40AD34FF9 /* Pods_SwiftTemplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C806EB97D4D18AFDE1A67DB1 /* Pods_SwiftTemplate.framework */; };
+		C13ECE122867FDAB0040BE72 /* UsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE112867FDAB0040BE72 /* UsersService.swift */; };
+		C13ECE182867FE0A0040BE72 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE172867FE0A0040BE72 /* Constants.swift */; };
+		C13ECE1A2867FE330040BE72 /* NewUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE192867FE330040BE72 /* NewUserResponse.swift */; };
+		C13ECE1C2867FE3E0040BE72 /* NewUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE1B2867FE3E0040BE72 /* NewUser.swift */; };
+		C13ECE1E2867FE940040BE72 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE1D2867FE940040BE72 /* ApiManager.swift */; };
+		C13ECE202867FEEB0040BE72 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE1F2867FEEB0040BE72 /* SignUpViewModel.swift */; };
+		C13ECE232867FF6B0040BE72 /* ExtensionSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE222867FF6B0040BE72 /* ExtensionSignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +47,13 @@
 		038D34A128632C2A00648978 /* SwiftTemplateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftTemplateTests.swift; sourceTree = "<group>"; };
 		10E80E2B6DB8107568FFFD5D /* Pods-SwiftTemplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftTemplate.release.xcconfig"; path = "Target Support Files/Pods-SwiftTemplate/Pods-SwiftTemplate.release.xcconfig"; sourceTree = "<group>"; };
 		7970464BBDAF57D08D439957 /* Pods-SwiftTemplate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftTemplate.debug.xcconfig"; path = "Target Support Files/Pods-SwiftTemplate/Pods-SwiftTemplate.debug.xcconfig"; sourceTree = "<group>"; };
+		C13ECE112867FDAB0040BE72 /* UsersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersService.swift; sourceTree = "<group>"; };
+		C13ECE172867FE0A0040BE72 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C13ECE192867FE330040BE72 /* NewUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserResponse.swift; sourceTree = "<group>"; };
+		C13ECE1B2867FE3E0040BE72 /* NewUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUser.swift; sourceTree = "<group>"; };
+		C13ECE1D2867FE940040BE72 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
+		C13ECE1F2867FEEB0040BE72 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		C13ECE222867FF6B0040BE72 /* ExtensionSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionSignUpViewController.swift; sourceTree = "<group>"; };
 		C806EB97D4D18AFDE1A67DB1 /* Pods_SwiftTemplate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftTemplate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -86,6 +100,9 @@
 			isa = PBXGroup;
 			children = (
 				038D34912863274900648978 /* Home */,
+				C13ECE0E2867FD6F0040BE72 /* SignUp */,
+				C13ECE132867FDBD0040BE72 /* Shared */,
+				C13ECE212867FF170040BE72 /* Utils */,
 				03398C5F27DFDFCC001BC793 /* AppDelegate.swift */,
 				03398C6127DFDFCC001BC793 /* SceneDelegate.swift */,
 				03398C6827DFDFCD001BC793 /* Assets.xcassets */,
@@ -143,6 +160,66 @@
 				10E80E2B6DB8107568FFFD5D /* Pods-SwiftTemplate.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		C13ECE0E2867FD6F0040BE72 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				C13ECE0F2867FD7F0040BE72 /* ViewModel */,
+				C13ECE102867FD880040BE72 /* Service */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		C13ECE0F2867FD7F0040BE72 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C13ECE1F2867FEEB0040BE72 /* SignUpViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C13ECE102867FD880040BE72 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				C13ECE112867FDAB0040BE72 /* UsersService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		C13ECE132867FDBD0040BE72 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				C13ECE162867FDFE0040BE72 /* Networking */,
+				C13ECE152867FDF10040BE72 /* Models */,
+				C13ECE172867FE0A0040BE72 /* Constants.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		C13ECE152867FDF10040BE72 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C13ECE1B2867FE3E0040BE72 /* NewUser.swift */,
+				C13ECE192867FE330040BE72 /* NewUserResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C13ECE162867FDFE0040BE72 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				C13ECE1D2867FE940040BE72 /* ApiManager.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		C13ECE212867FF170040BE72 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C13ECE222867FF6B0040BE72 /* ExtensionSignUpViewController.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		D02CA146657ACFECA312F248 /* Frameworks */ = {
@@ -298,9 +375,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				038D34942863276200648978 /* HomeView.swift in Sources */,
+				C13ECE1E2867FE940040BE72 /* ApiManager.swift in Sources */,
+				C13ECE202867FEEB0040BE72 /* SignUpViewModel.swift in Sources */,
+				C13ECE1C2867FE3E0040BE72 /* NewUser.swift in Sources */,
+				C13ECE1A2867FE330040BE72 /* NewUserResponse.swift in Sources */,
 				03398C6027DFDFCC001BC793 /* AppDelegate.swift in Sources */,
+				C13ECE232867FF6B0040BE72 /* ExtensionSignUpViewController.swift in Sources */,
 				038D34992863278600648978 /* HomeViewModel.swift in Sources */,
+				C13ECE122867FDAB0040BE72 /* UsersService.swift in Sources */,
 				03398C6227DFDFCC001BC793 /* SceneDelegate.swift in Sources */,
+				C13ECE182867FE0A0040BE72 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,8 +540,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B343RB5PHC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SwiftTemplate/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -471,6 +557,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Alkemy.SwiftTemplate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -483,8 +570,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B343RB5PHC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SwiftTemplate/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -498,6 +587,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Alkemy.SwiftTemplate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
