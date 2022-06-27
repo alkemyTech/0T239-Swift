@@ -9,5 +9,8 @@ Useful reads for work:
  How to commit -> https://www.conventionalcommits.org/en/v1.0.0-beta.4/ 
  Good practices for branch and merge -> https://gist.github.com/calaway/ea880263b0c0495bb00ee877f001dc59
 
-Integrantes:
+
+Integrantes
+- David Duarte
 - Pablo Manzur
+
