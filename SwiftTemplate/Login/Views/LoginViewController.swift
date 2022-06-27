@@ -34,6 +34,7 @@ class LoginViewController: UIViewController {
     }
         
     private func setupView() {
+        navigationController?.isNavigationBarHidden = true
         loginButton.layer.cornerRadius = 8
     }
     
@@ -57,7 +58,7 @@ class LoginViewController: UIViewController {
             return
         }
         
-        let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardFrame.height , right: 0)
+        let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardFrame.height + 15, right: 0)
         scrollView.contentInset = contentInsets
     }
     
