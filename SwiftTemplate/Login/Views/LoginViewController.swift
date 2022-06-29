@@ -8,6 +8,12 @@
 import Foundation
 import UIKit
 
+protocol LoginViewProtocol: AnyObject {
+    func enableLoginButton(show: Bool)
+    func showEmailObligatoryField(show: Bool)
+    func showPasswordObligatoryField(show: Bool)
+}
+
 class LoginViewController: UIViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
@@ -17,8 +23,16 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordObligatoryFieldLabel: UILabel!
     @IBOutlet weak var loginButton: UIButton!
     
-    private var isValidEmail = false
-    private var isValidPassword = false
+    let loginViewModel: LoginViewModel
+    
+    init(loginViewModel: LoginViewModel) {
+        self.loginViewModel = loginViewModel
+        super.init(nibName: "LoginViewController", bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,10 +90,9 @@ class LoginViewController: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
+    //TO DO
     @IBAction func didTapLogin(_ sender: Any) {
-        let homeVC = HomeViewController(viewModel: HomeViewModel())
-        homeVC.view.backgroundColor = .systemGray
-        navigationController?.present(homeVC, animated: true)
+        
     }
 }
 
@@ -101,9 +114,7 @@ extension LoginViewController: UITextFieldDelegate {
             return
         }
         
-        isValidEmail = isValidEmail(email: email)
-        showObligatoryField(isValid: isValidEmail, label: emailObligatoryFieldLabel, textField: emailTextField)
-        isEnabledLoginButton()
+        loginViewModel.validateEmail(email: email)
     }
     
     @objc private func passwordTextFieldDidChange(_ textField: UITextField) {
@@ -111,35 +122,31 @@ extension LoginViewController: UITextFieldDelegate {
             return
         }
     
-        isValidPassword = isValidPassword(password: password)
-        showObligatoryField(isValid: isValidPassword, label: passwordObligatoryFieldLabel, textField: passwordTextField)
-        isEnabledLoginButton()
-    }
-    
-    private func isValidEmail(email: String) -> Bool {
-        let pattern = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
-        isValidEmail = NSPredicate(format: "SELF MATCHES %@", pattern).evaluate(with: email)
-        return isValidEmail
-    }
-    
-    private func isValidPassword(password: String) -> Bool {
-        isValidPassword = password.count >= 8
-        return isValidPassword
+        loginViewModel.validatePassword(password: password)
     }
         
-    private func showObligatoryField(isValid: Bool, label: UILabel, textField: UITextField) {
-        label.isHidden = isValid
-        textField.layer.borderWidth = isValid ? 0 : 1
-        textField.layer.borderColor = isValid ? .none : UIColor.systemRed.cgColor
-    }
-        
-    private func isEnabledLoginButton() {
-        loginButton.isEnabled = isValidEmail && isValidPassword
-        loginButton.backgroundColor = isValidEmail && isValidPassword ? .systemRed : .systemGray
-    }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+}
+
+extension LoginViewController: LoginViewProtocol {
+    
+    func enableLoginButton(show: Bool) {
+        loginButton.isEnabled = show
+        loginButton.backgroundColor = show ? .systemRed : .systemGray
+    }
+    
+    func showEmailObligatoryField(show: Bool) {
+        emailObligatoryFieldLabel.isHidden = show
+        emailTextField.layer.borderWidth = show ? 0 : 1
+        emailTextField.layer.borderColor = show ? .none : UIColor.systemRed.cgColor
+    }
+    
+    func showPasswordObligatoryField(show: Bool) {
+        passwordObligatoryFieldLabel.isHidden = show
+        passwordTextField.layer.borderWidth = show ? 0 : 1
+        passwordTextField.layer.borderColor = show ? .none : UIColor.systemRed.cgColor
     }
 }
