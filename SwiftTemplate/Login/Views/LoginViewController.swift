@@ -67,7 +67,9 @@ class LoginViewController: UIViewController {
     }
     
     @objc private func keyboardWillHide(notification: NSNotification) {
-        scrollView.contentInset = .zero
+        UIView.animate(withDuration: 0.2) {
+            self.scrollView.contentInset = .zero
+        }
     }
     
     private func removeObservers() {
@@ -100,7 +102,7 @@ extension LoginViewController: UITextFieldDelegate {
         }
         
         isValidEmail = isValidEmail(email: email)
-        showEmailObligatoryField(isValidEmail: isValidEmail)
+        showObligatoryField(isValid: isValidEmail, label: emailObligatoryFieldLabel, textField: emailTextField)
         isEnabledLoginButton()
     }
     
@@ -110,7 +112,7 @@ extension LoginViewController: UITextFieldDelegate {
         }
     
         isValidPassword = isValidPassword(password: password)
-        showPasswordObligatoryField(isValidPassword: isValidPassword)
+        showObligatoryField(isValid: isValidPassword, label: passwordObligatoryFieldLabel, textField: passwordTextField)
         isEnabledLoginButton()
     }
     
@@ -121,23 +123,16 @@ extension LoginViewController: UITextFieldDelegate {
     }
     
     private func isValidPassword(password: String) -> Bool {
-        let pattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&#])[A-Za-z\\d$@$!%*?&#]{6,25}"
-        isValidPassword = NSPredicate(format: "SELF MATCHES %@", pattern).evaluate(with: password)
+        isValidPassword = password.count >= 8
         return isValidPassword
     }
-    
-    private func showEmailObligatoryField(isValidEmail: Bool) {
-        emailObligatoryFieldLabel.isHidden = isValidEmail
-        emailTextField.layer.borderWidth = isValidEmail ? 0 : 1
-        emailTextField.layer.borderColor = isValidEmail ? .none : UIColor.systemRed.cgColor
+        
+    private func showObligatoryField(isValid: Bool, label: UILabel, textField: UITextField) {
+        label.isHidden = isValid
+        textField.layer.borderWidth = isValid ? 0 : 1
+        textField.layer.borderColor = isValid ? .none : UIColor.systemRed.cgColor
     }
-    
-    private func showPasswordObligatoryField(isValidPassword: Bool) {
-        passwordObligatoryFieldLabel.isHidden = isValidPassword
-        passwordTextField.layer.borderWidth = isValidPassword ? 0 : 1
-        passwordTextField.layer.borderColor = isValidPassword ? .none : UIColor.systemRed.cgColor
-    }
-    
+        
     private func isEnabledLoginButton() {
         loginButton.isEnabled = isValidEmail && isValidPassword
         loginButton.backgroundColor = isValidEmail && isValidPassword ? .systemRed : .systemGray
