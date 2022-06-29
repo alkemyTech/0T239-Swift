@@ -13,7 +13,7 @@ class UsersService {
         
         let url = Constants().newUsersURL
         
-        ApiManager.shared.addNewUser(url: url, parameters: user) { response in
+        ApiManager.shared.post(url: url, parameters: user) { response in
             switch response {
                 case .success(let data):
                     do {

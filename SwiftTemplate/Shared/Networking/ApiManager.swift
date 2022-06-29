@@ -13,7 +13,7 @@ final class ApiManager {
     static let shared = ApiManager()
     
     
-    func addNewUser(url: String, parameters: NewUser, onCompletion: @escaping (Result<Data?, AFError>) -> Void) {
+    func post <T: Encodable> (url: String, parameters: T , onCompletion: @escaping (Result<Data?, AFError>) -> Void) {
         
         AF.request(url, method: .post, parameters: parameters, encoder: JSONParameterEncoder.default).validate().response {
             response in
