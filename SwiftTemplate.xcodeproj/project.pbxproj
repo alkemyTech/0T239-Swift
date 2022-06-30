@@ -14,6 +14,8 @@
 		038D34942863276200648978 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038D34932863276200648978 /* HomeView.swift */; };
 		038D34992863278600648978 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038D34982863278600648978 /* HomeViewModel.swift */; };
 		038D34A228632C2A00648978 /* SwiftTemplateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038D34A128632C2A00648978 /* SwiftTemplateTests.swift */; };
+		141149192864FAC2003F172A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141149182864FAC2003F172A /* LoginViewController.swift */; };
+		1411491B2864FAD5003F172A /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1411491A2864FAD5003F172A /* LoginViewController.xib */; };
 		5991E638B37381C40AD34FF9 /* Pods_SwiftTemplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C806EB97D4D18AFDE1A67DB1 /* Pods_SwiftTemplate.framework */; };
 		C13ECE122867FDAB0040BE72 /* UsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE112867FDAB0040BE72 /* UsersService.swift */; };
 		C13ECE182867FE0A0040BE72 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE172867FE0A0040BE72 /* Constants.swift */; };
@@ -46,6 +48,8 @@
 		038D349F28632C2A00648978 /* SwiftTemplateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftTemplateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		038D34A128632C2A00648978 /* SwiftTemplateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftTemplateTests.swift; sourceTree = "<group>"; };
 		10E80E2B6DB8107568FFFD5D /* Pods-SwiftTemplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftTemplate.release.xcconfig"; path = "Target Support Files/Pods-SwiftTemplate/Pods-SwiftTemplate.release.xcconfig"; sourceTree = "<group>"; };
+		141149182864FAC2003F172A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		1411491A2864FAD5003F172A /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		7970464BBDAF57D08D439957 /* Pods-SwiftTemplate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftTemplate.debug.xcconfig"; path = "Target Support Files/Pods-SwiftTemplate/Pods-SwiftTemplate.debug.xcconfig"; sourceTree = "<group>"; };
 		C13ECE112867FDAB0040BE72 /* UsersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersService.swift; sourceTree = "<group>"; };
 		C13ECE172867FE0A0040BE72 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -103,6 +107,7 @@
 				C13ECE0E2867FD6F0040BE72 /* SignUp */,
 				C13ECE132867FDBD0040BE72 /* Shared */,
 				C13ECE212867FF170040BE72 /* Utils */,
+				141149162864F901003F172A /* Login */,
 				03398C5F27DFDFCC001BC793 /* AppDelegate.swift */,
 				03398C6127DFDFCC001BC793 /* SceneDelegate.swift */,
 				03398C6827DFDFCD001BC793 /* Assets.xcassets */,
@@ -151,6 +156,23 @@
 				038D34A128632C2A00648978 /* SwiftTemplateTests.swift */,
 			);
 			path = SwiftTemplateTests;
+			sourceTree = "<group>";
+		};
+		141149162864F901003F172A /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				141149172864F934003F172A /* Views */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		141149172864F934003F172A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				141149182864FAC2003F172A /* LoginViewController.swift */,
+				1411491A2864FAD5003F172A /* LoginViewController.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		197FDADD169B47CB4365D677 /* Pods */ = {
@@ -315,6 +337,7 @@
 			files = (
 				03398C6C27DFDFCD001BC793 /* LaunchScreen.storyboard in Resources */,
 				03398C6927DFDFCD001BC793 /* Assets.xcassets in Resources */,
+				1411491B2864FAD5003F172A /* LoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +406,7 @@
 				C13ECE232867FF6B0040BE72 /* ExtensionSignUpViewController.swift in Sources */,
 				038D34992863278600648978 /* HomeViewModel.swift in Sources */,
 				C13ECE122867FDAB0040BE72 /* UsersService.swift in Sources */,
+				141149192864FAC2003F172A /* LoginViewController.swift in Sources */,
 				03398C6227DFDFCC001BC793 /* SceneDelegate.swift in Sources */,
 				C13ECE182867FE0A0040BE72 /* Constants.swift in Sources */,
 			);
