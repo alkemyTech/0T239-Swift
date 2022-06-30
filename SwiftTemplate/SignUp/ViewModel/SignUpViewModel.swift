@@ -10,7 +10,6 @@ import UIKit
 
 
 protocol RegisterDelegate {
-    func toggleLoading()
     func showSuccessMessage(newUserResponse: NewUserResponse)
     func showErrorAtRegister()
 }
@@ -27,7 +26,6 @@ class SignUpViewModel {
     }
     
     func register(user: NewUser) {
-        self.delegate?.toggleLoading()
         self.service.addNewUser(user: user) { response in
             self.delegate?.showSuccessMessage(newUserResponse: response)
         } onError: {
