@@ -12,41 +12,23 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var passwordRepeatField: UITextField!
-<<<<<<< HEAD
-=======
-    
->>>>>>> parent of da37187 (fix keyboard appears behaviour & Uitextfields.)
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var registerButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-<<<<<<< HEAD
-            setupView()
-            hideKeyboard()
-=======
         setupView()
         hideKeyboard()
->>>>>>> parent of da37187 (fix keyboard appears behaviour & Uitextfields.)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-<<<<<<< HEAD
-            setupKeyboardObservers()
-    }
-        
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-            removeObservers()
-=======
         setupKeyboardObservers()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         removeObservers()
->>>>>>> parent of da37187 (fix keyboard appears behaviour & Uitextfields.)
     }
     
     private func setupView() {
@@ -63,18 +45,10 @@ class SignUpViewController: UIViewController {
         registerButton.titleEdgeInsets.bottom = 10
         registerButton.titleEdgeInsets.left = 10
         registerButton.titleEdgeInsets.right = 10
-<<<<<<< HEAD
-        navigationController?.isNavigationBarHidden = true
-    }
-    
-    @objc private func hideKeyboard() {
-        let tapGesture = UITapGestureRecognizer(target:self, action: #selector(didTapView(gesture:)))
-=======
     }
     
     private func hideKeyboard() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapView(gesture:)))
->>>>>>> parent of da37187 (fix keyboard appears behaviour & Uitextfields.)
         self.view.addGestureRecognizer(tapGesture)
     }
     
@@ -84,24 +58,11 @@ class SignUpViewController: UIViewController {
     
     private func setupKeyboardObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-<<<<<<< HEAD
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardDidHideNotification, object: nil)
-=======
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
->>>>>>> parent of da37187 (fix keyboard appears behaviour & Uitextfields.)
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
         guard let userInfo = notification.userInfo,
-<<<<<<< HEAD
-        let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
-        return
-            }
-        let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardFrame.height + 15, right: 0)
-        scrollView.contentInset = contentInsets
-    }
-
-=======
               let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
             return
         }
@@ -110,7 +71,6 @@ class SignUpViewController: UIViewController {
         scrollView.contentInset = contentInsets
     }
     
->>>>>>> parent of da37187 (fix keyboard appears behaviour & Uitextfields.)
     @objc func keyboardWillHide(notification: NSNotification) {
         scrollView.contentInset = .zero
     }
