@@ -8,10 +8,10 @@
 import Foundation
 import UIKit
 
-protocol LoginViewProtocol: AnyObject {
+protocol LoginViewDelegate: AnyObject {
     func enableLoginButton(show: Bool)
-    func showEmailObligatoryField(show: Bool)
-    func showPasswordObligatoryField(show: Bool)
+    func showEmailObligatoryField(show: Bool, message: String?)
+    func showPasswordObligatoryField(show: Bool, message: String?)
 }
 
 class LoginViewController: UIViewController {
@@ -23,9 +23,9 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordObligatoryFieldLabel: UILabel!
     @IBOutlet weak var loginButton: UIButton!
     
-    let loginViewModel: LoginViewModel
+    let loginViewModel: LoginViewModelInterface
     
-    init(loginViewModel: LoginViewModel) {
+    init(loginViewModel: LoginViewModelInterface) {
         self.loginViewModel = loginViewModel
         super.init(nibName: "LoginViewController", bundle: nil)
     }
@@ -76,7 +76,7 @@ class LoginViewController: UIViewController {
             return
         }
         
-        let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardFrame.height + 15, right: 0)
+        let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardFrame.height + 30, right: 0)
         scrollView.contentInset = contentInsets
     }
     
@@ -113,40 +113,50 @@ extension LoginViewController: UITextFieldDelegate {
         guard let email = emailTextField.text else {
             return
         }
-        
         loginViewModel.validateEmail(email: email)
+        showEmailLabel()
     }
     
     @objc private func passwordTextFieldDidChange(_ textField: UITextField) {
         guard let password = passwordTextField.text else {
             return
         }
-    
         loginViewModel.validatePassword(password: password)
+        showPasswordLabel()
     }
-        
+    
+    private func showEmailLabel() {
+        emailObligatoryFieldLabel.isHidden = false
+    }
+    
+    private func showPasswordLabel() {
+        passwordObligatoryFieldLabel.isHidden = false
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
 }
 
-extension LoginViewController: LoginViewProtocol {
+extension LoginViewController: LoginViewDelegate {
     
     func enableLoginButton(show: Bool) {
         loginButton.isEnabled = show
         loginButton.backgroundColor = show ? .systemRed : .systemGray
     }
     
-    func showEmailObligatoryField(show: Bool) {
-        emailObligatoryFieldLabel.isHidden = show
+    func showEmailObligatoryField(show: Bool, message: String?) {
         emailTextField.layer.borderWidth = show ? 0 : 1
         emailTextField.layer.borderColor = show ? .none : UIColor.systemRed.cgColor
+        emailObligatoryFieldLabel.text = message
+        emailObligatoryFieldLabel.textColor = show ? .systemGreen : .systemRed
     }
     
-    func showPasswordObligatoryField(show: Bool) {
-        passwordObligatoryFieldLabel.isHidden = show
+    func showPasswordObligatoryField(show: Bool, message: String?) {
         passwordTextField.layer.borderWidth = show ? 0 : 1
         passwordTextField.layer.borderColor = show ? .none : UIColor.systemRed.cgColor
+        passwordObligatoryFieldLabel.text = message
+        passwordObligatoryFieldLabel.textColor = show ? .systemGreen : .systemRed
     }
 }
