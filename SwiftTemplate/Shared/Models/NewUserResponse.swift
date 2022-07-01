@@ -29,11 +29,11 @@ struct User: Codable {
     
     
     enum CodingKeys: String, CodingKey {
-           case name, email, password
-           case roleID = "role_id"
-           case updatedAt = "updated_at"
-           case createdAt = "created_at"
-           case id
-       }
-
+        case name, email, password
+        case roleID = "role_id"
+        case updatedAt = "updated_at"
+        case createdAt = "created_at"
+        case id
+    }
+    
 }

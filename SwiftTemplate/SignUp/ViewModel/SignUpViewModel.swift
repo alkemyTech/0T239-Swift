@@ -10,8 +10,8 @@ import UIKit
 
 
 protocol RegisterDelegate {
-    func showSuccessMessage(newUserResponse: NewUserResponse)
-    func showErrorAtRegister()
+    func registerNewUserSuccess(newUserResponse: NewUserResponse)
+    func registerNewUserError()
 }
 
 
@@ -27,9 +27,9 @@ class SignUpViewModel {
     
     func register(user: NewUser) {
         self.service.addNewUser(user: user) { response in
-            self.delegate?.showSuccessMessage(newUserResponse: response)
+            self.delegate?.registerNewUserSuccess(newUserResponse: response)
         } onError: {
-            self.delegate?.showErrorAtRegister()
+            self.delegate?.registerNewUserError()
         }
 
     }
