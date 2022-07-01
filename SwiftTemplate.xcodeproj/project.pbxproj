@@ -17,6 +17,10 @@
 		141149192864FAC2003F172A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141149182864FAC2003F172A /* LoginViewController.swift */; };
 		1411491B2864FAD5003F172A /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1411491A2864FAD5003F172A /* LoginViewController.xib */; };
 		5991E638B37381C40AD34FF9 /* Pods_SwiftTemplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C806EB97D4D18AFDE1A67DB1 /* Pods_SwiftTemplate.framework */; };
+		82E35B0E286F31CE0042437B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E35B0C286F31CE0042437B /* SignUpViewController.swift */; };
+		82E35B0F286F31CE0042437B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E35B0C286F31CE0042437B /* SignUpViewController.swift */; };
+		82E35B10286F31CE0042437B /* SignUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82E35B0D286F31CE0042437B /* SignUpView.xib */; };
+		82E35B11286F31CE0042437B /* SignUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82E35B0D286F31CE0042437B /* SignUpView.xib */; };
 		C13ECE122867FDAB0040BE72 /* UsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE112867FDAB0040BE72 /* UsersService.swift */; };
 		C13ECE182867FE0A0040BE72 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE172867FE0A0040BE72 /* Constants.swift */; };
 		C13ECE1A2867FE330040BE72 /* NewUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE192867FE330040BE72 /* NewUserResponse.swift */; };
@@ -51,6 +55,8 @@
 		141149182864FAC2003F172A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1411491A2864FAD5003F172A /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		7970464BBDAF57D08D439957 /* Pods-SwiftTemplate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftTemplate.debug.xcconfig"; path = "Target Support Files/Pods-SwiftTemplate/Pods-SwiftTemplate.debug.xcconfig"; sourceTree = "<group>"; };
+		82E35B0C286F31CE0042437B /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		82E35B0D286F31CE0042437B /* SignUpView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpView.xib; sourceTree = "<group>"; };
 		C13ECE112867FDAB0040BE72 /* UsersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersService.swift; sourceTree = "<group>"; };
 		C13ECE172867FE0A0040BE72 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C13ECE192867FE330040BE72 /* NewUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserResponse.swift; sourceTree = "<group>"; };
@@ -184,9 +190,19 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		82E35B0B286F31CE0042437B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				82E35B0C286F31CE0042437B /* SignUpViewController.swift */,
+				82E35B0D286F31CE0042437B /* SignUpView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		C13ECE0E2867FD6F0040BE72 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				82E35B0B286F31CE0042437B /* Views */,
 				C13ECE0F2867FD7F0040BE72 /* ViewModel */,
 				C13ECE102867FD880040BE72 /* Service */,
 			);
@@ -337,6 +353,7 @@
 			files = (
 				03398C6C27DFDFCD001BC793 /* LaunchScreen.storyboard in Resources */,
 				03398C6927DFDFCD001BC793 /* Assets.xcassets in Resources */,
+				82E35B10286F31CE0042437B /* SignUpView.xib in Resources */,
 				1411491B2864FAD5003F172A /* LoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -345,6 +362,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82E35B11286F31CE0042437B /* SignUpView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +423,7 @@
 				03398C6027DFDFCC001BC793 /* AppDelegate.swift in Sources */,
 				C13ECE232867FF6B0040BE72 /* ExtensionSignUpViewController.swift in Sources */,
 				038D34992863278600648978 /* HomeViewModel.swift in Sources */,
+				82E35B0E286F31CE0042437B /* SignUpViewController.swift in Sources */,
 				C13ECE122867FDAB0040BE72 /* UsersService.swift in Sources */,
 				141149192864FAC2003F172A /* LoginViewController.swift in Sources */,
 				03398C6227DFDFCC001BC793 /* SceneDelegate.swift in Sources */,
@@ -416,6 +435,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82E35B0F286F31CE0042437B /* SignUpViewController.swift in Sources */,
 				038D34A228632C2A00648978 /* SwiftTemplateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
