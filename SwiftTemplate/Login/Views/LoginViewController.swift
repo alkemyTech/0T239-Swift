@@ -8,12 +8,6 @@
 import Foundation
 import UIKit
 
-protocol LoginViewDelegate: AnyObject {
-    func enableLoginButton(show: Bool)
-    func showEmailObligatoryField(show: Bool, message: String?)
-    func showPasswordObligatoryField(show: Bool, message: String?)
-}
-
 class LoginViewController: UIViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
@@ -113,50 +107,47 @@ extension LoginViewController: UITextFieldDelegate {
         guard let email = emailTextField.text else {
             return
         }
-        loginViewModel.validateEmail(email: email)
-        showEmailLabel()
+        let isValidEmail = loginViewModel.validateEmail(email: email)
+        let emailLabelMessage = loginViewModel.getEmailLabelMessage(email: email, isValid: isValidEmail)
+        showEmailObligatoryField(isValidEmail: isValidEmail, emailLabelMessage: emailLabelMessage)
+        enableLoginButton()
+        emailObligatoryFieldLabel.isHidden = false
     }
     
     @objc private func passwordTextFieldDidChange(_ textField: UITextField) {
         guard let password = passwordTextField.text else {
             return
         }
-        loginViewModel.validatePassword(password: password)
-        showPasswordLabel()
-    }
-    
-    private func showEmailLabel() {
-        emailObligatoryFieldLabel.isHidden = false
-    }
-    
-    private func showPasswordLabel() {
+        let isValidPassword = loginViewModel.validatePassword(password: password)
+        let passwordLabelMessage = loginViewModel.getPasswordLabelMessage(password: password, isValid: isValidPassword)
+        showPasswordObligatoryField(isValidPassword: isValidPassword, passwordLabelMessage: passwordLabelMessage)
+        enableLoginButton()
         passwordObligatoryFieldLabel.isHidden = false
+    }
+    
+    private func showEmailObligatoryField(isValidEmail: Bool, emailLabelMessage: String?) {
+        emailTextField.layer.borderWidth = isValidEmail ? 0 : 1
+        emailTextField.layer.borderColor = isValidEmail ? .none : UIColor.systemRed.cgColor
+        emailObligatoryFieldLabel.text = emailLabelMessage
+        emailObligatoryFieldLabel.textColor = isValidEmail ? .systemGreen : .systemRed
+    }
+    
+    private func showPasswordObligatoryField(isValidPassword: Bool, passwordLabelMessage: String?) {
+        passwordTextField.layer.borderWidth = isValidPassword ? 0 : 1
+        passwordTextField.layer.borderColor = isValidPassword ? .none : UIColor.systemRed.cgColor
+        passwordObligatoryFieldLabel.text = passwordLabelMessage
+        passwordObligatoryFieldLabel.textColor = isValidPassword ? .systemGreen : .systemRed
+    }
+    
+    private func enableLoginButton() {
+        let isValidEmail = loginViewModel.validateEmail(email: emailTextField.text ?? "")
+        let isValidPassword = loginViewModel.validatePassword(password: passwordTextField.text ?? "")
+        loginButton.isEnabled = isValidEmail && isValidPassword
+        loginButton.backgroundColor = isValidEmail && isValidPassword ? .systemRed : .systemGray
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
-    }
-}
-
-extension LoginViewController: LoginViewDelegate {
-    
-    func enableLoginButton(show: Bool) {
-        loginButton.isEnabled = show
-        loginButton.backgroundColor = show ? .systemRed : .systemGray
-    }
-    
-    func showEmailObligatoryField(show: Bool, message: String?) {
-        emailTextField.layer.borderWidth = show ? 0 : 1
-        emailTextField.layer.borderColor = show ? .none : UIColor.systemRed.cgColor
-        emailObligatoryFieldLabel.text = message
-        emailObligatoryFieldLabel.textColor = show ? .systemGreen : .systemRed
-    }
-    
-    func showPasswordObligatoryField(show: Bool, message: String?) {
-        passwordTextField.layer.borderWidth = show ? 0 : 1
-        passwordTextField.layer.borderColor = show ? .none : UIColor.systemRed.cgColor
-        passwordObligatoryFieldLabel.text = message
-        passwordObligatoryFieldLabel.textColor = show ? .systemGreen : .systemRed
     }
 }

@@ -8,49 +8,38 @@
 import Foundation
 
 protocol LoginViewModelInterface {
-    func validateEmail(email: String)
-    func validatePassword(password: String)
+    func validateEmail(email: String) -> Bool
+    func validatePassword(password: String) -> Bool
+    func getEmailLabelMessage(email: String, isValid: Bool) -> String
+    func getPasswordLabelMessage(password: String, isValid: Bool) -> String
 }
 
 final class LoginViewModel: LoginViewModelInterface {
     
-    weak var delegate: LoginViewDelegate?
-    
-    private var isValidEmail = false
-    private var isValidPassword = false
-    private var emailLabelMessage: String?
-    private var passwordLabelMessage: String?
-    
-    func validateEmail(email: String) {
+    func validateEmail(email: String) -> Bool {
         let pattern = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
-        isValidEmail = NSPredicate(format: "SELF MATCHES %@", pattern).evaluate(with: email)
-        emailLabelMessage = calculateEmailLabelMessage(email: email)
-        delegate?.showEmailObligatoryField(show: isValidEmail, message: emailLabelMessage)
-        delegate?.enableLoginButton(show: isValidEmail && isValidPassword)
+        return NSPredicate(format: "SELF MATCHES %@", pattern).evaluate(with: email)
     }
     
-    func validatePassword(password: String) {
+    func validatePassword(password: String) -> Bool {
         let pattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&#])[A-Za-z\\d$@$!%*?&#]{8,8}"
-        isValidPassword = NSPredicate(format: "SELF MATCHES %@", pattern).evaluate(with: password)
-        passwordLabelMessage = calculatePasswordLabelMessage(password: password)
-        delegate?.showPasswordObligatoryField(show: isValidPassword, message: passwordLabelMessage)
-        delegate?.enableLoginButton(show: isValidEmail && isValidPassword)
+        return NSPredicate(format: "SELF MATCHES %@", pattern).evaluate(with: password)
     }
     
-    private func calculateEmailLabelMessage(email: String) -> String? {
+    func getEmailLabelMessage(email: String, isValid: Bool) -> String {
         if email.isEmpty {
             return "    *Campo obligatorio"
-        } else if isValidEmail {
+        } else if isValid {
             return "Email válido"
         } else {
             return "Formato de email incorrecto"
         }
     }
     
-    private func calculatePasswordLabelMessage(password: String) -> String? {
+    func getPasswordLabelMessage(password: String, isValid: Bool) -> String {
         if password.isEmpty {
-            return "    *Campo obligatorio"
-        } else if isValidPassword {
+           return "    *Campo obligatorio"
+        } else if isValid {
             return "Contraseña válida"
         } else {
             return "La contraseña debe contener 8 dígitos, al menos un carácter especial, una mayúscula, una minúscula y un número"

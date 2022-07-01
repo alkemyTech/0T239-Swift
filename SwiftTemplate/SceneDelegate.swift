@@ -20,7 +20,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let loginViewModel = LoginViewModel()
         let loginViewController = LoginViewController(loginViewModel: loginViewModel)
-        loginViewModel.delegate = loginViewController
 
         let navigationController = UINavigationController(rootViewController: loginViewController)
         window.rootViewController = navigationController
