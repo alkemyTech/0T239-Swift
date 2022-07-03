@@ -29,6 +29,7 @@
 		C13ECE1E2867FE940040BE72 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE1D2867FE940040BE72 /* ApiManager.swift */; };
 		C13ECE202867FEEB0040BE72 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE1F2867FEEB0040BE72 /* SignUpViewModel.swift */; };
 		C13ECE232867FF6B0040BE72 /* ExtensionSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE222867FF6B0040BE72 /* ExtensionSignUpViewController.swift */; };
+		C15790622871F5F000A3514E /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15790612871F5F000A3514E /* ApiError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		C13ECE1D2867FE940040BE72 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		C13ECE1F2867FEEB0040BE72 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		C13ECE222867FF6B0040BE72 /* ExtensionSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionSignUpViewController.swift; sourceTree = "<group>"; };
+		C15790612871F5F000A3514E /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		C806EB97D4D18AFDE1A67DB1 /* Pods_SwiftTemplate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftTemplate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -267,6 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				C13ECE222867FF6B0040BE72 /* ExtensionSignUpViewController.swift */,
+				C15790612871F5F000A3514E /* ApiError.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 				03398C6027DFDFCC001BC793 /* AppDelegate.swift in Sources */,
 				14C825E0286CC1E6000CB09C /* LoginViewModel.swift in Sources */,
 				C13ECE232867FF6B0040BE72 /* ExtensionSignUpViewController.swift in Sources */,
+				C15790622871F5F000A3514E /* ApiError.swift in Sources */,
 				038D34992863278600648978 /* HomeViewModel.swift in Sources */,
 				82E35B0E286F31CE0042437B /* SignUpViewController.swift in Sources */,
 				C13ECE122867FDAB0040BE72 /* UsersService.swift in Sources */,
