@@ -9,7 +9,7 @@ import Foundation
 
 class UsersService {
     
-    func addNewUser(user: NewUser, onComplete: @escaping (NewUserResponse) -> Void, onError: @escaping () -> Void) {
+    func addNewUser(user: NewUser, onComplete: @escaping (NewUserResponse) -> Void, onError: @escaping (String) -> Void) {
         
         let url = Constants().newUsersURL
         
@@ -23,15 +23,14 @@ class UsersService {
                             let registerResponse = try decoder.decode(NewUserResponse.self, from: data)
                             onComplete(registerResponse)
                         } else {
-                            onError()
+                            print(ApiError.NoDataError)
                         }
                         
                     } catch  {
-                        onError()
-                        print(error)
+                        onError(error.localizedDescription)
                     }
                 case .failure(_):
-                    onError()
+                    print(ApiError.ConnectionError)
             }
         }
     }

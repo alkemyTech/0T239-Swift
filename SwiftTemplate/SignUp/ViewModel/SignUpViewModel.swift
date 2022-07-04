@@ -9,29 +9,28 @@ import Foundation
 import UIKit
 
 
-protocol RegisterDelegate {
+protocol RegisterDelegate: AnyObject {
     func registerNewUserSuccess(newUserResponse: NewUserResponse)
-    func registerNewUserError()
+    func registerNewUserError(errorDescription: String)
 }
 
 
 class SignUpViewModel {
     
     private var service: UsersService
-    private var delegate: RegisterDelegate?
+    weak var delegate: RegisterDelegate?
     
-    init(service: UsersService, delegate: RegisterDelegate) {
+    init(service: UsersService) {
         self.service = service
-        self.delegate = delegate
     }
     
     func register(user: NewUser) {
         self.service.addNewUser(user: user) { response in
             self.delegate?.registerNewUserSuccess(newUserResponse: response)
-        } onError: {
-            self.delegate?.registerNewUserError()
+            
+        } onError: { errorDescription in
+            self.delegate?.registerNewUserError(errorDescription: errorDescription)
         }
-
     }
     
 }
