@@ -84,9 +84,11 @@ class LoginViewController: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
-    //TO DO
     @IBAction func didTapLogin(_ sender: Any) {
-        
+        guard let email = emailTextField.text, let password = passwordTextField.text else {
+            return
+        }
+        loginViewModel.loginUser(email: email, password: password)
     }
 }
 
