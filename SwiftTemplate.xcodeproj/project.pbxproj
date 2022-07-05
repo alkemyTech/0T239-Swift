@@ -19,6 +19,9 @@
 		14C825E0286CC1E6000CB09C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C825DF286CC1E6000CB09C /* LoginViewModel.swift */; };
 		5991E638B37381C40AD34FF9 /* Pods_SwiftTemplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C806EB97D4D18AFDE1A67DB1 /* Pods_SwiftTemplate.framework */; };
 		825950D8287498F80016BC8B /* SignUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82E35B0D286F31CE0042437B /* SignUpView.xib */; };
+		825950D92874A0580016BC8B /* ValidationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826C57B428735DF600D6726E /* ValidationViewModel.swift */; };
+		825950DA2874A05B0016BC8B /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE1F2867FEEB0040BE72 /* SignUpViewModel.swift */; };
+		825950DB2874A0600016BC8B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C825DF286CC1E6000CB09C /* LoginViewModel.swift */; };
 		826C57B528735DF600D6726E /* ValidationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826C57B428735DF600D6726E /* ValidationViewModel.swift */; };
 		826C57B6287366B200D6726E /* SignUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82E35B0D286F31CE0042437B /* SignUpView.xib */; };
 		82E35B0E286F31CE0042437B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E35B0C286F31CE0042437B /* SignUpViewController.swift */; };
@@ -463,7 +466,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				825950D92874A0580016BC8B /* ValidationViewModel.swift in Sources */,
 				82E35B0F286F31CE0042437B /* SignUpViewController.swift in Sources */,
+				825950DA2874A05B0016BC8B /* SignUpViewModel.swift in Sources */,
+				825950DB2874A0600016BC8B /* LoginViewModel.swift in Sources */,
 				038D34A228632C2A00648978 /* SwiftTemplateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
