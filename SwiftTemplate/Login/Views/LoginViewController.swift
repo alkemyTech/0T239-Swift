@@ -18,9 +18,11 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     
     let validationviewmodel: ValidationViewModel
+    let loginviewmodel: LoginViewModelInterface
     
-    init(validationviewmodel: ValidationViewModel) {
+    init(validationviewmodel: ValidationViewModel, loginviewmodel: LoginViewModelInterface) {
         self.validationviewmodel = validationviewmodel
+        self.loginviewmodel = loginviewmodel
         super.init(nibName: "LoginViewController", bundle: nil)
     }
     
@@ -109,7 +111,7 @@ extension LoginViewController: UITextFieldDelegate {
             return
         }
         let isValidEmail = validationviewmodel.validateEmail(email: email)
-        let emailLabelMessage = validationviewmodel.getEmailLabelMessage(email: email, isValid: isValidEmail)
+        let emailLabelMessage = loginviewmodel.getEmailLabelMessage(email: email, isValid: isValidEmail)
         showEmailObligatoryField(isValidEmail: isValidEmail, emailLabelMessage: emailLabelMessage)
         enableLoginButton()
         emailObligatoryFieldLabel.isHidden = false
@@ -120,7 +122,7 @@ extension LoginViewController: UITextFieldDelegate {
             return
         }
         let isValidPassword = validationviewmodel.validatePassword(password: password)
-        let passwordLabelMessage = validationviewmodel.getPasswordLabelMessage(password: password, isValid: isValidPassword)
+        let passwordLabelMessage = loginviewmodel.getPasswordLabelMessage(password: password, isValid: isValidPassword)
         showPasswordObligatoryField(isValidPassword: isValidPassword, passwordLabelMessage: passwordLabelMessage)
         enableLoginButton()
         passwordObligatoryFieldLabel.isHidden = false

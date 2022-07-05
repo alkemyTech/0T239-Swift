@@ -17,9 +17,11 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var emailObligatoryFieldLabel: UILabel!
     
     let validationviewmodel: ValidationViewModel
+    let signupviewmodel: SignUpFields
     
-    init(validationviewmodel: ValidationViewModel) {
+    init(validationviewmodel: ValidationViewModel, signupviewmodel: SignUpFields) {
         self.validationviewmodel = validationviewmodel
+        self.signupviewmodel = signupviewmodel
         super.init(nibName: "SignUpView", bundle: nil)
     }
     
@@ -116,7 +118,7 @@ extension SignUpViewController: UITextFieldDelegate {
             return
         }
         let isValidEmail = validationviewmodel.validateEmail(email: email)
-        let emailLabelMessage = validationviewmodel.getEmailLabelMessage(email: email, isValid: isValidEmail)
+        let emailLabelMessage = signupviewmodel.getEmailLabelMessage(email: email, isValid: isValidEmail)
         showEmailObligatoryField(isValidEmail: isValidEmail, emailLabelMessage: emailLabelMessage)
         print(emailLabelMessage)
         enableLoginButton()
@@ -129,8 +131,8 @@ extension SignUpViewController: UITextFieldDelegate {
         }
         let isValidPassword = validationviewmodel.validatePassword(password: password)
         let isValidRepeatPassword = validationviewmodel.validatePassword(password: passwordRepeat)
-        let passwordLabelMessage = validationviewmodel.getPasswordLabelMessage(password: password, isValid: isValidPassword)
-        let passwordRepeatLabelMessage = validationviewmodel.getPasswordLabelMessage(password: passwordRepeat, isValid: isValidRepeatPassword)
+        let passwordLabelMessage = signupviewmodel.getPasswordLabelMessage(password: password, isValid: isValidPassword)
+        let passwordRepeatLabelMessage = signupviewmodel.getPasswordLabelMessage(password: passwordRepeat, isValid: isValidRepeatPassword)
         emailObligatoryFieldLabel.isHidden = false
         enableLoginButton()
         showPasswordObligatoryField(isValidPassword: isValidRepeatPassword, passwordLabelMessage: passwordRepeatLabelMessage)
