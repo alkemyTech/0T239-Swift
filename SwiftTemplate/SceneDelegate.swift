@@ -18,9 +18,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let window = UIWindow(windowScene: windowScene)
 
-        let loginViewModel = LoginViewModel()
-        let loginViewController = LoginViewController(loginViewModel: loginViewModel)
-
+        let validationViewModel = ValidationViewModel()
+        let loginViewController = LoginViewController(validationviewmodel: validationViewModel)
         let navigationController = UINavigationController(rootViewController: loginViewController)
         window.rootViewController =  navigationController
         self.window = window

@@ -16,7 +16,7 @@ protocol RegisterDelegate: AnyObject {
 
 
 class SignUpViewModel {
-    
+
     private var service: UsersService
     weak var delegate: RegisterDelegate?
     
