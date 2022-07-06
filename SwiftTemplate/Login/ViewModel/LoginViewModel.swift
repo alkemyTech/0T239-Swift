@@ -6,12 +6,13 @@
 //
 
 import Foundation
-
+import UIKit
 
 protocol LoginViewModelInterface {
     func getEmailLabelMessage(email: String, isValid: Bool) -> String
     func getPasswordLabelMessage(password: String, isValid: Bool) -> String
     func loginUser(email: String, password: String)
+    func navigateToSignUp(navigationController: UINavigationController)
 }
 
 final class LoginViewModel: LoginViewModelInterface {
@@ -55,5 +56,10 @@ final class LoginViewModel: LoginViewModelInterface {
                 print("Error")
             }
         }
+    }
+    
+    func navigateToSignUp(navigationController: UINavigationController) {
+        let signUpViewController = SignUpViewController()
+        navigationController.pushViewController(signUpViewController, animated: true)
     }
 }
