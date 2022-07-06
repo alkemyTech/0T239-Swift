@@ -18,11 +18,11 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     
     let validationviewmodel: ValidationViewModel
-    let loginviewmodel: LoginViewModelInterface
+    let loginViewModel: LoginViewModelInterface
     
     init(validationviewmodel: ValidationViewModel, loginviewmodel: LoginViewModelInterface) {
         self.validationviewmodel = validationviewmodel
-        self.loginviewmodel = loginviewmodel
+        self.loginViewModel = loginviewmodel
         super.init(nibName: "LoginViewController", bundle: nil)
     }
     
@@ -41,16 +41,15 @@ class LoginViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupKeyboardObservers()
-        navigationController?.isNavigationBarHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         removeObservers()
-        navigationController?.isNavigationBarHidden = false
     }
         
     private func setupView() {
+        navigationController?.isNavigationBarHidden = true
         loginButton.layer.cornerRadius = 8
     }
     
@@ -92,14 +91,7 @@ class LoginViewController: UIViewController {
         guard let email = emailTextField.text, let password = passwordTextField.text else {
             return
         }
-        loginviewmodel.loginUser(email: email, password: password)
-    }
-    
-    @IBAction func didTapRegister(_ sender: Any) {
-        guard let navigationController = navigationController else {
-            return
-        }
-        loginViewModel.navigateToSignUp(navigationController: navigationController)
+        loginViewModel.loginUser(email: email, password: password)
     }
 }
 
@@ -121,7 +113,7 @@ extension LoginViewController: UITextFieldDelegate {
             return
         }
         let isValidEmail = validationviewmodel.validateEmail(email: email)
-        let emailLabelMessage = loginviewmodel.getEmailLabelMessage(email: email, isValid: isValidEmail)
+        let emailLabelMessage = loginViewModel.getEmailLabelMessage(email: email, isValid: isValidEmail)
         showEmailObligatoryField(isValidEmail: isValidEmail, emailLabelMessage: emailLabelMessage)
         enableLoginButton()
         emailObligatoryFieldLabel.isHidden = false
@@ -132,7 +124,7 @@ extension LoginViewController: UITextFieldDelegate {
             return
         }
         let isValidPassword = validationviewmodel.validatePassword(password: password)
-        let passwordLabelMessage = loginviewmodel.getPasswordLabelMessage(password: password, isValid: isValidPassword)
+        let passwordLabelMessage = loginViewModel.getPasswordLabelMessage(password: password, isValid: isValidPassword)
         showPasswordObligatoryField(isValidPassword: isValidPassword, passwordLabelMessage: passwordLabelMessage)
         enableLoginButton()
         passwordObligatoryFieldLabel.isHidden = false

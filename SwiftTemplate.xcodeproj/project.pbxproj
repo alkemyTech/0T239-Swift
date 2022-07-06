@@ -31,6 +31,29 @@
 		826C57B528735DF600D6726E /* ValidationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826C57B428735DF600D6726E /* ValidationViewModel.swift */; };
 		826C57B6287366B200D6726E /* SignUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82E35B0D286F31CE0042437B /* SignUpView.xib */; };
 		82E35B0E286F31CE0042437B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E35B0C286F31CE0042437B /* SignUpViewController.swift */; };
+		82FA2D8528760B8C00F0092D /* RestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148461D928735DCC008BFBD6 /* RestApi.swift */; };
+		82FA2D8628760B8C00F0092D /* EndpointDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148461DB28735E0C008BFBD6 /* EndpointDefinition.swift */; };
+		82FA2D8728760B8C00F0092D /* ConstantsURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148461DD28735E23008BFBD6 /* ConstantsURL.swift */; };
+		82FA2D8828760B8C00F0092D /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148461DF28735FE8008BFBD6 /* UserModel.swift */; };
+		82FA2D8928760B8C00F0092D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038D34982863278600648978 /* HomeViewModel.swift */; };
+		82FA2D8A28760B8C00F0092D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038D34932863276200648978 /* HomeView.swift */; };
+		82FA2D8B28760B8C00F0092D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E35B0C286F31CE0042437B /* SignUpViewController.swift */; };
+		82FA2D8C28760B8C00F0092D /* SignUpView.xib in Sources */ = {isa = PBXBuildFile; fileRef = 82E35B0D286F31CE0042437B /* SignUpView.xib */; };
+		82FA2D8D28760B8C00F0092D /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE1F2867FEEB0040BE72 /* SignUpViewModel.swift */; };
+		82FA2D8E28760B8C00F0092D /* UsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE112867FDAB0040BE72 /* UsersService.swift */; };
+		82FA2D8F28760B8C00F0092D /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE1D2867FE940040BE72 /* ApiManager.swift */; };
+		82FA2D9028760B8C00F0092D /* NewUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE1B2867FE3E0040BE72 /* NewUser.swift */; };
+		82FA2D9128760B8C00F0092D /* NewUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE192867FE330040BE72 /* NewUserResponse.swift */; };
+		82FA2D9228760B8C00F0092D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE172867FE0A0040BE72 /* Constants.swift */; };
+		82FA2D9328760B8C00F0092D /* ExtensionSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE222867FF6B0040BE72 /* ExtensionSignUpViewController.swift */; };
+		82FA2D9428760B8C00F0092D /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148461E328739A6B008BFBD6 /* UserManager.swift */; };
+		82FA2D9528760B8C00F0092D /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15790612871F5F000A3514E /* ApiError.swift */; };
+		82FA2D9628760B8C00F0092D /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145BAEEE286F8C2300EF3ED1 /* Repository.swift */; };
+		82FA2D9728760B8C00F0092D /* LoginEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148461E1287360B5008BFBD6 /* LoginEndpoint.swift */; };
+		82FA2D9928760B8C00F0092D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141149182864FAC2003F172A /* LoginViewController.swift */; };
+		82FA2D9A28760B8C00F0092D /* LoginViewController.xib in Sources */ = {isa = PBXBuildFile; fileRef = 1411491A2864FAD5003F172A /* LoginViewController.xib */; };
+		82FA2D9B28760B8C00F0092D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03398C6127DFDFCC001BC793 /* SceneDelegate.swift */; };
+		82FA2D9C28760D1B00F0092D /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C825DF286CC1E6000CB09C /* LoginViewModel.swift */; };
 		C13ECE122867FDAB0040BE72 /* UsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE112867FDAB0040BE72 /* UsersService.swift */; };
 		C13ECE182867FE0A0040BE72 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE172867FE0A0040BE72 /* Constants.swift */; };
 		C13ECE1A2867FE330040BE72 /* NewUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE192867FE330040BE72 /* NewUserResponse.swift */; };
@@ -524,6 +547,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82FA2D9C28760D1B00F0092D /* LoginViewModel.swift in Sources */,
+				82FA2D8528760B8C00F0092D /* RestApi.swift in Sources */,
+				82FA2D8628760B8C00F0092D /* EndpointDefinition.swift in Sources */,
+				82FA2D8728760B8C00F0092D /* ConstantsURL.swift in Sources */,
+				82FA2D8828760B8C00F0092D /* UserModel.swift in Sources */,
+				82FA2D8928760B8C00F0092D /* HomeViewModel.swift in Sources */,
+				82FA2D8A28760B8C00F0092D /* HomeView.swift in Sources */,
+				82FA2D8B28760B8C00F0092D /* SignUpViewController.swift in Sources */,
+				82FA2D8C28760B8C00F0092D /* SignUpView.xib in Sources */,
+				82FA2D8D28760B8C00F0092D /* SignUpViewModel.swift in Sources */,
+				82FA2D8E28760B8C00F0092D /* UsersService.swift in Sources */,
+				82FA2D8F28760B8C00F0092D /* ApiManager.swift in Sources */,
+				82FA2D9028760B8C00F0092D /* NewUser.swift in Sources */,
+				82FA2D9128760B8C00F0092D /* NewUserResponse.swift in Sources */,
+				82FA2D9228760B8C00F0092D /* Constants.swift in Sources */,
+				82FA2D9328760B8C00F0092D /* ExtensionSignUpViewController.swift in Sources */,
+				82FA2D9428760B8C00F0092D /* UserManager.swift in Sources */,
+				82FA2D9528760B8C00F0092D /* ApiError.swift in Sources */,
+				82FA2D9628760B8C00F0092D /* Repository.swift in Sources */,
+				82FA2D9728760B8C00F0092D /* LoginEndpoint.swift in Sources */,
+				82FA2D9928760B8C00F0092D /* LoginViewController.swift in Sources */,
+				82FA2D9A28760B8C00F0092D /* LoginViewController.xib in Sources */,
+				82FA2D9B28760B8C00F0092D /* SceneDelegate.swift in Sources */,
 				825950DE2874A1EF0016BC8B /* AppDelegate.swift in Sources */,
 				825950D92874A0580016BC8B /* ValidationViewModel.swift in Sources */,
 				038D34A228632C2A00648978 /* SwiftTemplateTests.swift in Sources */,
