@@ -25,10 +25,12 @@
 		148461E428739A6B008BFBD6 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148461E328739A6B008BFBD6 /* UserManager.swift */; };
 		14C825E0286CC1E6000CB09C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C825DF286CC1E6000CB09C /* LoginViewModel.swift */; };
 		5991E638B37381C40AD34FF9 /* Pods_SwiftTemplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C806EB97D4D18AFDE1A67DB1 /* Pods_SwiftTemplate.framework */; };
+		825950D8287498F80016BC8B /* SignUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82E35B0D286F31CE0042437B /* SignUpView.xib */; };
+		825950D92874A0580016BC8B /* ValidationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826C57B428735DF600D6726E /* ValidationViewModel.swift */; };
+		825950DE2874A1EF0016BC8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03398C5F27DFDFCC001BC793 /* AppDelegate.swift */; };
+		826C57B528735DF600D6726E /* ValidationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826C57B428735DF600D6726E /* ValidationViewModel.swift */; };
+		826C57B6287366B200D6726E /* SignUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82E35B0D286F31CE0042437B /* SignUpView.xib */; };
 		82E35B0E286F31CE0042437B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E35B0C286F31CE0042437B /* SignUpViewController.swift */; };
-		82E35B0F286F31CE0042437B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E35B0C286F31CE0042437B /* SignUpViewController.swift */; };
-		82E35B10286F31CE0042437B /* SignUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82E35B0D286F31CE0042437B /* SignUpView.xib */; };
-		82E35B11286F31CE0042437B /* SignUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82E35B0D286F31CE0042437B /* SignUpView.xib */; };
 		C13ECE122867FDAB0040BE72 /* UsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE112867FDAB0040BE72 /* UsersService.swift */; };
 		C13ECE182867FE0A0040BE72 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE172867FE0A0040BE72 /* Constants.swift */; };
 		C13ECE1A2867FE330040BE72 /* NewUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE192867FE330040BE72 /* NewUserResponse.swift */; };
@@ -72,6 +74,7 @@
 		148461E328739A6B008BFBD6 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		14C825DF286CC1E6000CB09C /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		7970464BBDAF57D08D439957 /* Pods-SwiftTemplate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftTemplate.debug.xcconfig"; path = "Target Support Files/Pods-SwiftTemplate/Pods-SwiftTemplate.debug.xcconfig"; sourceTree = "<group>"; };
+		826C57B428735DF600D6726E /* ValidationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ValidationViewModel.swift; path = SwiftTemplate/Shared/ViewModels/ValidationViewModel.swift; sourceTree = SOURCE_ROOT; };
 		82E35B0C286F31CE0042437B /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		82E35B0D286F31CE0042437B /* SignUpView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpView.xib; sourceTree = "<group>"; };
 		C13ECE112867FDAB0040BE72 /* UsersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersService.swift; sourceTree = "<group>"; };
@@ -255,6 +258,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		826C57B128735D9700D6726E /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				826C57B428735DF600D6726E /* ValidationViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		82E35B0B286F31CE0042437B /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,6 +304,7 @@
 		C13ECE132867FDBD0040BE72 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				826C57B128735D9700D6726E /* ViewModels */,
 				C13ECE162867FDFE0040BE72 /* Networking */,
 				C13ECE152867FDF10040BE72 /* Models */,
 				C13ECE172867FE0A0040BE72 /* Constants.swift */,
@@ -418,9 +430,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				826C57B6287366B200D6726E /* SignUpView.xib in Resources */,
 				03398C6C27DFDFCD001BC793 /* LaunchScreen.storyboard in Resources */,
 				03398C6927DFDFCD001BC793 /* Assets.xcassets in Resources */,
-				82E35B10286F31CE0042437B /* SignUpView.xib in Resources */,
 				1411491B2864FAD5003F172A /* LoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -429,7 +441,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82E35B11286F31CE0042437B /* SignUpView.xib in Resources */,
+				825950D8287498F80016BC8B /* SignUpView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,6 +501,7 @@
 				C13ECE202867FEEB0040BE72 /* SignUpViewModel.swift in Sources */,
 				C13ECE1C2867FE3E0040BE72 /* NewUser.swift in Sources */,
 				C13ECE1A2867FE330040BE72 /* NewUserResponse.swift in Sources */,
+				826C57B528735DF600D6726E /* ValidationViewModel.swift in Sources */,
 				03398C6027DFDFCC001BC793 /* AppDelegate.swift in Sources */,
 				14C825E0286CC1E6000CB09C /* LoginViewModel.swift in Sources */,
 				148461E428739A6B008BFBD6 /* UserManager.swift in Sources */,
@@ -511,7 +524,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82E35B0F286F31CE0042437B /* SignUpViewController.swift in Sources */,
+				825950DE2874A1EF0016BC8B /* AppDelegate.swift in Sources */,
+				825950D92874A0580016BC8B /* ValidationViewModel.swift in Sources */,
 				038D34A228632C2A00648978 /* SwiftTemplateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

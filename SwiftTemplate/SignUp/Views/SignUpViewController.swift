@@ -14,11 +14,26 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var passwordRepeatField: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var emailObligatoryFieldLabel: UILabel!
+    
+    let validationviewmodel: ValidationViewModel
+    let signupviewmodel: SignUpFields
+    
+    init(validationviewmodel: ValidationViewModel, signupviewmodel: SignUpFields) {
+        self.validationviewmodel = validationviewmodel
+        self.signupviewmodel = signupviewmodel
+        super.init(nibName: "SignUpView", bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         hideKeyboard()
+        setupTextFields()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,6 +60,10 @@ class SignUpViewController: UIViewController {
         registerButton.titleEdgeInsets.bottom = 10
         registerButton.titleEdgeInsets.left = 10
         registerButton.titleEdgeInsets.right = 10
+        registerButton.isEnabled = false
+        registerButton.backgroundColor = .gray
+        
+        emailObligatoryFieldLabel.isHidden = true
     }
     
     private func hideKeyboard() {
@@ -67,7 +86,7 @@ class SignUpViewController: UIViewController {
             return
         }
         
-        let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardFrame.height, right: 0)
+        let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardFrame.height + 20, right: 0)
         scrollView.contentInset = contentInsets
     }
     
@@ -78,6 +97,85 @@ class SignUpViewController: UIViewController {
     private func removeObservers() {
         NotificationCenter.default.removeObserver(self)
     }
+    
+}
+
+//MARK: Textfields delegate to validate form.
+extension SignUpViewController: UITextFieldDelegate {
+    
+    private func setupTextFields() {
+        nameField.delegate = self
+        emailField.delegate = self
+        passwordField.delegate = self
+        passwordRepeatField.delegate = self
+        emailField.addTarget(self, action: #selector(emailTextFieldDidChange), for: .editingChanged)
+        passwordField.addTarget(self, action: #selector(passwordTextFieldDidChange), for: .editingChanged)
+        passwordRepeatField.addTarget(self, action: #selector(passwordTextFieldDidChange), for: .editingChanged)
+    }
+    
+    @objc private func emailTextFieldDidChange(_ textField: UITextField) {
+        guard let email = emailField.text else {
+            return
+        }
+        let isValidEmail = validationviewmodel.validateEmail(email: email)
+        let emailLabelMessage = signupviewmodel.getEmailLabelMessage(email: email, isValid: isValidEmail)
+        showEmailObligatoryField(isValidEmail: isValidEmail, emailLabelMessage: emailLabelMessage)
+        print(emailLabelMessage)
+        enableLoginButton()
+        emailObligatoryFieldLabel.isHidden = false
+    }
+    
+    @objc private func passwordTextFieldDidChange(_ textField: UITextField) {
+        guard let password = passwordField.text , let passwordRepeat = passwordRepeatField.text else {
+            return
+        }
+        let isValidPassword = validationviewmodel.validatePassword(password: password)
+        let isValidRepeatPassword = validationviewmodel.validatePassword(password: passwordRepeat)
+        let passwordLabelMessage = signupviewmodel.getPasswordLabelMessage(password: password, isValid: isValidPassword)
+        let passwordRepeatLabelMessage = signupviewmodel.getPasswordLabelMessage(password: passwordRepeat, isValid: isValidRepeatPassword)
+        emailObligatoryFieldLabel.isHidden = false
+        enableLoginButton()
+        showPasswordObligatoryField(isValidPassword: isValidRepeatPassword, passwordLabelMessage: passwordRepeatLabelMessage)
+        showPasswordObligatoryField(isValidPassword: isValidPassword, passwordLabelMessage: passwordLabelMessage)
+    }
+    
+    private func showEmailObligatoryField(isValidEmail: Bool, emailLabelMessage: String?) {
+        emailField.layer.borderWidth = isValidEmail ? 0 : 1
+        emailField.layer.borderColor = isValidEmail ? .none : UIColor.systemRed.cgColor
+        emailObligatoryFieldLabel.text = emailLabelMessage
+        emailObligatoryFieldLabel.textColor = isValidEmail ? .systemGreen : .systemRed
+    }
+    
+    private func showPasswordObligatoryField(isValidPassword: Bool, passwordLabelMessage: String?) {
+        passwordField.layer.borderWidth = isValidPassword ? 0 : 1
+        passwordField.layer.borderColor = isValidPassword ? .none : UIColor.systemRed.cgColor
+        
+        passwordRepeatField.layer.borderWidth = isValidPassword ? 0 : 1
+        passwordRepeatField.layer.borderColor = isValidPassword ? .none : UIColor.systemRed.cgColor
+        emailObligatoryFieldLabel.text = passwordLabelMessage
+        emailObligatoryFieldLabel.textColor = isValidPassword ? .systemGreen : .systemRed
+        if (passwordField.text == passwordRepeatField.text){
+            emailObligatoryFieldLabel.textColor = .systemGreen
+        } else {
+            emailObligatoryFieldLabel.textColor = .systemRed
+        }
+    }
+    
+    private func enableLoginButton() {
+        let isValidEmail = validationviewmodel.validateEmail(email: emailField.text ?? "")
+        let isValidPassword = validationviewmodel.validatePassword(password: passwordField.text ?? "")
+        let isValidRepeatPassword = validationviewmodel.validatePassword(password: passwordRepeatField.text ?? "")
+        if (passwordField.text == passwordRepeatField.text) {
+            registerButton.isEnabled = isValidEmail && isValidPassword && isValidRepeatPassword
+            registerButton.backgroundColor = isValidEmail && isValidPassword && isValidRepeatPassword ? .systemRed : .systemGray
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
     
 }
 

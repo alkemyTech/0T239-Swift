@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,6 +16,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignUpViewController" customModule="SwiftTemplate" customModuleProvider="target">
             <connections>
                 <outlet property="emailField" destination="SZ5-xH-qyt" id="UfW-R5-JKa"/>
+                <outlet property="emailObligatoryFieldLabel" destination="8ST-qJ-p5F" id="rHB-sd-zl6"/>
                 <outlet property="nameField" destination="3w0-wQ-9nG" id="jaH-15-JkE"/>
                 <outlet property="passwordField" destination="Z2F-kx-lnq" id="dfu-b9-MyF"/>
                 <outlet property="passwordRepeatField" destination="1B5-OO-ItH" id="1sW-3v-Dk5"/>
@@ -38,7 +40,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="322.5"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appIcon" translatesAutoresizingMaskIntoConstraints="NO" id="NZt-rl-JpL">
-                                            <rect key="frame" x="132" y="111" width="150" height="80"/>
+                                            <rect key="frame" x="132" y="111.5" width="150" height="80"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="150" id="MnW-KU-O8h"/>
                                                 <constraint firstAttribute="height" constant="80" id="fW5-tf-gjv"/>
@@ -55,7 +57,7 @@
                                     <rect key="frame" x="0.0" y="322.5" width="414" height="573.5"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" axis="vertical" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="N6d-Sm-7w1">
-                                            <rect key="frame" x="0.0" y="163.5" width="414" height="246"/>
+                                            <rect key="frame" x="0.0" y="44" width="414" height="386"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre y apellido" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3w0-wQ-9nG">
                                                     <rect key="frame" x="20" y="0.0" width="374" height="40"/>
@@ -95,8 +97,14 @@
                                                     <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="13"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ST-qJ-p5F">
+                                                    <rect key="frame" x="188.5" y="184" width="37.5" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8H-eu-A5B">
-                                                    <rect key="frame" x="20" y="184" width="374" height="44"/>
+                                                    <rect key="frame" x="20" y="208" width="374" height="44"/>
                                                     <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="NGM-42-qZj"/>
@@ -108,20 +116,23 @@
                                                     <state key="normal" title="Registrarme"/>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ya tienes cuenta? Ingresa!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gr-vV-8ht">
-                                                    <rect key="frame" x="148.5" y="234" width="117.5" height="12"/>
+                                                    <rect key="frame" x="148.5" y="258" width="117.5" height="128"/>
                                                     <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="10"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="8ST-qJ-p5F" firstAttribute="centerY" secondItem="N6d-Sm-7w1" secondAttribute="centerY" id="lJy-kq-AnL"/>
+                                            </constraints>
                                         </stackView>
                                     </subviews>
                                     <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="N6d-Sm-7w1" firstAttribute="leading" secondItem="gA2-kR-S0x" secondAttribute="leading" id="cei-D5-0p5"/>
-                                        <constraint firstItem="N6d-Sm-7w1" firstAttribute="centerY" secondItem="gA2-kR-S0x" secondAttribute="centerY" id="nMp-RC-G2H"/>
+                                        <constraint firstItem="N6d-Sm-7w1" firstAttribute="centerY" secondItem="gA2-kR-S0x" secondAttribute="centerY" constant="-50" id="nMp-RC-G2H"/>
                                         <constraint firstItem="N6d-Sm-7w1" firstAttribute="centerX" secondItem="gA2-kR-S0x" secondAttribute="centerX" id="pTI-Di-kTz"/>
                                     </constraints>
                                 </view>
