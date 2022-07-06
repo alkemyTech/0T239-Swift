@@ -38,15 +38,16 @@ class LoginViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupKeyboardObservers()
+        navigationController?.isNavigationBarHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         removeObservers()
+        navigationController?.isNavigationBarHidden = false
     }
         
     private func setupView() {
-        navigationController?.isNavigationBarHidden = true
         loginButton.layer.cornerRadius = 8
     }
     
@@ -89,6 +90,13 @@ class LoginViewController: UIViewController {
             return
         }
         loginViewModel.loginUser(email: email, password: password)
+    }
+    
+    @IBAction func didTapRegister(_ sender: Any) {
+        guard let navigationController = navigationController else {
+            return
+        }
+        loginViewModel.navigateToSignUp(navigationController: navigationController)
     }
 }
 
