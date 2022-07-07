@@ -16,11 +16,9 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var emailObligatoryFieldLabel: UILabel!
     
-    let validationviewmodel: ValidationViewModel
-    let signupviewmodel: SignUpFields
+    let signupviewmodel: SignUpViewModelInterface & ValidationInterface
     
-    init(validationviewmodel: ValidationViewModel, signupviewmodel: SignUpFields) {
-        self.validationviewmodel = validationviewmodel
+    init(signupviewmodel: SignUpViewModelInterface & ValidationInterface) {
         self.signupviewmodel = signupviewmodel
         super.init(nibName: "SignUpView", bundle: nil)
     }
@@ -117,7 +115,7 @@ extension SignUpViewController: UITextFieldDelegate {
         guard let email = emailField.text else {
             return
         }
-        let isValidEmail = validationviewmodel.validateEmail(email: email)
+        let isValidEmail = signupviewmodel.validateEmail(email: email)
         let emailLabelMessage = signupviewmodel.getEmailLabelMessage(email: email, isValid: isValidEmail)
         showEmailObligatoryField(isValidEmail: isValidEmail, emailLabelMessage: emailLabelMessage)
         print(emailLabelMessage)
@@ -129,8 +127,8 @@ extension SignUpViewController: UITextFieldDelegate {
         guard let password = passwordField.text , let passwordRepeat = passwordRepeatField.text else {
             return
         }
-        let isValidPassword = validationviewmodel.validatePassword(password: password)
-        let isValidRepeatPassword = validationviewmodel.validatePassword(password: passwordRepeat)
+        let isValidPassword = signupviewmodel.validatePassword(password: password)
+        let isValidRepeatPassword = signupviewmodel.validatePassword(password: passwordRepeat)
         let passwordLabelMessage = signupviewmodel.getPasswordLabelMessage(password: password, isValid: isValidPassword)
         let passwordRepeatLabelMessage = signupviewmodel.getPasswordLabelMessage(password: passwordRepeat, isValid: isValidRepeatPassword)
         emailObligatoryFieldLabel.isHidden = false
@@ -162,9 +160,9 @@ extension SignUpViewController: UITextFieldDelegate {
     }
     
     private func enableLoginButton() {
-        let isValidEmail = validationviewmodel.validateEmail(email: emailField.text ?? "")
-        let isValidPassword = validationviewmodel.validatePassword(password: passwordField.text ?? "")
-        let isValidRepeatPassword = validationviewmodel.validatePassword(password: passwordRepeatField.text ?? "")
+        let isValidEmail = signupviewmodel.validateEmail(email: emailField.text ?? "")
+        let isValidPassword = signupviewmodel.validatePassword(password: passwordField.text ?? "")
+        let isValidRepeatPassword = signupviewmodel.validatePassword(password: passwordRepeatField.text ?? "")
         if (passwordField.text == passwordRepeatField.text) {
             registerButton.isEnabled = isValidEmail && isValidPassword && isValidRepeatPassword
             registerButton.backgroundColor = isValidEmail && isValidPassword && isValidRepeatPassword ? .systemRed : .systemGray

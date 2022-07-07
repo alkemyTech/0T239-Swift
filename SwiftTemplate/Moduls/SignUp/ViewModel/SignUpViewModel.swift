@@ -17,18 +17,26 @@ protocol RegisterDelegate: AnyObject {
 protocol SignUpViewModelInterface {
     func getEmailLabelMessage(email: String, isValid: Bool) -> String
     func getPasswordLabelMessage(password: String, isValid: Bool) -> String
+    func register(user: NewUser)
 }
 
 
 class SignUpViewModel {
-
-    private var service: UsersService
-    weak var delegate: RegisterDelegate?
-    
-    init(service: UsersService) {
+        
+    init(service: UsersService,
+         validationViewModel: ValidationInterface = ValidationViewModel()) {
         self.service = service
+        self.validationViewModel = validationViewModel
     }
     
+    private var service: UsersService
+    let validationViewModel: ValidationInterface
+    weak var delegate: RegisterDelegate?
+    
+}
+
+extension SignUpViewModel: SignUpViewModelInterface {
+
     func register(user: NewUser) {
         self.service.addNewUser(user: user) { response in
             self.delegate?.registerNewUserSuccess(newUserResponse: response)
@@ -37,10 +45,6 @@ class SignUpViewModel {
             self.delegate?.registerNewUserError(errorDescription: errorDescription)
         }
     }
-    
-}
-
-final class SignUpFields: SignUpViewModelInterface {
     
     func getEmailLabelMessage(email: String, isValid: Bool) -> String {
         if email.isEmpty {
@@ -63,3 +67,12 @@ final class SignUpFields: SignUpViewModelInterface {
     }
 }
 
+extension SignUpViewModel: ValidationInterface {
+    func validateEmail(email: String) -> Bool {
+        return validationViewModel.validateEmail(email: email)
+    }
+    
+    func validatePassword(password: String) -> Bool {
+        return validationViewModel.validatePassword(password: password)
+    }
+}

@@ -19,10 +19,15 @@ final class LoginViewModel: LoginViewModelInterface {
         
     private let loginRepository: LoginRepositoryProtocol
     private let userManager: UserManagerProtocol
+    private let validationViewModel: ValidationInterface
     
-    init(loginRepository: LoginRepositoryProtocol, userManager: UserManagerProtocol) {
+    init(loginRepository: LoginRepositoryProtocol,
+         userManager: UserManagerProtocol,
+         validationViewModel: ValidationInterface = ValidationViewModel()
+    ) {
         self.loginRepository = loginRepository
         self.userManager = userManager
+        self.validationViewModel = validationViewModel
     }
     
     func getEmailLabelMessage(email: String, isValid: Bool) -> String {
@@ -58,9 +63,18 @@ final class LoginViewModel: LoginViewModelInterface {
     }
     
     func navigateToSignUp(navigationController: UINavigationController) {
-        let validationViewModel = ValidationViewModel()
-        let singUpFields = SignUpFields()
-        let signUpViewController = SignUpViewController(validationviewmodel: validationViewModel, signupviewmodel: singUpFields)
+        let signUpViewModel = SignUpViewModel(service: UsersService())
+        let signUpViewController = SignUpViewController(signupviewmodel: signUpViewModel)
         navigationController.pushViewController(signUpViewController, animated: true)
+    }
+}
+
+extension LoginViewModel: ValidationInterface {
+    func validateEmail(email: String) -> Bool {
+       return self.validationViewModel.validateEmail(email: email)
+    }
+    
+    func validatePassword(password: String) -> Bool {
+        return validationViewModel.validatePassword(password: password)
     }
 }

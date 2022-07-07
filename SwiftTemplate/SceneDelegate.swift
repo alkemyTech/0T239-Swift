@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let loginRepository = LoginRepository()
         let userManager = UserManager.shared
         let loginViewModel = LoginViewModel(loginRepository: loginRepository, userManager: userManager)
-        let loginViewController = LoginViewController(validationViewModel: validationViewModel, loginViewModel: loginViewModel)
+        let loginViewController = SignUpViewController(signupviewmodel: SignUpViewModel(service: UsersService()))
         let navigationController = UINavigationController(rootViewController: loginViewController)
         window.rootViewController =  navigationController
         self.window = window
