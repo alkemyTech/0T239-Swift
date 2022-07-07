@@ -17,19 +17,18 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordObligatoryFieldLabel: UILabel!
     @IBOutlet weak var loginButton: UIButton!
     
-    let validationviewmodel: ValidationViewModel
+    let validationViewModel: ValidationInterface
     let loginViewModel: LoginViewModelInterface
     
-    init(validationviewmodel: ValidationViewModel, loginviewmodel: LoginViewModelInterface) {
-        self.validationviewmodel = validationviewmodel
-        self.loginViewModel = loginviewmodel
+    init(validationViewModel: ValidationInterface, loginViewModel: LoginViewModelInterface) {
+        self.validationViewModel = validationViewModel
+        self.loginViewModel = loginViewModel
         super.init(nibName: "LoginViewController", bundle: nil)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,6 +92,13 @@ class LoginViewController: UIViewController {
         }
         loginViewModel.loginUser(email: email, password: password)
     }
+    
+    @IBAction func didTapRegister(_ sender: Any) {
+        guard let navigationController = navigationController else {
+            return
+        }
+        loginViewModel.navigateToSignUp(navigationController: navigationController)
+    }
 }
 
 // MARK: TextField methods
@@ -112,7 +118,7 @@ extension LoginViewController: UITextFieldDelegate {
         guard let email = emailTextField.text else {
             return
         }
-        let isValidEmail = validationviewmodel.validateEmail(email: email)
+        let isValidEmail = validationViewModel.validateEmail(email: email)
         let emailLabelMessage = loginViewModel.getEmailLabelMessage(email: email, isValid: isValidEmail)
         showEmailObligatoryField(isValidEmail: isValidEmail, emailLabelMessage: emailLabelMessage)
         enableLoginButton()
@@ -123,7 +129,7 @@ extension LoginViewController: UITextFieldDelegate {
         guard let password = passwordTextField.text else {
             return
         }
-        let isValidPassword = validationviewmodel.validatePassword(password: password)
+        let isValidPassword = validationViewModel.validatePassword(password: password)
         let passwordLabelMessage = loginViewModel.getPasswordLabelMessage(password: password, isValid: isValidPassword)
         showPasswordObligatoryField(isValidPassword: isValidPassword, passwordLabelMessage: passwordLabelMessage)
         enableLoginButton()
@@ -145,8 +151,8 @@ extension LoginViewController: UITextFieldDelegate {
     }
     
     private func enableLoginButton() {
-        let isValidEmail = validationviewmodel.validateEmail(email: emailTextField.text ?? "")
-        let isValidPassword = validationviewmodel.validatePassword(password: passwordTextField.text ?? "")
+        let isValidEmail = validationViewModel.validateEmail(email: emailTextField.text ?? "")
+        let isValidPassword = validationViewModel.validatePassword(password: passwordTextField.text ?? "")
         loginButton.isEnabled = isValidEmail && isValidPassword
         loginButton.backgroundColor = isValidEmail && isValidPassword ? .systemRed : .systemGray
     }

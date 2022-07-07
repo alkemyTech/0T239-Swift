@@ -25,20 +25,19 @@
 		148461E428739A6B008BFBD6 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148461E328739A6B008BFBD6 /* UserManager.swift */; };
 		14C825E0286CC1E6000CB09C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C825DF286CC1E6000CB09C /* LoginViewModel.swift */; };
 		5991E638B37381C40AD34FF9 /* Pods_SwiftTemplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C806EB97D4D18AFDE1A67DB1 /* Pods_SwiftTemplate.framework */; };
-		825950D8287498F80016BC8B /* SignUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82E35B0D286F31CE0042437B /* SignUpView.xib */; };
 		825950D92874A0580016BC8B /* ValidationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826C57B428735DF600D6726E /* ValidationViewModel.swift */; };
 		825950DE2874A1EF0016BC8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03398C5F27DFDFCC001BC793 /* AppDelegate.swift */; };
 		826C57B528735DF600D6726E /* ValidationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826C57B428735DF600D6726E /* ValidationViewModel.swift */; };
 		826C57B6287366B200D6726E /* SignUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82E35B0D286F31CE0042437B /* SignUpView.xib */; };
+		82D4AD5228771D7000978C21 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 82D4AD5128771D7000978C21 /* Alamofire */; };
+		82D4AD5328771E2000978C21 /* RestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148461D928735DCC008BFBD6 /* RestApi.swift */; };
 		82E35B0E286F31CE0042437B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E35B0C286F31CE0042437B /* SignUpViewController.swift */; };
-		82FA2D8528760B8C00F0092D /* RestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148461D928735DCC008BFBD6 /* RestApi.swift */; };
 		82FA2D8628760B8C00F0092D /* EndpointDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148461DB28735E0C008BFBD6 /* EndpointDefinition.swift */; };
 		82FA2D8728760B8C00F0092D /* ConstantsURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148461DD28735E23008BFBD6 /* ConstantsURL.swift */; };
 		82FA2D8828760B8C00F0092D /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148461DF28735FE8008BFBD6 /* UserModel.swift */; };
 		82FA2D8928760B8C00F0092D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038D34982863278600648978 /* HomeViewModel.swift */; };
 		82FA2D8A28760B8C00F0092D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038D34932863276200648978 /* HomeView.swift */; };
 		82FA2D8B28760B8C00F0092D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E35B0C286F31CE0042437B /* SignUpViewController.swift */; };
-		82FA2D8C28760B8C00F0092D /* SignUpView.xib in Sources */ = {isa = PBXBuildFile; fileRef = 82E35B0D286F31CE0042437B /* SignUpView.xib */; };
 		82FA2D8D28760B8C00F0092D /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE1F2867FEEB0040BE72 /* SignUpViewModel.swift */; };
 		82FA2D8E28760B8C00F0092D /* UsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE112867FDAB0040BE72 /* UsersService.swift */; };
 		82FA2D8F28760B8C00F0092D /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE1D2867FE940040BE72 /* ApiManager.swift */; };
@@ -117,6 +116,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5991E638B37381C40AD34FF9 /* Pods_SwiftTemplate.framework in Frameworks */,
+				82D4AD5228771D7000978C21 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +388,9 @@
 			dependencies = (
 			);
 			name = SwiftTemplate;
+			packageProductDependencies = (
+				82D4AD5128771D7000978C21 /* Alamofire */,
+			);
 			productName = SwiftTemplate;
 			productReference = 03398C5C27DFDFCC001BC793 /* SwiftTemplate.app */;
 			productType = "com.apple.product-type.application";
@@ -438,6 +441,9 @@
 				Base,
 			);
 			mainGroup = 03398C5327DFDFCC001BC793;
+			packageReferences = (
+				82D4AD5028771D7000978C21 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 03398C5D27DFDFCC001BC793 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -464,7 +470,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				825950D8287498F80016BC8B /* SignUpView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,17 +553,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				82FA2D9C28760D1B00F0092D /* LoginViewModel.swift in Sources */,
-				82FA2D8528760B8C00F0092D /* RestApi.swift in Sources */,
 				82FA2D8628760B8C00F0092D /* EndpointDefinition.swift in Sources */,
 				82FA2D8728760B8C00F0092D /* ConstantsURL.swift in Sources */,
 				82FA2D8828760B8C00F0092D /* UserModel.swift in Sources */,
 				82FA2D8928760B8C00F0092D /* HomeViewModel.swift in Sources */,
 				82FA2D8A28760B8C00F0092D /* HomeView.swift in Sources */,
 				82FA2D8B28760B8C00F0092D /* SignUpViewController.swift in Sources */,
-				82FA2D8C28760B8C00F0092D /* SignUpView.xib in Sources */,
 				82FA2D8D28760B8C00F0092D /* SignUpViewModel.swift in Sources */,
 				82FA2D8E28760B8C00F0092D /* UsersService.swift in Sources */,
 				82FA2D8F28760B8C00F0092D /* ApiManager.swift in Sources */,
+				82D4AD5328771E2000978C21 /* RestApi.swift in Sources */,
 				82FA2D9028760B8C00F0092D /* NewUser.swift in Sources */,
 				82FA2D9128760B8C00F0092D /* NewUserResponse.swift in Sources */,
 				82FA2D9228760B8C00F0092D /* Constants.swift in Sources */,
@@ -841,6 +845,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		82D4AD5028771D7000978C21 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		82D4AD5128771D7000978C21 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 82D4AD5028771D7000978C21 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 03398C5427DFDFCC001BC793 /* Project object */;
 }
