@@ -12,9 +12,9 @@
 		03398C6927DFDFCD001BC793 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03398C6827DFDFCD001BC793 /* Assets.xcassets */; };
 		03398C6C27DFDFCD001BC793 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03398C6A27DFDFCD001BC793 /* LaunchScreen.storyboard */; };
 		037ADD4E28773970009E29F2 /* ValidationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037ADD4D28773970009E29F2 /* ValidationViewModel.swift */; };
+		037ADD5728774B49009E29F2 /* SwiftTemplateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037ADD5628774B49009E29F2 /* SwiftTemplateTests.swift */; };
 		038D34942863276200648978 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038D34932863276200648978 /* HomeView.swift */; };
 		038D34992863278600648978 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038D34982863278600648978 /* HomeViewModel.swift */; };
-		038D34A228632C2A00648978 /* SwiftTemplateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038D34A128632C2A00648978 /* SwiftTemplateTests.swift */; };
 		141149192864FAC2003F172A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141149182864FAC2003F172A /* LoginViewController.swift */; };
 		1411491B2864FAD5003F172A /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1411491A2864FAD5003F172A /* LoginViewController.xib */; };
 		145BAEEF286F8C2300EF3ED1 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145BAEEE286F8C2300EF3ED1 /* Repository.swift */; };
@@ -26,26 +26,8 @@
 		148461E428739A6B008BFBD6 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148461E328739A6B008BFBD6 /* UserManager.swift */; };
 		14C825E0286CC1E6000CB09C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C825DF286CC1E6000CB09C /* LoginViewModel.swift */; };
 		5991E638B37381C40AD34FF9 /* Pods_SwiftTemplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C806EB97D4D18AFDE1A67DB1 /* Pods_SwiftTemplate.framework */; };
-		825950DE2874A1EF0016BC8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03398C5F27DFDFCC001BC793 /* AppDelegate.swift */; };
 		826C57B6287366B200D6726E /* SignUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82E35B0D286F31CE0042437B /* SignUpView.xib */; };
-		82D4AD5328771E2000978C21 /* RestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148461D928735DCC008BFBD6 /* RestApi.swift */; };
 		82E35B0E286F31CE0042437B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E35B0C286F31CE0042437B /* SignUpViewController.swift */; };
-		82FA2D8628760B8C00F0092D /* EndpointDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148461DB28735E0C008BFBD6 /* EndpointDefinition.swift */; };
-		82FA2D8728760B8C00F0092D /* ConstantsURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148461DD28735E23008BFBD6 /* ConstantsURL.swift */; };
-		82FA2D8828760B8C00F0092D /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148461DF28735FE8008BFBD6 /* UserModel.swift */; };
-		82FA2D8928760B8C00F0092D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038D34982863278600648978 /* HomeViewModel.swift */; };
-		82FA2D8A28760B8C00F0092D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038D34932863276200648978 /* HomeView.swift */; };
-		82FA2D8E28760B8C00F0092D /* UsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE112867FDAB0040BE72 /* UsersService.swift */; };
-		82FA2D8F28760B8C00F0092D /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE1D2867FE940040BE72 /* ApiManager.swift */; };
-		82FA2D9028760B8C00F0092D /* NewUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE1B2867FE3E0040BE72 /* NewUser.swift */; };
-		82FA2D9128760B8C00F0092D /* NewUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE192867FE330040BE72 /* NewUserResponse.swift */; };
-		82FA2D9228760B8C00F0092D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE172867FE0A0040BE72 /* Constants.swift */; };
-		82FA2D9328760B8C00F0092D /* Extension+ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE222867FF6B0040BE72 /* Extension+ViewController.swift */; };
-		82FA2D9428760B8C00F0092D /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148461E328739A6B008BFBD6 /* UserManager.swift */; };
-		82FA2D9528760B8C00F0092D /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15790612871F5F000A3514E /* ApiError.swift */; };
-		82FA2D9628760B8C00F0092D /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145BAEEE286F8C2300EF3ED1 /* Repository.swift */; };
-		82FA2D9728760B8C00F0092D /* LoginEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148461E1287360B5008BFBD6 /* LoginEndpoint.swift */; };
-		82FA2D9A28760B8C00F0092D /* LoginViewController.xib in Sources */ = {isa = PBXBuildFile; fileRef = 1411491A2864FAD5003F172A /* LoginViewController.xib */; };
 		C13ECE122867FDAB0040BE72 /* UsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE112867FDAB0040BE72 /* UsersService.swift */; };
 		C13ECE182867FE0A0040BE72 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE172867FE0A0040BE72 /* Constants.swift */; };
 		C13ECE1A2867FE330040BE72 /* NewUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE192867FE330040BE72 /* NewUserResponse.swift */; };
@@ -57,7 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		038D34A328632C2A00648978 /* PBXContainerItemProxy */ = {
+		037ADD5828774B49009E29F2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 03398C5427DFDFCC001BC793 /* Project object */;
 			proxyType = 1;
@@ -74,9 +56,10 @@
 		03398C6B27DFDFCD001BC793 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		03398C6D27DFDFCD001BC793 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		037ADD4D28773970009E29F2 /* ValidationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationViewModel.swift; sourceTree = "<group>"; };
+		037ADD5428774B49009E29F2 /* SwiftTemplateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftTemplateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		037ADD5628774B49009E29F2 /* SwiftTemplateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftTemplateTests.swift; sourceTree = "<group>"; };
 		038D34932863276200648978 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		038D34982863278600648978 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		038D349F28632C2A00648978 /* SwiftTemplateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftTemplateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		038D34A128632C2A00648978 /* SwiftTemplateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftTemplateTests.swift; sourceTree = "<group>"; };
 		10E80E2B6DB8107568FFFD5D /* Pods-SwiftTemplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftTemplate.release.xcconfig"; path = "Target Support Files/Pods-SwiftTemplate/Pods-SwiftTemplate.release.xcconfig"; sourceTree = "<group>"; };
 		141149182864FAC2003F172A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -112,7 +95,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		038D349C28632C2A00648978 /* Frameworks */ = {
+		037ADD5128774B49009E29F2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -127,6 +110,7 @@
 			children = (
 				03398C5E27DFDFCC001BC793 /* SwiftTemplate */,
 				038D34A028632C2A00648978 /* SwiftTemplateTests */,
+				037ADD5528774B49009E29F2 /* SwiftTemplateTests */,
 				03398C5D27DFDFCC001BC793 /* Products */,
 				197FDADD169B47CB4365D677 /* Pods */,
 				D02CA146657ACFECA312F248 /* Frameworks */,
@@ -137,7 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				03398C5C27DFDFCC001BC793 /* SwiftTemplate.app */,
-				038D349F28632C2A00648978 /* SwiftTemplateTests.xctest */,
+				037ADD5428774B49009E29F2 /* SwiftTemplateTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -217,6 +201,14 @@
 				148461E328739A6B008BFBD6 /* UserManager.swift */,
 			);
 			path = token;
+			sourceTree = "<group>";
+		};
+		037ADD5528774B49009E29F2 /* SwiftTemplateTests */ = {
+			isa = PBXGroup;
+			children = (
+				037ADD5628774B49009E29F2 /* SwiftTemplateTests.swift */,
+			);
+			path = SwiftTemplateTests;
 			sourceTree = "<group>";
 		};
 		038D34912863274900648978 /* Home */ = {
@@ -418,22 +410,22 @@
 			productReference = 03398C5C27DFDFCC001BC793 /* SwiftTemplate.app */;
 			productType = "com.apple.product-type.application";
 		};
-		038D349E28632C2A00648978 /* SwiftTemplateTests */ = {
+		037ADD5328774B49009E29F2 /* SwiftTemplateTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 038D34A528632C2A00648978 /* Build configuration list for PBXNativeTarget "SwiftTemplateTests" */;
+			buildConfigurationList = 037ADD5A28774B49009E29F2 /* Build configuration list for PBXNativeTarget "SwiftTemplateTests" */;
 			buildPhases = (
-				038D349B28632C2A00648978 /* Sources */,
-				038D349C28632C2A00648978 /* Frameworks */,
-				038D349D28632C2A00648978 /* Resources */,
+				037ADD5028774B49009E29F2 /* Sources */,
+				037ADD5128774B49009E29F2 /* Frameworks */,
+				037ADD5228774B49009E29F2 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				038D34A428632C2A00648978 /* PBXTargetDependency */,
+				037ADD5928774B49009E29F2 /* PBXTargetDependency */,
 			);
 			name = SwiftTemplateTests;
 			productName = SwiftTemplateTests;
-			productReference = 038D349F28632C2A00648978 /* SwiftTemplateTests.xctest */;
+			productReference = 037ADD5428774B49009E29F2 /* SwiftTemplateTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -449,7 +441,7 @@
 					03398C5B27DFDFCC001BC793 = {
 						CreatedOnToolsVersion = 13.2.1;
 					};
-					038D349E28632C2A00648978 = {
+					037ADD5328774B49009E29F2 = {
 						CreatedOnToolsVersion = 13.4.1;
 						TestTargetID = 03398C5B27DFDFCC001BC793;
 					};
@@ -471,7 +463,7 @@
 			projectRoot = "";
 			targets = (
 				03398C5B27DFDFCC001BC793 /* SwiftTemplate */,
-				038D349E28632C2A00648978 /* SwiftTemplateTests */,
+				037ADD5328774B49009E29F2 /* SwiftTemplateTests */,
 			);
 		};
 /* End PBXProject section */
@@ -488,7 +480,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		038D349D28632C2A00648978 /* Resources */ = {
+		037ADD5228774B49009E29F2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -570,39 +562,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		038D349B28632C2A00648978 /* Sources */ = {
+		037ADD5028774B49009E29F2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82FA2D8628760B8C00F0092D /* EndpointDefinition.swift in Sources */,
-				82FA2D8728760B8C00F0092D /* ConstantsURL.swift in Sources */,
-				82FA2D8828760B8C00F0092D /* UserModel.swift in Sources */,
-				82FA2D8928760B8C00F0092D /* HomeViewModel.swift in Sources */,
-				82FA2D8A28760B8C00F0092D /* HomeView.swift in Sources */,
-				82FA2D8E28760B8C00F0092D /* UsersService.swift in Sources */,
-				82FA2D8F28760B8C00F0092D /* ApiManager.swift in Sources */,
-				82D4AD5328771E2000978C21 /* RestApi.swift in Sources */,
-				82FA2D9028760B8C00F0092D /* NewUser.swift in Sources */,
-				82FA2D9128760B8C00F0092D /* NewUserResponse.swift in Sources */,
-				82FA2D9228760B8C00F0092D /* Constants.swift in Sources */,
-				82FA2D9328760B8C00F0092D /* Extension+ViewController.swift in Sources */,
-				82FA2D9428760B8C00F0092D /* UserManager.swift in Sources */,
-				82FA2D9528760B8C00F0092D /* ApiError.swift in Sources */,
-				82FA2D9628760B8C00F0092D /* Repository.swift in Sources */,
-				82FA2D9728760B8C00F0092D /* LoginEndpoint.swift in Sources */,
-				82FA2D9A28760B8C00F0092D /* LoginViewController.xib in Sources */,
-				825950DE2874A1EF0016BC8B /* AppDelegate.swift in Sources */,
-				038D34A228632C2A00648978 /* SwiftTemplateTests.swift in Sources */,
+				037ADD5728774B49009E29F2 /* SwiftTemplateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		038D34A428632C2A00648978 /* PBXTargetDependency */ = {
+		037ADD5928774B49009E29F2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 03398C5B27DFDFCC001BC793 /* SwiftTemplate */;
-			targetProxy = 038D34A328632C2A00648978 /* PBXContainerItemProxy */;
+			targetProxy = 037ADD5828774B49009E29F2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -794,14 +768,14 @@
 			};
 			name = Release;
 		};
-		038D34A628632C2A00648978 /* Debug */ = {
+		037ADD5B28774B49009E29F2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Alkemy.SwiftTemplateTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -812,14 +786,14 @@
 			};
 			name = Debug;
 		};
-		038D34A728632C2A00648978 /* Release */ = {
+		037ADD5C28774B49009E29F2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Alkemy.SwiftTemplateTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -851,11 +825,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		038D34A528632C2A00648978 /* Build configuration list for PBXNativeTarget "SwiftTemplateTests" */ = {
+		037ADD5A28774B49009E29F2 /* Build configuration list for PBXNativeTarget "SwiftTemplateTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				038D34A628632C2A00648978 /* Debug */,
-				038D34A728632C2A00648978 /* Release */,
+				037ADD5B28774B49009E29F2 /* Debug */,
+				037ADD5C28774B49009E29F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
