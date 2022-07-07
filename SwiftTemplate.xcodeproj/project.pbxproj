@@ -31,6 +31,10 @@
 		826C57B528735DF600D6726E /* ValidationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826C57B428735DF600D6726E /* ValidationViewModel.swift */; };
 		826C57B6287366B200D6726E /* SignUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82E35B0D286F31CE0042437B /* SignUpView.xib */; };
 		82E35B0E286F31CE0042437B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E35B0C286F31CE0042437B /* SignUpViewController.swift */; };
+		82E35B0F286F31CE0042437B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E35B0C286F31CE0042437B /* SignUpViewController.swift */; };
+		82E35B10286F31CE0042437B /* SignUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82E35B0D286F31CE0042437B /* SignUpView.xib */; };
+		82E35B11286F31CE0042437B /* SignUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82E35B0D286F31CE0042437B /* SignUpView.xib */; };
+		C10952B3287225940020AA64 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10952B2287225940020AA64 /* Spinner.swift */; };
 		C13ECE122867FDAB0040BE72 /* UsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE112867FDAB0040BE72 /* UsersService.swift */; };
 		C13ECE182867FE0A0040BE72 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE172867FE0A0040BE72 /* Constants.swift */; };
 		C13ECE1A2867FE330040BE72 /* NewUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE192867FE330040BE72 /* NewUserResponse.swift */; };
@@ -77,6 +81,7 @@
 		826C57B428735DF600D6726E /* ValidationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ValidationViewModel.swift; path = SwiftTemplate/Shared/ViewModels/ValidationViewModel.swift; sourceTree = SOURCE_ROOT; };
 		82E35B0C286F31CE0042437B /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		82E35B0D286F31CE0042437B /* SignUpView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpView.xib; sourceTree = "<group>"; };
+		C10952B2287225940020AA64 /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		C13ECE112867FDAB0040BE72 /* UsersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersService.swift; sourceTree = "<group>"; };
 		C13ECE172867FE0A0040BE72 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C13ECE192867FE330040BE72 /* NewUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserResponse.swift; sourceTree = "<group>"; };
@@ -335,6 +340,7 @@
 				C13ECE222867FF6B0040BE72 /* ExtensionSignUpViewController.swift */,
 				148461E328739A6B008BFBD6 /* UserManager.swift */,
 				C15790612871F5F000A3514E /* ApiError.swift */,
+				C10952B2287225940020AA64 /* Spinner.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -504,6 +510,7 @@
 				826C57B528735DF600D6726E /* ValidationViewModel.swift in Sources */,
 				03398C6027DFDFCC001BC793 /* AppDelegate.swift in Sources */,
 				14C825E0286CC1E6000CB09C /* LoginViewModel.swift in Sources */,
+				C10952B3287225940020AA64 /* Spinner.swift in Sources */,
 				148461E428739A6B008BFBD6 /* UserManager.swift in Sources */,
 				C13ECE232867FF6B0040BE72 /* ExtensionSignUpViewController.swift in Sources */,
 				C15790622871F5F000A3514E /* ApiError.swift in Sources */,
