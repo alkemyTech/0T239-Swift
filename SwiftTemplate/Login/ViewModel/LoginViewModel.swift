@@ -17,7 +17,6 @@ protocol LoginViewModelInterface {
 
 final class LoginViewModel: LoginViewModelInterface {
         
-    
     private let loginRepository: LoginRepositoryProtocol
     private let userManager: UserManagerProtocol
     
@@ -59,7 +58,9 @@ final class LoginViewModel: LoginViewModelInterface {
     }
     
     func navigateToSignUp(navigationController: UINavigationController) {
-        let signUpViewController = SignUpViewController()
+        let validationViewModel = ValidationViewModel()
+        let singUpFields = SignUpFields()
+        let signUpViewController = SignUpViewController(validationviewmodel: validationViewModel, signupviewmodel: singUpFields)
         navigationController.pushViewController(signUpViewController, animated: true)
     }
 }
