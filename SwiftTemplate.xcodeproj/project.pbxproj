@@ -13,6 +13,7 @@
 		03398C6C27DFDFCD001BC793 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03398C6A27DFDFCD001BC793 /* LaunchScreen.storyboard */; };
 		037ADD4E28773970009E29F2 /* ValidationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037ADD4D28773970009E29F2 /* ValidationViewModel.swift */; };
 		037ADD5728774B49009E29F2 /* SwiftTemplateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037ADD5628774B49009E29F2 /* SwiftTemplateTests.swift */; };
+		037ADD6128774C7D009E29F2 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037ADD6028774C7D009E29F2 /* Spinner.swift */; };
 		038D34942863276200648978 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038D34932863276200648978 /* HomeView.swift */; };
 		038D34992863278600648978 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038D34982863278600648978 /* HomeViewModel.swift */; };
 		141149192864FAC2003F172A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141149182864FAC2003F172A /* LoginViewController.swift */; };
@@ -58,6 +59,7 @@
 		037ADD4D28773970009E29F2 /* ValidationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationViewModel.swift; sourceTree = "<group>"; };
 		037ADD5428774B49009E29F2 /* SwiftTemplateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftTemplateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		037ADD5628774B49009E29F2 /* SwiftTemplateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftTemplateTests.swift; sourceTree = "<group>"; };
+		037ADD6028774C7D009E29F2 /* Spinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		038D34932863276200648978 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		038D34982863278600648978 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		038D34A128632C2A00648978 /* SwiftTemplateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftTemplateTests.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				03398C5D27DFDFCC001BC793 /* Products */,
 				197FDADD169B47CB4365D677 /* Pods */,
 				D02CA146657ACFECA312F248 /* Frameworks */,
+				037ADD5F28774C1D009E29F2 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -209,6 +212,13 @@
 				037ADD5628774B49009E29F2 /* SwiftTemplateTests.swift */,
 			);
 			path = SwiftTemplateTests;
+			sourceTree = "<group>";
+		};
+		037ADD5F28774C1D009E29F2 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		038D34912863274900648978 /* Home */ = {
@@ -373,6 +383,7 @@
 		C13ECE132867FDBD0040BE72 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				037ADD6028774C7D009E29F2 /* Spinner.swift */,
 				826C57B128735D9700D6726E /* ViewModels */,
 			);
 			path = Shared;
@@ -543,6 +554,7 @@
 				145BAEEF286F8C2300EF3ED1 /* Repository.swift in Sources */,
 				C13ECE202867FEEB0040BE72 /* SignUpViewModel.swift in Sources */,
 				C13ECE1C2867FE3E0040BE72 /* NewUser.swift in Sources */,
+				037ADD6128774C7D009E29F2 /* Spinner.swift in Sources */,
 				C13ECE1A2867FE330040BE72 /* NewUserResponse.swift in Sources */,
 				03398C6027DFDFCC001BC793 /* AppDelegate.swift in Sources */,
 				14C825E0286CC1E6000CB09C /* LoginViewModel.swift in Sources */,
