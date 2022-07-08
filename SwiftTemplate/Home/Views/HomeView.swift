@@ -10,11 +10,11 @@ import UIKit
 class HomeViewController: UIViewController {
     
     let viewModel: HomeViewModelInterface
-
-    let demoLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .white
-        return label
+    
+    lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollView
     }()
     
     override func viewDidLoad() {
@@ -39,16 +39,21 @@ class HomeViewController: UIViewController {
 // MARK: Private methods
 private extension HomeViewController {
     func setupViews() {
-        self.demoLabel.text = self.viewModel.getDemoLabel()
+        self.view.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
+        self.view.addSubview(scrollView)
     }
     
     func setupConstraints() {
-        [ demoLabel ].forEach {
-            self.view.addSubview($0)
-            $0.translatesAutoresizingMaskIntoConstraints = false
-        }
         
-        demoLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        demoLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            
+            // Scroll View constraints
+            
+            scrollView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            scrollView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
+    
     }
 }
