@@ -18,6 +18,7 @@
 		038D34992863278600648978 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038D34982863278600648978 /* HomeViewModel.swift */; };
 		141149192864FAC2003F172A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141149182864FAC2003F172A /* LoginViewController.swift */; };
 		1411491B2864FAD5003F172A /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1411491A2864FAD5003F172A /* LoginViewController.xib */; };
+		1423967C2878C4DD00AE2ED4 /* UserManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1423967B2878C4DD00AE2ED4 /* UserManagerTests.swift */; };
 		145BAEEF286F8C2300EF3ED1 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145BAEEE286F8C2300EF3ED1 /* Repository.swift */; };
 		148461DA28735DCC008BFBD6 /* RestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148461D928735DCC008BFBD6 /* RestApi.swift */; };
 		148461DC28735E0C008BFBD6 /* EndpointDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148461DB28735E0C008BFBD6 /* EndpointDefinition.swift */; };
@@ -66,6 +67,7 @@
 		10E80E2B6DB8107568FFFD5D /* Pods-SwiftTemplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftTemplate.release.xcconfig"; path = "Target Support Files/Pods-SwiftTemplate/Pods-SwiftTemplate.release.xcconfig"; sourceTree = "<group>"; };
 		141149182864FAC2003F172A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1411491A2864FAD5003F172A /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		1423967B2878C4DD00AE2ED4 /* UserManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManagerTests.swift; sourceTree = "<group>"; };
 		145BAEEE286F8C2300EF3ED1 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		148461D928735DCC008BFBD6 /* RestApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestApi.swift; sourceTree = "<group>"; };
 		148461DB28735E0C008BFBD6 /* EndpointDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointDefinition.swift; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 		038D34A028632C2A00648978 /* SwiftTemplateTests */ = {
 			isa = PBXGroup;
 			children = (
+				142396762878C42E00AE2ED4 /* Core */,
 				038D34A128632C2A00648978 /* SwiftTemplateTests.swift */,
 			);
 			path = SwiftTemplateTests;
@@ -279,6 +282,38 @@
 				1411491A2864FAD5003F172A /* LoginViewController.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		142396762878C42E00AE2ED4 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				142396772878C44E00AE2ED4 /* data */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		142396772878C44E00AE2ED4 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				142396782878C46900AE2ED4 /* api */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
+		142396782878C46900AE2ED4 /* api */ = {
+			isa = PBXGroup;
+			children = (
+				142396792878C47000AE2ED4 /* token */,
+			);
+			path = api;
+			sourceTree = "<group>";
+		};
+		142396792878C47000AE2ED4 /* token */ = {
+			isa = PBXGroup;
+			children = (
+				1423967B2878C4DD00AE2ED4 /* UserManagerTests.swift */,
+			);
+			path = token;
 			sourceTree = "<group>";
 		};
 		145BAEED286F7EBC00EF3ED1 /* Model */ = {
@@ -578,6 +613,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1423967C2878C4DD00AE2ED4 /* UserManagerTests.swift in Sources */,
 				037ADD5728774B49009E29F2 /* SwiftTemplateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
