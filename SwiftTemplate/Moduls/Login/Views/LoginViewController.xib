@@ -107,6 +107,9 @@
                                             <state key="normal" title="Registrate!">
                                                 <color key="titleColor" systemColor="labelColor"/>
                                             </state>
+                                            <connections>
+                                                <action selector="didTapRegister:" destination="-1" eventType="touchUpInside" id="xa5-1k-CM5"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </stackView>

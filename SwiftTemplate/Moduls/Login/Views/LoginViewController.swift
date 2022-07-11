@@ -36,17 +36,18 @@ class LoginViewController: UIViewController {
     }
   
     override func viewWillAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = true
         super.viewWillAppear(animated)
         setupKeyboardObservers()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = false
         super.viewWillDisappear(animated)
         removeObservers()
     }
         
     private func setupView() {
-        navigationController?.isNavigationBarHidden = true
         loginButton.layer.cornerRadius = 8
     }
     
