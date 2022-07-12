@@ -17,6 +17,13 @@ class HomeViewController: UIViewController {
         return scrollView
     }()
     
+    lazy var dropDownMenu: UIView = {
+        let menu = DropDownMenuView()
+        menu.delegate = self
+        menu.translatesAutoresizingMaskIntoConstraints = false
+        return menu
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,6 +48,7 @@ private extension HomeViewController {
     func setupViews() {
         self.view.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
         self.view.addSubview(scrollView)
+        setupDropDownMenu()
     }
     
     func setupConstraints() {
@@ -54,6 +62,20 @@ private extension HomeViewController {
             scrollView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+    }
     
+    private func setupDropDownMenu() {
+        view.addSubview(dropDownMenu)
+        NSLayoutConstraint.activate([
+            dropDownMenu.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            dropDownMenu.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+            dropDownMenu.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor)
+        ])
+    }
+}
+
+extension HomeViewController: DropDownMenuViewProtocol {
+    func didTapMenuButton() {
+        viewModel.presentDropDownMenu(viewController: self)
     }
 }
