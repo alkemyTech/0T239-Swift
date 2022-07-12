@@ -13,4 +13,5 @@ Useful reads for work:
 Integrantes
 - David Duarte
 - Pablo Manzur
+- Jose Malé Franch
 
