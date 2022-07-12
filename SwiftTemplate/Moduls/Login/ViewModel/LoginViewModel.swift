@@ -13,13 +13,16 @@ protocol LoginViewModelInterface {
     func getPasswordLabelMessage(password: String, isValid: Bool) -> String
     func loginUser(email: String, password: String)
     func navigateToSignUp(navigationController: UINavigationController)
+    var showError : ((String) -> Void)? { get set }
 }
+
 
 final class LoginViewModel: LoginViewModelInterface {
         
     private let loginRepository: LoginRepositoryProtocol
     private let userManager: UserManagerProtocol
     private let validationViewModel: ValidationInterface
+    var showError : ((String) -> Void)?
     
     init(loginRepository: LoginRepositoryProtocol,
          userManager: UserManagerProtocol,
@@ -58,6 +61,9 @@ final class LoginViewModel: LoginViewModelInterface {
                 userManager.saveUserToken(token: token)
             } catch {
                 print("Error")
+                await MainActor.run {
+                    showError?("Error de autenticacion")
+                }
             }
         }
     }

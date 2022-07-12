@@ -17,11 +17,12 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordObligatoryFieldLabel: UILabel!
     @IBOutlet weak var loginButton: UIButton!
     
-    let loginViewModel: LoginViewModelInterface & ValidationInterface
+    var loginViewModel: LoginViewModelInterface & ValidationInterface
     
     init(loginViewModel: LoginViewModelInterface & ValidationInterface) {
         self.loginViewModel = loginViewModel
         super.init(nibName: "LoginViewController", bundle: nil)
+        self.loginViewModel.showError = LoginUserErrorShow
     }
     
     required init?(coder: NSCoder) {
@@ -98,6 +99,13 @@ class LoginViewController: UIViewController {
         }
         loginViewModel.navigateToSignUp(navigationController: navigationController)
     }
+    
+    func LoginUserErrorShow(errorDescription: String) {
+            let alert = UIAlertController(title: "Error", message: errorDescription, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title:"Aceptar", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            self.loginButton.isEnabled = false
+        }
 }
 
 // MARK: TextField methods
