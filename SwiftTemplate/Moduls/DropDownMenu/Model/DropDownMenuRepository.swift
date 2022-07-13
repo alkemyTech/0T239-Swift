@@ -16,11 +16,11 @@ class DropDownMenuRepository: DropDownMenuRepositoryProtocol {
     
     func getMenuItems() -> [MenuItem] {
         let menuItems = [
-            MenuItem(name: "Inicio", image: "house"),
-            MenuItem(name: "Staff", image: "staff"),
-            MenuItem(name: "Novedades", image: "novedades"),
-            MenuItem(name: "Contribuir", image: "contribuir"),
-            MenuItem(name: "Contacto", image: "contacto")
+            MenuItem(title: "Inicio", image: "house"),
+            MenuItem(title: "Staff", image: "staff"),
+            MenuItem(title: "Novedades", image: "novedades"),
+            MenuItem(title: "Contribuir", image: "contribuir"),
+            MenuItem(title: "Contacto", image: "contacto")
         ]
         return menuItems
     }

@@ -8,6 +8,6 @@
 import Foundation
 
 struct MenuItem {
-    let name: String
+    let title: String
     let image: String
 }

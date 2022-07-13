@@ -76,13 +76,13 @@ extension DropDownMenuViewController: UICollectionViewDelegate, UICollectionView
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DropDownMenuCollectionViewCell", for: indexPath) as? DropDownMenuCollectionViewCell else { return UICollectionViewCell() }
         
         let menuItem = dropDownMenuViewModel.getMenuItems()[indexPath.row]
-        cell.configureCell(itemTitle: menuItem.name, itemImage: menuItem.image)
+        cell.configureCell(itemTitle: menuItem.title, itemImage: menuItem.image)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let menuItem = dropDownMenuViewModel.getMenuItems()[indexPath.row]        
-        showToastMessage(message: menuItem.name, seconds: 0.6)
+        showToastMessage(message: menuItem.title, seconds: 0.6)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
