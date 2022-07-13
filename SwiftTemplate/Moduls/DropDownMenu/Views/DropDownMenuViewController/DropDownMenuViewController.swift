@@ -35,9 +35,10 @@ class DropDownMenuViewController: UIViewController {
         view.backgroundColor = UIColor.clear
         backgroundView.backgroundColor = UIColor.clear
         containerView.layer.cornerRadius = 20
+        containerView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        containerView.layer.shadowRadius = 2
         containerView.layer.shadowOpacity = 1
-        containerView.layer.shadowOffset = .zero
-        containerView.layer.shadowColor = UIColor.systemGray.cgColor
+        containerView.layer.shadowColor = UIColor.systemGray3.cgColor
     }
     
     private func didTabBackgroundView() {
@@ -75,8 +76,7 @@ extension DropDownMenuViewController: UICollectionViewDelegate, UICollectionView
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DropDownMenuCollectionViewCell", for: indexPath) as? DropDownMenuCollectionViewCell else { return UICollectionViewCell() }
         
         let menuItem = dropDownMenuViewModel.getMenuItems()[indexPath.row]
-        cell.menuItemName.text = menuItem.name
-        cell.menuItemImage.image = UIImage(named: menuItem.image)?.withTintColor(.black)
+        cell.configureCell(itemTitle: menuItem.name, itemImage: menuItem.image)
         return cell
     }
     

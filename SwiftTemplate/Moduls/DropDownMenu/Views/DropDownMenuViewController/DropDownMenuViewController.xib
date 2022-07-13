@@ -24,11 +24,11 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jVo-OD-6bR" userLabel="backgroundView">
-                    <rect key="frame" x="0.0" y="44" width="414" height="662"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="668"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wip-oU-UgB">
-                    <rect key="frame" x="0.0" y="706" width="414" height="150"/>
+                    <rect key="frame" x="0.0" y="712" width="414" height="150"/>
                     <subviews>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="d0T-zt-m8h">
                             <rect key="frame" x="30" y="10" width="336" height="130"/>
@@ -83,27 +83,17 @@
                         <constraint firstAttribute="trailing" secondItem="WSV-6V-AbV" secondAttribute="trailing" constant="16" id="s4c-o1-I0Q"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qHo-4a-kfS">
-                    <rect key="frame" x="0.0" y="840" width="414" height="22"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="22" id="45a-od-xpI"/>
-                    </constraints>
-                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="jVo-OD-6bR" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="E5B-E4-La0"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Wip-oU-UgB" secondAttribute="bottom" constant="6" id="KWO-eG-nBT"/>
-                <constraint firstItem="Wip-oU-UgB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="M5b-Nm-ga5"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="qHo-4a-kfS" secondAttribute="bottom" id="Mu8-7O-FTq"/>
                 <constraint firstItem="jVo-OD-6bR" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="VpT-7n-bby"/>
-                <constraint firstItem="qHo-4a-kfS" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="X7z-5m-pah"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Wip-oU-UgB" secondAttribute="bottom" id="WAV-0Z-p1n"/>
                 <constraint firstItem="jVo-OD-6bR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="cZn-R5-HvC"/>
-                <constraint firstItem="Wip-oU-UgB" firstAttribute="top" secondItem="jVo-OD-6bR" secondAttribute="bottom" id="tcx-xE-wgN"/>
-                <constraint firstItem="qHo-4a-kfS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="w76-d9-1v3"/>
-                <constraint firstItem="Wip-oU-UgB" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="zf3-v3-bIB"/>
+                <constraint firstItem="Wip-oU-UgB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="jFb-ET-9Z4"/>
+                <constraint firstItem="Wip-oU-UgB" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="rPU-f7-2tQ"/>
+                <constraint firstItem="Wip-oU-UgB" firstAttribute="top" secondItem="jVo-OD-6bR" secondAttribute="bottom" id="ts7-Qx-u8F"/>
             </constraints>
             <point key="canvasLocation" x="131.8840579710145" y="91.741071428571431"/>
         </view>

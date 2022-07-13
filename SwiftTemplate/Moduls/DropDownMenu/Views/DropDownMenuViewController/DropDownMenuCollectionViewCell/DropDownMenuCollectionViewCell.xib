@@ -47,7 +47,7 @@
             <size key="customSize" width="91" height="46"/>
             <connections>
                 <outlet property="menuItemImage" destination="qwk-lg-4iz" id="oqt-li-0Ks"/>
-                <outlet property="menuItemName" destination="NDF-wi-RCT" id="ftg-NR-6pj"/>
+                <outlet property="menuItemTitle" destination="NDF-wi-RCT" id="Xxb-Sd-Ifd"/>
             </connections>
             <point key="canvasLocation" x="261.59420289855075" y="91.741071428571431"/>
         </collectionViewCell>
