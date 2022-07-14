@@ -20,6 +20,13 @@ class HomeViewController: UIViewController {
         return scrollView
     }()
     
+    lazy var dropDownMenu: UIView = {
+        let menu = DropDownMenuView()
+        menu.delegate = self
+        menu.translatesAutoresizingMaskIntoConstraints = false
+        return menu
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,6 +52,7 @@ private extension HomeViewController {
         self.navigationController?.hidesBarsOnSwipe = true
         self.view.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
         self.view.addSubview(scrollView)
+        setupDropDownMenu()
     }
     
     func setupConstraints() {
@@ -56,9 +64,8 @@ private extension HomeViewController {
             scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            scrollView.bottomAnchor.constraint(equalTo: dropDownMenu.topAnchor)
         ])
-        
         
         NSLayoutConstraint.activate([
             bienvenidosView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
@@ -66,6 +73,20 @@ private extension HomeViewController {
             bienvenidosView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             bienvenidosView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
         ])
-        
+    }
+    
+    private func setupDropDownMenu() {
+        view.addSubview(dropDownMenu)
+        NSLayoutConstraint.activate([
+            dropDownMenu.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            dropDownMenu.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+            dropDownMenu.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor)
+        ])
+    }
+}
+
+extension HomeViewController: DropDownMenuViewProtocol {
+    func didTapMenuButton() {
+        viewModel.presentDropDownMenu(viewController: self)
     }
 }

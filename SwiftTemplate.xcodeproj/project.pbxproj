@@ -18,6 +18,8 @@
 		038D34992863278600648978 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038D34982863278600648978 /* HomeViewModel.swift */; };
 		141149192864FAC2003F172A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141149182864FAC2003F172A /* LoginViewController.swift */; };
 		1411491B2864FAD5003F172A /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1411491A2864FAD5003F172A /* LoginViewController.xib */; };
+		14184DD1287C91E9002F51F4 /* DropDownMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14184DD0287C91E9002F51F4 /* DropDownMenuView.xib */; };
+		14184DD3287C953E002F51F4 /* DropDownMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14184DD2287C953E002F51F4 /* DropDownMenuView.swift */; };
 		145BAEEF286F8C2300EF3ED1 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145BAEEE286F8C2300EF3ED1 /* Repository.swift */; };
 		148461DA28735DCC008BFBD6 /* RestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148461D928735DCC008BFBD6 /* RestApi.swift */; };
 		148461DC28735E0C008BFBD6 /* EndpointDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148461DB28735E0C008BFBD6 /* EndpointDefinition.swift */; };
@@ -25,6 +27,13 @@
 		148461E028735FE8008BFBD6 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148461DF28735FE8008BFBD6 /* UserModel.swift */; };
 		148461E2287360B5008BFBD6 /* LoginEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148461E1287360B5008BFBD6 /* LoginEndpoint.swift */; };
 		148461E428739A6B008BFBD6 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148461E328739A6B008BFBD6 /* UserManager.swift */; };
+		1484DBEB287CDE5900F442B9 /* DropDownMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1484DBE9287CDE5900F442B9 /* DropDownMenuViewController.swift */; };
+		1484DBEC287CDE5900F442B9 /* DropDownMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1484DBEA287CDE5900F442B9 /* DropDownMenuViewController.xib */; };
+		1484DBF5287D167D00F442B9 /* DropDownMenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1484DBF3287D167D00F442B9 /* DropDownMenuCollectionViewCell.swift */; };
+		1484DBF6287D167D00F442B9 /* DropDownMenuCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1484DBF4287D167D00F442B9 /* DropDownMenuCollectionViewCell.xib */; };
+		1484DBF9287D191900F442B9 /* DropDownMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1484DBF8287D191900F442B9 /* DropDownMenuViewModel.swift */; };
+		1484DBFC287D19F300F442B9 /* DropDownMenuRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1484DBFB287D19F300F442B9 /* DropDownMenuRepository.swift */; };
+		1484DBFE287D1C1D00F442B9 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1484DBFD287D1C1D00F442B9 /* MenuItem.swift */; };
 		14C825E0286CC1E6000CB09C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C825DF286CC1E6000CB09C /* LoginViewModel.swift */; };
 		5991E638B37381C40AD34FF9 /* Pods_SwiftTemplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C806EB97D4D18AFDE1A67DB1 /* Pods_SwiftTemplate.framework */; };
 		826C57B6287366B200D6726E /* SignUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82E35B0D286F31CE0042437B /* SignUpView.xib */; };
@@ -67,6 +76,8 @@
 		10E80E2B6DB8107568FFFD5D /* Pods-SwiftTemplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftTemplate.release.xcconfig"; path = "Target Support Files/Pods-SwiftTemplate/Pods-SwiftTemplate.release.xcconfig"; sourceTree = "<group>"; };
 		141149182864FAC2003F172A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1411491A2864FAD5003F172A /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		14184DD0287C91E9002F51F4 /* DropDownMenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DropDownMenuView.xib; sourceTree = "<group>"; };
+		14184DD2287C953E002F51F4 /* DropDownMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenuView.swift; sourceTree = "<group>"; };
 		145BAEEE286F8C2300EF3ED1 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		148461D928735DCC008BFBD6 /* RestApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestApi.swift; sourceTree = "<group>"; };
 		148461DB28735E0C008BFBD6 /* EndpointDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointDefinition.swift; sourceTree = "<group>"; };
@@ -74,6 +85,13 @@
 		148461DF28735FE8008BFBD6 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		148461E1287360B5008BFBD6 /* LoginEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEndpoint.swift; sourceTree = "<group>"; };
 		148461E328739A6B008BFBD6 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		1484DBE9287CDE5900F442B9 /* DropDownMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenuViewController.swift; sourceTree = "<group>"; };
+		1484DBEA287CDE5900F442B9 /* DropDownMenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DropDownMenuViewController.xib; sourceTree = "<group>"; };
+		1484DBF3287D167D00F442B9 /* DropDownMenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenuCollectionViewCell.swift; sourceTree = "<group>"; };
+		1484DBF4287D167D00F442B9 /* DropDownMenuCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DropDownMenuCollectionViewCell.xib; sourceTree = "<group>"; };
+		1484DBF8287D191900F442B9 /* DropDownMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenuViewModel.swift; sourceTree = "<group>"; };
+		1484DBFB287D19F300F442B9 /* DropDownMenuRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenuRepository.swift; sourceTree = "<group>"; };
+		1484DBFD287D1C1D00F442B9 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		14C825DF286CC1E6000CB09C /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		7970464BBDAF57D08D439957 /* Pods-SwiftTemplate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftTemplate.debug.xcconfig"; path = "Target Support Files/Pods-SwiftTemplate/Pods-SwiftTemplate.debug.xcconfig"; sourceTree = "<group>"; };
 		82E35B0C286F31CE0042437B /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -152,6 +170,7 @@
 				141149162864F901003F172A /* Login */,
 				C13ECE0E2867FD6F0040BE72 /* SignUp */,
 				038D34912863274900648978 /* Home */,
+				14184DCE287C9164002F51F4 /* DropDownMenu */,
 			);
 			path = Moduls;
 			sourceTree = "<group>";
@@ -284,6 +303,25 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		14184DCE287C9164002F51F4 /* DropDownMenu */ = {
+			isa = PBXGroup;
+			children = (
+				1484DBFA287D19DB00F442B9 /* Model */,
+				1484DBF7287D18FB00F442B9 /* ViewModel */,
+				14184DCF287C91BB002F51F4 /* Views */,
+			);
+			path = DropDownMenu;
+			sourceTree = "<group>";
+		};
+		14184DCF287C91BB002F51F4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1484DBED287CDE6700F442B9 /* DropDownMenuView */,
+				1484DBE8287CDE1F00F442B9 /* DropDownMenuViewController */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		145BAEED286F7EBC00EF3ED1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -318,6 +356,51 @@
 			children = (
 				C13ECE192867FE330040BE72 /* NewUserResponse.swift */,
 				148461DF28735FE8008BFBD6 /* UserModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1484DBE8287CDE1F00F442B9 /* DropDownMenuViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1484DBE9287CDE5900F442B9 /* DropDownMenuViewController.swift */,
+				1484DBEA287CDE5900F442B9 /* DropDownMenuViewController.xib */,
+				1484DBEE287D15D100F442B9 /* DropDownMenuCollectionViewCell */,
+			);
+			path = DropDownMenuViewController;
+			sourceTree = "<group>";
+		};
+		1484DBED287CDE6700F442B9 /* DropDownMenuView */ = {
+			isa = PBXGroup;
+			children = (
+				14184DD2287C953E002F51F4 /* DropDownMenuView.swift */,
+				14184DD0287C91E9002F51F4 /* DropDownMenuView.xib */,
+			);
+			path = DropDownMenuView;
+			sourceTree = "<group>";
+		};
+		1484DBEE287D15D100F442B9 /* DropDownMenuCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				1484DBF3287D167D00F442B9 /* DropDownMenuCollectionViewCell.swift */,
+				1484DBF4287D167D00F442B9 /* DropDownMenuCollectionViewCell.xib */,
+			);
+			path = DropDownMenuCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		1484DBF7287D18FB00F442B9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1484DBF8287D191900F442B9 /* DropDownMenuViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		1484DBFA287D19DB00F442B9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1484DBFD287D1C1D00F442B9 /* MenuItem.swift */,
+				1484DBFB287D19F300F442B9 /* DropDownMenuRepository.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -495,10 +578,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1484DBEC287CDE5900F442B9 /* DropDownMenuViewController.xib in Resources */,
 				826C57B6287366B200D6726E /* SignUpView.xib in Resources */,
 				03398C6C27DFDFCD001BC793 /* LaunchScreen.storyboard in Resources */,
+				14184DD1287C91E9002F51F4 /* DropDownMenuView.xib in Resources */,
 				03398C6927DFDFCD001BC793 /* Assets.xcassets in Resources */,
 				1411491B2864FAD5003F172A /* LoginViewController.xib in Resources */,
+				1484DBF6287D167D00F442B9 /* DropDownMenuCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -560,9 +646,14 @@
 			files = (
 				038D34942863276200648978 /* HomeView.swift in Sources */,
 				148461DE28735E23008BFBD6 /* ConstantsURL.swift in Sources */,
+				1484DBF5287D167D00F442B9 /* DropDownMenuCollectionViewCell.swift in Sources */,
+				1484DBEB287CDE5900F442B9 /* DropDownMenuViewController.swift in Sources */,
+				1484DBF9287D191900F442B9 /* DropDownMenuViewModel.swift in Sources */,
 				C13ECE1E2867FE940040BE72 /* ApiManager.swift in Sources */,
 				037ADD4E28773970009E29F2 /* ValidationViewModel.swift in Sources */,
+				14184DD3287C953E002F51F4 /* DropDownMenuView.swift in Sources */,
 				145BAEEF286F8C2300EF3ED1 /* Repository.swift in Sources */,
+				1484DBFE287D1C1D00F442B9 /* MenuItem.swift in Sources */,
 				C13ECE202867FEEB0040BE72 /* SignUpViewModel.swift in Sources */,
 				C13ECE1C2867FE3E0040BE72 /* NewUser.swift in Sources */,
 				037ADD6128774C7D009E29F2 /* Spinner.swift in Sources */,
@@ -572,6 +663,7 @@
 				14C825E0286CC1E6000CB09C /* LoginViewModel.swift in Sources */,
 				148461E428739A6B008BFBD6 /* UserManager.swift in Sources */,
 				C13ECE232867FF6B0040BE72 /* Extension+ViewController.swift in Sources */,
+				1484DBFC287D19F300F442B9 /* DropDownMenuRepository.swift in Sources */,
 				C15790622871F5F000A3514E /* ApiError.swift in Sources */,
 				038D34992863278600648978 /* HomeViewModel.swift in Sources */,
 				148461E2287360B5008BFBD6 /* LoginEndpoint.swift in Sources */,

@@ -6,14 +6,23 @@
 //
 
 import Foundation
+import UIKit
 
 protocol HomeViewModelInterface {
-    func getDemoLabel() -> String
+    func presentDropDownMenu(viewController: UIViewController)
 }
 
 class HomeViewModel: HomeViewModelInterface {
     
-    func getDemoLabel() -> String {
-        return "Hola Alkymer! ;)"
+    private let dropDownMenuViewModel: DropDownMenuViewModelInterface
+   
+    init(dropDownMenuViewModel: DropDownMenuViewModelInterface) {
+        self.dropDownMenuViewModel = dropDownMenuViewModel
+    }
+    
+    func presentDropDownMenu(viewController: UIViewController) {
+        let dropDownMenuViewController = DropDownMenuViewController(dropDownMenuViewModel: dropDownMenuViewModel)
+        dropDownMenuViewController.modalPresentationStyle = .overCurrentContext
+        viewController.present(dropDownMenuViewController, animated: true)
     }
 }
