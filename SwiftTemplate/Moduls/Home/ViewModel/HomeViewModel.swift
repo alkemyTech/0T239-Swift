@@ -14,9 +14,13 @@ protocol HomeViewModelInterface {
 
 class HomeViewModel: HomeViewModelInterface {
     
+    private let dropDownMenuViewModel: DropDownMenuViewModelInterface
+   
+    init(dropDownMenuViewModel: DropDownMenuViewModelInterface) {
+        self.dropDownMenuViewModel = dropDownMenuViewModel
+    }
+    
     func presentDropDownMenu(viewController: UIViewController) {
-        let dropDownMenuRepository = DropDownMenuRepository()
-        let dropDownMenuViewModel = DropDownMenuViewModel(repository: dropDownMenuRepository)
         let dropDownMenuViewController = DropDownMenuViewController(dropDownMenuViewModel: dropDownMenuViewModel)
         dropDownMenuViewController.modalPresentationStyle = .overCurrentContext
         viewController.present(dropDownMenuViewController, animated: true)
