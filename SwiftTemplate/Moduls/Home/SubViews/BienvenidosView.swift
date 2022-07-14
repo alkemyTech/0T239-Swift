@@ -15,7 +15,7 @@ class BienvenidosView: UIView {
         let imageView = UIImageView()
         let image = UIImage(named: "iconWithoutText")
         imageView.image = image
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -47,7 +47,15 @@ class BienvenidosView: UIView {
     
     lazy var text: UILabel = {
         let label = UILabel()
-        let message = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.\nAdipiscing dignissim ac et eleifend lacus, rhoncus,\ndignissim sagittis. Tellus ac a, elementum ut. Tellus a\nmorbi tincidunt ultricies malesuada eget turpis. Lacus\nenim non enim, velit hac turpis interdum arcu.\nSuspendisse at vel ultrices amet orci enim lectus\nporttitor ut."
+        let message = """
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Adipiscing dignissim ac et eleifend lacus, rhoncus,
+dignissim sagittis. Tellus ac a, elementum ut. Tellus a
+morbi tincidunt ultricies malesuada eget turpis. Lacus
+enim non enim, velit hac turpis interdum arcu.
+Suspendisse at vel ultrices amet orci enim lectus
+porttitor ut.
+"""
         
         let myAttribute = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13)]
         let myAttributeMessage = NSAttributedString(string: message, attributes: myAttribute)
@@ -77,7 +85,7 @@ class BienvenidosView: UIView {
     lazy var stackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
-        stack.spacing = 20
+        stack.spacing = 22
         stack.alignment = .leading
         stack.distribution = .fillProportionally
         stack.addArrangedSubview(bienvenidosImage)
@@ -109,6 +117,7 @@ class BienvenidosView: UIView {
         self.translatesAutoresizingMaskIntoConstraints = false
         logoImage.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         logoImage.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        logoImage.heightAnchor.constraint(equalToConstant: 80).isActive = true
         stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         stackView.topAnchor.constraint(equalTo: logoImage.bottomAnchor).isActive = true
         stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
