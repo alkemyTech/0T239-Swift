@@ -46,6 +46,7 @@
 		C13ECE202867FEEB0040BE72 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE1F2867FEEB0040BE72 /* SignUpViewModel.swift */; };
 		C13ECE232867FF6B0040BE72 /* Extension+ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE222867FF6B0040BE72 /* Extension+ViewController.swift */; };
 		C15790622871F5F000A3514E /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15790612871F5F000A3514E /* ApiError.swift */; };
+		C180764B287CCE53002F20C7 /* BienvenidosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C180764A287CCE53002F20C7 /* BienvenidosView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,7 @@
 		C13ECE1F2867FEEB0040BE72 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		C13ECE222867FF6B0040BE72 /* Extension+ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+ViewController.swift"; sourceTree = "<group>"; };
 		C15790612871F5F000A3514E /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
+		C180764A287CCE53002F20C7 /* BienvenidosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BienvenidosView.swift; sourceTree = "<group>"; };
 		C806EB97D4D18AFDE1A67DB1 /* Pods_SwiftTemplate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftTemplate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -244,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				038D349A286329EE00648978 /* Models */,
+				C1807649287CC5EC002F20C7 /* SubViews */,
 				038D34972863277700648978 /* ViewModel */,
 				038D34922863275700648978 /* Views */,
 			);
@@ -472,6 +475,14 @@
 			path = Shared;
 			sourceTree = "<group>";
 		};
+		C1807649287CC5EC002F20C7 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				C180764A287CCE53002F20C7 /* BienvenidosView.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
 		D02CA146657ACFECA312F248 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -648,6 +659,7 @@
 				037ADD6128774C7D009E29F2 /* Spinner.swift in Sources */,
 				C13ECE1A2867FE330040BE72 /* NewUserResponse.swift in Sources */,
 				03398C6027DFDFCC001BC793 /* AppDelegate.swift in Sources */,
+				C180764B287CCE53002F20C7 /* BienvenidosView.swift in Sources */,
 				14C825E0286CC1E6000CB09C /* LoginViewModel.swift in Sources */,
 				148461E428739A6B008BFBD6 /* UserManager.swift in Sources */,
 				C13ECE232867FF6B0040BE72 /* Extension+ViewController.swift in Sources */,

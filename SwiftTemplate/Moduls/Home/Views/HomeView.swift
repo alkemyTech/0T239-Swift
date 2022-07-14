@@ -11,9 +11,12 @@ class HomeViewController: UIViewController {
     
     let viewModel: HomeViewModelInterface
     
+    let bienvenidosView = BienvenidosView(frame: UIScreen.main.bounds)
+    
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubview(bienvenidosView)
         return scrollView
     }()
     
@@ -46,6 +49,7 @@ class HomeViewController: UIViewController {
 // MARK: Private methods
 private extension HomeViewController {
     func setupViews() {
+        self.navigationController?.hidesBarsOnSwipe = true
         self.view.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
         self.view.addSubview(scrollView)
         setupDropDownMenu()
@@ -57,10 +61,17 @@ private extension HomeViewController {
             
             // Scroll View constraints
             
-            scrollView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            scrollView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: dropDownMenu.topAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            bienvenidosView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
+            bienvenidosView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            bienvenidosView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            bienvenidosView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
         ])
     }
     
