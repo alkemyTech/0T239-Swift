@@ -18,14 +18,16 @@ class UserManager: UserManagerProtocol {
     private init() {}
     
     private let defaults = UserDefaults.standard
-    private var userToken: String = "" {
+    private let key = "userToken"
+    
+    var userToken: String? {
         didSet {
             setUserToken()
         }
     }
     
     private func setUserToken() {
-        defaults.set(userToken, forKey: "userToken")
+        defaults.set(userToken, forKey: key)
     }
     
     func saveUserToken(token: String) {
