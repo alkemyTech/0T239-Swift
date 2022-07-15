@@ -9,6 +9,7 @@ import Foundation
 
 protocol UserManagerProtocol {
     func saveUserToken(token: String)
+    func containsThis(key: String) -> Bool
 }
 
 class UserManager: UserManagerProtocol {
@@ -30,5 +31,9 @@ class UserManager: UserManagerProtocol {
     
     func saveUserToken(token: String) {
         userToken = token
+    }
+    
+    func containsThis(key: String) -> Bool {
+        defaults.object(forKey: key) != nil
     }
 }
