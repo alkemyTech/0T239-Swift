@@ -38,4 +38,8 @@ class UserManager: UserManagerProtocol {
     func containsThis(key: String) -> Bool {
         defaults.object(forKey: key) != nil
     }
+    
+    func getKeyName() -> String {
+        key
+    }
 }

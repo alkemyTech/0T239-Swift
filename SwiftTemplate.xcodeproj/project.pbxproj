@@ -48,6 +48,7 @@
 		C13ECE232867FF6B0040BE72 /* Extension+ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13ECE222867FF6B0040BE72 /* Extension+ViewController.swift */; };
 		C15790622871F5F000A3514E /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15790612871F5F000A3514E /* ApiError.swift */; };
 		C180764B287CCE53002F20C7 /* BienvenidosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C180764A287CCE53002F20C7 /* BienvenidosView.swift */; };
+		C180DAD72883AA38009ADE40 /* Extension+SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C180DAD62883AA38009ADE40 /* Extension+SceneDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,7 @@
 		C13ECE222867FF6B0040BE72 /* Extension+ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+ViewController.swift"; sourceTree = "<group>"; };
 		C15790612871F5F000A3514E /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		C180764A287CCE53002F20C7 /* BienvenidosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BienvenidosView.swift; sourceTree = "<group>"; };
+		C180DAD62883AA38009ADE40 /* Extension+SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+SceneDelegate.swift"; sourceTree = "<group>"; };
 		C806EB97D4D18AFDE1A67DB1 /* Pods_SwiftTemplate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftTemplate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -217,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				C13ECE222867FF6B0040BE72 /* Extension+ViewController.swift */,
+				C180DAD62883AA38009ADE40 /* Extension+SceneDelegate.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -688,6 +691,7 @@
 				037ADD4E28773970009E29F2 /* ValidationViewModel.swift in Sources */,
 				14184DD3287C953E002F51F4 /* DropDownMenuView.swift in Sources */,
 				145BAEEF286F8C2300EF3ED1 /* Repository.swift in Sources */,
+				C180DAD72883AA38009ADE40 /* Extension+SceneDelegate.swift in Sources */,
 				1484DBFE287D1C1D00F442B9 /* MenuItem.swift in Sources */,
 				C13ECE202867FEEB0040BE72 /* SignUpViewModel.swift in Sources */,
 				C13ECE1C2867FE3E0040BE72 /* NewUser.swift in Sources */,
