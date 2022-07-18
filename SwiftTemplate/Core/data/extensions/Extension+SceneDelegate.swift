@@ -10,17 +10,15 @@ import UIKit
 
 protocol CheckIfTokenWasSavedDelegate {
     
-    func getInitialViewController() -> UIViewController
+    func getInitialViewController(userManager: UserManager) -> UIViewController
 }
 
 
 extension SceneDelegate: CheckIfTokenWasSavedDelegate {
     
-    func getInitialViewController() -> UIViewController {
+    func getInitialViewController(userManager: UserManager) -> UIViewController {
         
         var initialViewController: UIViewController
-        
-        let userManager = UserManager.shared
         
         let key = userManager.getKeyName()
         
