@@ -12,6 +12,7 @@ class HomeViewController: UIViewController {
     let viewModel: HomeViewModelInterface
     
     let bienvenidosView = BienvenidosView(frame: UIScreen.main.bounds)
+    let membersView: MembersView
     
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -34,8 +35,9 @@ class HomeViewController: UIViewController {
         self.setupConstraints()
     }
     
-    required init(viewModel: HomeViewModelInterface){
+    required init(viewModel: HomeViewModelInterface, membersView: MembersView){
         self.viewModel = viewModel
+        self.membersView = membersView
         super.init(nibName: nil, bundle: nil)
     }
     
