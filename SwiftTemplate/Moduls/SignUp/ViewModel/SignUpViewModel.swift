@@ -17,7 +17,8 @@ protocol RegisterDelegate: AnyObject {
 protocol SignUpViewModelInterface {
     func getEmailLabelMessage(email: String, isValid: Bool) -> String
     func getPasswordLabelMessage(password: String, isValid: Bool) -> String
-    func register(user: NewUser)
+    func register(user: NewUser, from viewController: UIViewController)
+    func navigateToLogin(from viewController: UIViewController)
 }
 
 
@@ -36,10 +37,20 @@ class SignUpViewModel {
 }
 
 extension SignUpViewModel: SignUpViewModelInterface {
+    func navigateToLogin(from viewController: UIViewController) {
+        viewController.navigationController?.popViewController(animated: true)
+    }
+    
 
-    func register(user: NewUser) {
+    func register(user: NewUser, from viewController: UIViewController) {
         self.service.addNewUser(user: user) { response in
             self.delegate?.registerNewUserSuccess(newUserResponse: response)
+
+            let dropDownMenuRepository = DropDownMenuRepository()
+            let dropDownMenuVM = DropDownMenuViewModel(repository: dropDownMenuRepository)
+            let homeVM = HomeViewModel(dropDownMenuViewModel: dropDownMenuVM)
+            let homeVC = HomeViewController(viewModel: homeVM)
+            viewController.navigationController?.pushViewController(homeVC, animated: true)
             
         } onError: { errorDescription in
             self.delegate?.registerNewUserError(errorDescription: errorDescription)

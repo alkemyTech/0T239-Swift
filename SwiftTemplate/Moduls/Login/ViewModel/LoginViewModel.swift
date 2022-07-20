@@ -69,14 +69,16 @@ final class LoginViewModel: LoginViewModelInterface {
         navigationController.pushViewController(signUpViewController, animated: true)
     }
     
-    
     private func navigateToHome(navigationController: UINavigationController) {
         let dropDownMenuRepository = DropDownMenuRepository()
         let dropDownMenuViewModel = DropDownMenuViewModel(repository: dropDownMenuRepository)
         let homeViewModel = HomeViewModel(dropDownMenuViewModel: dropDownMenuViewModel)
         
         let homeViewController = HomeViewController(viewModel: homeViewModel)
-        navigationController.pushViewController(homeViewController, animated: true)
+        
+        DispatchQueue.main.async {
+            navigationController.pushViewController(homeViewController, animated: true)
+        }
     }
 }
 
