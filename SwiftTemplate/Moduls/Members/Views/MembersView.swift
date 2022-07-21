@@ -131,6 +131,7 @@ class MembersView: UIView {
         collection.register(MembersCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         collection.dataSource = self
         collection.delegate = self
+        collection.showsHorizontalScrollIndicator = false
         collection.translatesAutoresizingMaskIntoConstraints = false
         return collection
     }()

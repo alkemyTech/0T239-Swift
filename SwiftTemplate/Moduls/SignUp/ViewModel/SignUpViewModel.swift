@@ -25,13 +25,16 @@ protocol SignUpViewModelInterface {
 class SignUpViewModel {
         
     init(service: UsersService,
+         loginViewModel: LoginViewModel = LoginViewModel(loginRepository: LoginRepository(), userManager: UserManager.shared),
          validationViewModel: ValidationInterface = ValidationViewModel()) {
         self.service = service
+        self.loginViewModel = loginViewModel
         self.validationViewModel = validationViewModel
     }
     
     private var service: UsersService
-    let validationViewModel: ValidationInterface
+    private let loginViewModel: LoginViewModelInterface
+    private let validationViewModel: ValidationInterface
     weak var delegate: RegisterDelegate?
     
 }
@@ -45,16 +48,7 @@ extension SignUpViewModel: SignUpViewModelInterface {
     func register(user: NewUser, from viewController: UIViewController) {
         self.service.addNewUser(user: user) { response in
             self.delegate?.registerNewUserSuccess(newUserResponse: response)
-
-            let dropDownMenuRepository = DropDownMenuRepository()
-            let dropDownMenuVM = DropDownMenuViewModel(repository: dropDownMenuRepository)
-            let homeVM = HomeViewModel(dropDownMenuViewModel: dropDownMenuVM)
-            let membersRepository = MembersRepository()
-            let membersViewModel = MembersViewModel(repository: membersRepository)
-            let membersView = MembersView(membersViewModel: membersViewModel)
-            let homeVC = HomeViewController(viewModel: homeVM, membersView: membersView)
-            viewController.navigationController?.pushViewController(homeVC, animated: true)
-            
+            self.loginViewModel.loginUser(email: user.email, password: user.password, from: viewController)
         } onError: { errorDescription in
             self.delegate?.registerNewUserError(errorDescription: errorDescription)
         }

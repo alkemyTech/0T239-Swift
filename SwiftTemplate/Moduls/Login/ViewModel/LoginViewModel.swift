@@ -11,7 +11,7 @@ import UIKit
 protocol LoginViewModelInterface {
     func getEmailLabelMessage(email: String, isValid: Bool) -> String
     func getPasswordLabelMessage(password: String, isValid: Bool) -> String
-    func loginUser(email: String, password: String)
+    func loginUser(email: String, password: String, from vc: UIViewController)
     func navigateToSignUp(navigationController: UINavigationController)
 }
 
@@ -50,13 +50,15 @@ final class LoginViewModel: LoginViewModelInterface {
         }
     }
     
-    func loginUser(email: String, password: String) {
+    func loginUser(email: String, password: String, from vc: UIViewController) {
         Task {
             do {
                 let login = try await loginRepository.loginUser(email: email, password: password)
                 let token = login.data.token
                 userManager.saveUserToken(token: token)
-                navigateToHome(navigationController: UINavigationController())
+                
+                guard let navigationController = await vc.navigationController else { return }
+                navigateToHome(navigationController: navigationController)
             } catch {
                 print("Error")
             }
@@ -76,11 +78,10 @@ final class LoginViewModel: LoginViewModelInterface {
         
         let membersRepository = MembersRepository()
         let membersViewModel = MembersViewModel(repository: membersRepository)
-        let membersView = MembersView(membersViewModel: membersViewModel)
-        let homeViewController = HomeViewController(viewModel: homeViewModel, membersView: membersView)
+        let homeViewController = HomeViewController(viewModel: homeViewModel, membersViewModel: membersViewModel)
         
         DispatchQueue.main.async {
-            navigationController.pushViewController(homeViewController, animated: true)
+            navigationController.setViewControllers([homeViewController], animated: true)
         }
     }
 }

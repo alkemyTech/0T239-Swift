@@ -30,8 +30,7 @@ extension SceneDelegate: CheckIfTokenWasSavedDelegate {
             
             let membersRepository = MembersRepository()
             let membersViewModel = MembersViewModel(repository: membersRepository)
-            let membersView = MembersView(membersViewModel: membersViewModel)
-            initialViewController = HomeViewController(viewModel: homeViewModel, membersView: membersView)
+            initialViewController = HomeViewController(viewModel: homeViewModel, membersViewModel: membersViewModel)
         }
         else {
             
