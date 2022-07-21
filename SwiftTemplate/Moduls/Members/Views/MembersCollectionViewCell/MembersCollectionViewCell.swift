@@ -14,7 +14,7 @@ class MembersCollectionViewCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 6
+        imageView.layer.cornerRadius = 6.5
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()

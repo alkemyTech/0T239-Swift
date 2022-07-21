@@ -24,7 +24,7 @@ class HomeViewController: UIViewController {
     private let scrollStackViewContainer: UIStackView = {
         let view = UIStackView()
         view.axis = .vertical
-        view.alignment = .center
+        view.alignment = .fill
         view.spacing = 0
         view.translatesAutoresizingMaskIntoConstraints = false
     return view
@@ -69,6 +69,7 @@ private extension HomeViewController {
         scrollView.addSubview(scrollStackViewContainer)
         
         scrollStackViewContainer.addArrangedSubview(bienvenidosView)
+        scrollStackViewContainer.addArrangedSubview(membersView)
     }
     
     func setupConstraints() {

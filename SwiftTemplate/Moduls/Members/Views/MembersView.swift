@@ -166,7 +166,7 @@ class MembersView: UIView {
     }
     
     private func setupConstraints() {
-        titleAndImageStackView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        titleAndImageStackView.topAnchor.constraint(equalTo: topAnchor, constant: 40).isActive = true
         titleAndImageStackView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         
         descriptionStackView.topAnchor.constraint(equalTo: titleAndImageStackView.bottomAnchor, constant: 8).isActive = true
@@ -180,7 +180,7 @@ class MembersView: UIView {
         
         seeAllMembersButton.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 24).isActive = true
         seeAllMembersButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true
-        seeAllMembersButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0).isActive = true
+        seeAllMembersButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -30).isActive = true
     }
 }
 
@@ -213,7 +213,7 @@ extension MembersView: UICollectionViewDataSource, UICollectionViewDelegate, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 80, height: 90)
+        return CGSize(width: 75, height: 85)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

@@ -492,8 +492,8 @@
 		14B594952885EE62006DFEA6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				1451468728865C9200458603 /* MembersCollectionViewCell */,
 				14B5949C2885F3D2006DFEA6 /* MembersView.swift */,
+				1451468728865C9200458603 /* MembersCollectionViewCell */,
 			);
 			path = Views;
 			sourceTree = "<group>";

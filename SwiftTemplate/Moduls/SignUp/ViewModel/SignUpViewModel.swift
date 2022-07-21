@@ -49,7 +49,10 @@ extension SignUpViewModel: SignUpViewModelInterface {
             let dropDownMenuRepository = DropDownMenuRepository()
             let dropDownMenuVM = DropDownMenuViewModel(repository: dropDownMenuRepository)
             let homeVM = HomeViewModel(dropDownMenuViewModel: dropDownMenuVM)
-            let homeVC = HomeViewController(viewModel: homeVM)
+            let membersRepository = MembersRepository()
+            let membersViewModel = MembersViewModel(repository: membersRepository)
+            let membersView = MembersView(membersViewModel: membersViewModel)
+            let homeVC = HomeViewController(viewModel: homeVM, membersView: membersView)
             viewController.navigationController?.pushViewController(homeVC, animated: true)
             
         } onError: { errorDescription in

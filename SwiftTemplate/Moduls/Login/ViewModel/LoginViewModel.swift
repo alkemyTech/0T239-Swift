@@ -74,7 +74,10 @@ final class LoginViewModel: LoginViewModelInterface {
         let dropDownMenuViewModel = DropDownMenuViewModel(repository: dropDownMenuRepository)
         let homeViewModel = HomeViewModel(dropDownMenuViewModel: dropDownMenuViewModel)
         
-        let homeViewController = HomeViewController(viewModel: homeViewModel)
+        let membersRepository = MembersRepository()
+        let membersViewModel = MembersViewModel(repository: membersRepository)
+        let membersView = MembersView(membersViewModel: membersViewModel)
+        let homeViewController = HomeViewController(viewModel: homeViewModel, membersView: membersView)
         
         DispatchQueue.main.async {
             navigationController.pushViewController(homeViewController, animated: true)
