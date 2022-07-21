@@ -40,6 +40,7 @@ class NewsView: UIView {
         collection.register(NewsCollectionViewCell.self, forCellWithReuseIdentifier: "newsCell")
         collection.dataSource = self
         collection.delegate = self
+        collection.showsHorizontalScrollIndicator = false
         collection.translatesAutoresizingMaskIntoConstraints = false
         return collection
     }()
