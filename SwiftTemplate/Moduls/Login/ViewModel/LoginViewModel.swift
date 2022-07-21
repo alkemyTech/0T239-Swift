@@ -16,7 +16,7 @@ protocol LoginViewModelInterface {
 }
 
 final class LoginViewModel: LoginViewModelInterface {
-        
+    
     private let loginRepository: LoginRepositoryProtocol
     private let userManager: UserManagerProtocol
     private let validationViewModel: ValidationInterface
@@ -42,7 +42,7 @@ final class LoginViewModel: LoginViewModelInterface {
     
     func getPasswordLabelMessage(password: String, isValid: Bool) -> String {
         if password.isEmpty {
-           return "    *Campo obligatorio"
+            return "    *Campo obligatorio"
         } else if isValid {
             return "Contraseña válida"
         } else {
@@ -56,6 +56,7 @@ final class LoginViewModel: LoginViewModelInterface {
                 let login = try await loginRepository.loginUser(email: email, password: password)
                 let token = login.data.token
                 userManager.saveUserToken(token: token)
+                navigateToHome(navigationController: UINavigationController())
             } catch {
                 print("Error")
             }
@@ -67,11 +68,23 @@ final class LoginViewModel: LoginViewModelInterface {
         let signUpViewController = SignUpViewController(signupviewmodel: signUpViewModel)
         navigationController.pushViewController(signUpViewController, animated: true)
     }
+    
+    private func navigateToHome(navigationController: UINavigationController) {
+        let dropDownMenuRepository = DropDownMenuRepository()
+        let dropDownMenuViewModel = DropDownMenuViewModel(repository: dropDownMenuRepository)
+        let homeViewModel = HomeViewModel(dropDownMenuViewModel: dropDownMenuViewModel)
+        
+        let homeViewController = HomeViewController(viewModel: homeViewModel)
+        
+        DispatchQueue.main.async {
+            navigationController.pushViewController(homeViewController, animated: true)
+        }
+    }
 }
 
 extension LoginViewModel: ValidationInterface {
     func validateEmail(email: String) -> Bool {
-       return self.validationViewModel.validateEmail(email: email)
+        return self.validationViewModel.validateEmail(email: email)
     }
     
     func validatePassword(password: String) -> Bool {

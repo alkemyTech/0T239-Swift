@@ -9,16 +9,25 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    // MARK: Outlets
     let viewModel: HomeViewModelInterface
     
     let bienvenidosView = BienvenidosView(frame: UIScreen.main.bounds)
     let membersView: MembersView
     
-    lazy var scrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.addSubview(bienvenidosView)
-        return scrollView
+    private let scrollView: UIScrollView = {
+        let view = UIScrollView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    private let scrollStackViewContainer: UIStackView = {
+        let view = UIStackView()
+        view.axis = .vertical
+        view.alignment = .center
+        view.spacing = 0
+        view.translatesAutoresizingMaskIntoConstraints = false
+    return view
     }()
     
     lazy var dropDownMenu: UIView = {
@@ -28,11 +37,11 @@ class HomeViewController: UIViewController {
         return menu
     }()
     
+    // MARK: Initialize
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.setupViews()
-        self.setupConstraints()
+        setupViews()
+        setupConstraints()
     }
     
     required init(viewModel: HomeViewModelInterface, membersView: MembersView){
@@ -45,40 +54,43 @@ class HomeViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
 }
 
 // MARK: Private methods
 private extension HomeViewController {
+    
     func setupViews() {
-        self.navigationController?.hidesBarsOnSwipe = true
         self.view.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
-        self.view.addSubview(scrollView)
-        setupDropDownMenu()
+
+        [ scrollView, dropDownMenu ].forEach { subview in
+            view.addSubview(subview)
+        }
+        
+        scrollView.addSubview(scrollStackViewContainer)
+        
+        scrollStackViewContainer.addArrangedSubview(bienvenidosView)
     }
     
     func setupConstraints() {
+        let margins = view.layoutMarginsGuide
         
+        // ScrollView constraints
         NSLayoutConstraint.activate([
-            
-            // Scroll View constraints
-            
-            scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.topAnchor.constraint(equalTo: margins.topAnchor),
             scrollView.bottomAnchor.constraint(equalTo: dropDownMenu.topAnchor)
         ])
-        
+        // ScrollView's container constraints
         NSLayoutConstraint.activate([
-            bienvenidosView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
-            bienvenidosView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            bienvenidosView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            bienvenidosView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
+            scrollStackViewContainer.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            scrollStackViewContainer.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            scrollStackViewContainer.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            scrollStackViewContainer.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            scrollStackViewContainer.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
         ])
-    }
-    
-    private func setupDropDownMenu() {
-        view.addSubview(dropDownMenu)
+                
+        // DropDownMenu
         NSLayoutConstraint.activate([
             dropDownMenu.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             dropDownMenu.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
