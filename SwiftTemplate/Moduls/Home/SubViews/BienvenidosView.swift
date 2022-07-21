@@ -86,12 +86,11 @@ porttitor ut.
         let stack = UIStackView()
         stack.axis = .vertical
         stack.spacing = 22
-        stack.alignment = .leading
-        stack.distribution = .fillProportionally
+        stack.alignment = .fill
+        stack.distribution = .fill
         stack.addArrangedSubview(bienvenidosImage)
         stack.addArrangedSubview(title)
         stack.addArrangedSubview(text)
-        stack.addArrangedSubview(contactButton)
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
@@ -111,6 +110,7 @@ porttitor ut.
         self.backgroundColor = .clear
         self.addSubview(logoImage)
         self.addSubview(stackView)
+        addSubview(contactButton)
     }
     
     private func setupConstraints() {
@@ -118,11 +118,11 @@ porttitor ut.
         logoImage.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         logoImage.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         logoImage.heightAnchor.constraint(equalToConstant: 80).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16).isActive = true
         stackView.topAnchor.constraint(equalTo: logoImage.bottomAnchor).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant:  -16).isActive = true
+        contactButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 24).isActive = true
+        contactButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
+        contactButton.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
-    
-    
 }
