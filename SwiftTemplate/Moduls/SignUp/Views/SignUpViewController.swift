@@ -16,6 +16,20 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var emailObligatoryFieldLabel: UILabel!
     
+    @IBAction func signUpAction(_ sender: Any) {
+        guard passwordField.text == passwordRepeatField.text,
+              let nameText = nameField.text,
+              let emailText = emailField.text,
+              let passwordText = passwordField.text
+             else { return }
+        let newUser = NewUser(name: nameText, email: emailText, password: passwordText)
+        signupviewmodel.register(user: newUser, from: self)
+    }
+    
+    @IBAction func navigateToLoginAction(_ sender: Any) {
+        self.signupviewmodel.navigateToLogin(from: self)
+    }
+    
     let signupviewmodel: SignUpViewModelInterface & ValidationInterface
     
     init(signupviewmodel: SignUpViewModelInterface & ValidationInterface) {
@@ -61,6 +75,9 @@ class SignUpViewController: UIViewController {
         registerButton.isEnabled = false
         registerButton.backgroundColor = .gray
         
+        passwordField.isSecureTextEntry = true
+        passwordRepeatField.isSecureTextEntry = true
+
         emailObligatoryFieldLabel.isHidden = true
     }
     
@@ -177,4 +194,7 @@ extension SignUpViewController: UITextFieldDelegate {
     
 }
 
-
+// MARK: Actions
+extension SignUpViewController {
+    
+}

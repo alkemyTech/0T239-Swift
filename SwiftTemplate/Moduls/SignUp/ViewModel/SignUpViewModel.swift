@@ -17,30 +17,38 @@ protocol RegisterDelegate: AnyObject {
 protocol SignUpViewModelInterface {
     func getEmailLabelMessage(email: String, isValid: Bool) -> String
     func getPasswordLabelMessage(password: String, isValid: Bool) -> String
-    func register(user: NewUser)
+    func register(user: NewUser, from viewController: UIViewController)
+    func navigateToLogin(from viewController: UIViewController)
 }
 
 
 class SignUpViewModel {
         
     init(service: UsersService,
+         loginViewModel: LoginViewModel = LoginViewModel(loginRepository: LoginRepository(), userManager: UserManager.shared),
          validationViewModel: ValidationInterface = ValidationViewModel()) {
         self.service = service
+        self.loginViewModel = loginViewModel
         self.validationViewModel = validationViewModel
     }
     
     private var service: UsersService
-    let validationViewModel: ValidationInterface
+    private let loginViewModel: LoginViewModelInterface
+    private let validationViewModel: ValidationInterface
     weak var delegate: RegisterDelegate?
     
 }
 
 extension SignUpViewModel: SignUpViewModelInterface {
+    func navigateToLogin(from viewController: UIViewController) {
+        viewController.navigationController?.popViewController(animated: true)
+    }
+    
 
-    func register(user: NewUser) {
+    func register(user: NewUser, from viewController: UIViewController) {
         self.service.addNewUser(user: user) { response in
             self.delegate?.registerNewUserSuccess(newUserResponse: response)
-            
+            self.loginViewModel.loginUser(email: user.email, password: user.password, from: viewController)
         } onError: { errorDescription in
             self.delegate?.registerNewUserError(errorDescription: errorDescription)
         }

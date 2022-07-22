@@ -89,7 +89,7 @@ class LoginViewController: UIViewController {
         guard let email = emailTextField.text, let password = passwordTextField.text else {
             return
         }
-        loginViewModel.loginUser(email: email, password: password)
+        loginViewModel.loginUser(email: email, password: password, from: self)
     }
     
     @IBAction func didTapRegister(_ sender: Any) {
