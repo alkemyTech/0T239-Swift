@@ -28,7 +28,9 @@ extension SceneDelegate: CheckIfTokenWasSavedDelegate {
             let dropDownMenuViewModel = DropDownMenuViewModel(repository: dropDownMenuRepository)
             let homeViewModel = HomeViewModel(dropDownMenuViewModel: dropDownMenuViewModel)
             
-            initialViewController = HomeViewController(viewModel: homeViewModel)
+            let membersRepository = MembersRepository()
+            let membersViewModel = MembersViewModel(repository: membersRepository)
+            initialViewController = HomeViewController(viewModel: homeViewModel, membersViewModel: membersViewModel)
         }
         else {
             

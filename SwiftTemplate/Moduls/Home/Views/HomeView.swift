@@ -13,6 +13,7 @@ class HomeViewController: UIViewController {
     let viewModel: HomeViewModelInterface
     
     let bienvenidosView = BienvenidosView(frame: UIScreen.main.bounds)
+    var membersView: MembersView
     
     private let scrollView: UIScrollView = {
         let view = UIScrollView()
@@ -23,7 +24,7 @@ class HomeViewController: UIViewController {
     private let scrollStackViewContainer: UIStackView = {
         let view = UIStackView()
         view.axis = .vertical
-        view.alignment = .center
+        view.alignment = .fill
         view.spacing = 0
         view.translatesAutoresizingMaskIntoConstraints = false
     return view
@@ -43,8 +44,9 @@ class HomeViewController: UIViewController {
         setupConstraints()
     }
     
-    required init(viewModel: HomeViewModelInterface){
+    required init(viewModel: HomeViewModelInterface, membersViewModel: MembersViewModel){
         self.viewModel = viewModel
+        self.membersView = MembersView(membersViewModel: membersViewModel)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -67,6 +69,7 @@ private extension HomeViewController {
         scrollView.addSubview(scrollStackViewContainer)
         
         scrollStackViewContainer.addArrangedSubview(bienvenidosView)
+        scrollStackViewContainer.addArrangedSubview(membersView)
     }
     
     func setupConstraints() {
