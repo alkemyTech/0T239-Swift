@@ -11,7 +11,7 @@ import UIKit
 protocol LoginViewModelInterface {
     func getEmailLabelMessage(email: String, isValid: Bool) -> String
     func getPasswordLabelMessage(password: String, isValid: Bool) -> String
-    func loginUser(email: String, password: String)
+    func loginUser(email: String, password: String, from vc: UIViewController)
     func navigateToSignUp(navigationController: UINavigationController)
 }
 
@@ -50,13 +50,15 @@ final class LoginViewModel: LoginViewModelInterface {
         }
     }
     
-    func loginUser(email: String, password: String) {
+    func loginUser(email: String, password: String, from vc: UIViewController) {
         Task {
             do {
                 let login = try await loginRepository.loginUser(email: email, password: password)
                 let token = login.data.token
                 userManager.saveUserToken(token: token)
-                navigateToHome(navigationController: UINavigationController())
+                
+                guard let navigationController = await vc.navigationController else { return }
+                navigateToHome(navigationController: navigationController)
             } catch {
                 print("Error")
             }
@@ -69,14 +71,21 @@ final class LoginViewModel: LoginViewModelInterface {
         navigationController.pushViewController(signUpViewController, animated: true)
     }
     
-    
     private func navigateToHome(navigationController: UINavigationController) {
         let dropDownMenuRepository = DropDownMenuRepository()
         let dropDownMenuViewModel = DropDownMenuViewModel(repository: dropDownMenuRepository)
         let homeViewModel = HomeViewModel(dropDownMenuViewModel: dropDownMenuViewModel)
         
-        let homeViewController = HomeViewController(viewModel: homeViewModel)
-        navigationController.pushViewController(homeViewController, animated: true)
+        let membersRepository = MembersRepository()
+        let membersViewModel = MembersViewModel(repository: membersRepository)
+        
+        let newsRepository = NewsRespository()
+        let newsViewModel = NewsViewModel(repository: newsRepository)
+        let homeViewController = HomeViewController(viewModel: homeViewModel, membersViewModel: membersViewModel, newsViewModel: newsViewModel)
+        
+        DispatchQueue.main.async {
+            navigationController.setViewControllers([homeViewController], animated: true)
+        }
     }
 }
 

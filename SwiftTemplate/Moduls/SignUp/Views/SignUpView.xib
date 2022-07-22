@@ -2,8 +2,10 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -56,7 +58,7 @@
                                     <rect key="frame" x="0.0" y="204.5" width="320" height="363.5"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" axis="vertical" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="N6d-Sm-7w1">
-                                            <rect key="frame" x="0.0" y="11.5" width="320" height="241"/>
+                                            <rect key="frame" x="0.0" y="4.5" width="320" height="255"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre y apellido" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3w0-wQ-9nG">
                                                     <rect key="frame" x="20" y="0.0" width="280" height="34"/>
@@ -92,22 +94,28 @@
                                                     <inset key="contentEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="10"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" title="Registrarme"/>
+                                                    <connections>
+                                                        <action selector="signUpAction:" destination="-1" eventType="touchUpInside" id="gMP-GA-AIb"/>
+                                                    </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ya tienes cuenta? Ingresa!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gr-vV-8ht">
-                                                    <rect key="frame" x="20" y="229" width="280" height="12"/>
-                                                    <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="10"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bci-8V-Bg7">
+                                                    <rect key="frame" x="85" y="229" width="150.5" height="26"/>
+                                                    <color key="tintColor" systemColor="labelColor"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title="Ya tienes cuenta? Ingresa!">
+                                                        <fontDescription key="titleFontDescription" type="system" pointSize="10"/>
+                                                    </buttonConfiguration>
+                                                    <connections>
+                                                        <action selector="navigateToLoginAction:" destination="-1" eventType="touchUpInside" id="ROb-YQ-Sv1"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="SZ5-xH-qyt" secondAttribute="trailing" constant="20" id="1a0-5f-j6Y"/>
                                                 <constraint firstItem="1B5-OO-ItH" firstAttribute="leading" secondItem="N6d-Sm-7w1" secondAttribute="leading" constant="20" id="9vZ-i6-e8P"/>
                                                 <constraint firstItem="l8H-eu-A5B" firstAttribute="leading" secondItem="N6d-Sm-7w1" secondAttribute="leading" constant="20" id="ByM-NB-y6J"/>
-                                                <constraint firstAttribute="trailing" secondItem="4gr-vV-8ht" secondAttribute="trailing" constant="20" id="DrJ-Lp-Yoy"/>
                                                 <constraint firstAttribute="trailing" secondItem="1B5-OO-ItH" secondAttribute="trailing" constant="20" id="EiZ-HC-7nP"/>
-                                                <constraint firstItem="4gr-vV-8ht" firstAttribute="leading" secondItem="N6d-Sm-7w1" secondAttribute="leading" constant="20" id="Ex4-9z-JQf"/>
                                                 <constraint firstItem="8ST-qJ-p5F" firstAttribute="leading" secondItem="N6d-Sm-7w1" secondAttribute="leading" constant="20" id="LzA-h0-WqB"/>
                                                 <constraint firstAttribute="trailing" secondItem="3w0-wQ-9nG" secondAttribute="trailing" constant="20" id="NJN-NF-aPv"/>
                                                 <constraint firstItem="SZ5-xH-qyt" firstAttribute="leading" secondItem="N6d-Sm-7w1" secondAttribute="leading" constant="20" id="PPd-7n-diD"/>
@@ -158,5 +166,8 @@
     </objects>
     <resources>
         <image name="appIcon" width="78.5" height="41.5"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

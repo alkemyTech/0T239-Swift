@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "encuentroFutbolero.jpeg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
