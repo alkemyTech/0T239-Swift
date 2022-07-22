@@ -122,7 +122,7 @@ class NewsView: UIView {
         
         iWantToBeAPartButton.topAnchor.constraint(equalTo: newsStackView.bottomAnchor, constant: 40).isActive = true
         iWantToBeAPartButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true
-        iWantToBeAPartButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0).isActive = true
+        iWantToBeAPartButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -30).isActive = true
     }
 }
 

@@ -14,6 +14,7 @@ class HomeViewController: UIViewController {
     
     let bienvenidosView = BienvenidosView(frame: UIScreen.main.bounds)
     var membersView: MembersView
+    var newsView: NewsView
     
     private let scrollView: UIScrollView = {
         let view = UIScrollView()
@@ -44,9 +45,10 @@ class HomeViewController: UIViewController {
         setupConstraints()
     }
     
-    required init(viewModel: HomeViewModelInterface, membersViewModel: MembersViewModel){
+    required init(viewModel: HomeViewModelInterface, membersViewModel: MembersViewModel, newsViewModel: NewsViewModel) {
         self.viewModel = viewModel
         self.membersView = MembersView(membersViewModel: membersViewModel)
+        self.newsView = NewsView(newsViewModel: newsViewModel)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -70,6 +72,7 @@ private extension HomeViewController {
         
         scrollStackViewContainer.addArrangedSubview(bienvenidosView)
         scrollStackViewContainer.addArrangedSubview(membersView)
+        scrollStackViewContainer.addArrangedSubview(newsView)
     }
     
     func setupConstraints() {
