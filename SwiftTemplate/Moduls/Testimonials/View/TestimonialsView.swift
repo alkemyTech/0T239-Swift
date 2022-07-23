@@ -85,7 +85,7 @@ class TestimonialsView: UIView {
         stackView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
         
         testimonialsList.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 1).isActive = true
-        testimonialsList.heightAnchor.constraint(equalToConstant: 600).isActive = true
+        testimonialsList.heightAnchor.constraint(equalToConstant: 610).isActive = true
     }
     
 }
@@ -94,7 +94,7 @@ class TestimonialsView: UIView {
 extension TestimonialsView: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        200
+        210
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
