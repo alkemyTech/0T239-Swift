@@ -15,7 +15,7 @@ class TestimonialsRepository: TestimonialsRepositoryProtocol {
     
     func getTestimonials() -> TestimonialsResponse {
         let testimonials = TestimonialsResponse(success: true, data: [
-            Testimonial(id: 466, name: "Noelia Acevedoaaaa", image: "TestimonialImage", description: "Somos Más ayuda a incorporar en la vida de los niños y adolescentes hábitos sanos, mediante actividades que les brinda contención emocional y afectiva."),
+            Testimonial(id: 466, name: "Noelia Acevedo", image: "TestimonialImage", description: "Somos Más ayuda a incorporar en la vida de los niños y adolescentes hábitos sanos, mediante actividades que les brinda contención emocional y afectiva."),
             
             Testimonial(id: 479, name: "Barack Obama", image: "TestimonialImage", description: "Somos Más es una organizacion benéfica que aporta mucho a la sociedad."),
             

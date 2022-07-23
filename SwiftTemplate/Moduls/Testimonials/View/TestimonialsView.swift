@@ -16,11 +16,8 @@ class TestimonialsView: UIView {
     lazy var title: UILabel = {
         let titleLabel = UILabel()
         let titleText = "Testimonios"
-        let myAttribute = [NSAttributedString.Key.font: UIFont(name: "HelveticaNeue", size: 24)]
-        
-        let attributeString = NSAttributedString(string: titleText, attributes: myAttribute as [NSAttributedString.Key : Any])
-        titleLabel.attributedText = attributeString
-        
+        titleLabel.text = titleText
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 24)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.textAlignment = .center
         
@@ -54,7 +51,7 @@ class TestimonialsView: UIView {
     lazy var stackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
-        stack.spacing = 20
+        stack.spacing = 25
         stack.alignment = .center
         stack.distribution = .fillProportionally
         stack.addArrangedSubview(title)
@@ -82,17 +79,23 @@ class TestimonialsView: UIView {
     
     
     private func setUpConstraints() {
-        self.translatesAutoresizingMaskIntoConstraints = false
-        stackView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        stackView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -40).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
+        
+        testimonialsList.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 1).isActive = true
+        testimonialsList.heightAnchor.constraint(equalToConstant: 600).isActive = true
     }
     
 }
 
 //MARK: - Extension
 extension TestimonialsView: UITableViewDelegate, UITableViewDataSource{
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        200
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         self.model.getTestimonials().count

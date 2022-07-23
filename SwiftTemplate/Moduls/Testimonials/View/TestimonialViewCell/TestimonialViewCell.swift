@@ -14,30 +14,38 @@ class TestimonialViewCell: UITableViewCell {
     static let identifier = "TestimonialCell"
     
     lazy var memberImage: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 80, height: 150))
+        imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
         return imageView
     }()
     
     lazy var memberName: UILabel = {
         let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 16.0)
+        label.textAlignment = .center
+        label.sizeToFit()
+        label.adjustsFontSizeToFitWidth = true
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     lazy var memberDescription: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
+        label.sizeToFit()
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     
     lazy var stack: UIStackView = {
         let stack = UIStackView()
-        stack.axis = .vertical
+        stack.axis = .horizontal
+        stack.spacing = 10
         stack.alignment = .fill
         stack.distribution = .fillProportionally
-        stack.addArrangedSubview(memberName)
+        stack.addArrangedSubview(memberImage)
         stack.addArrangedSubview(memberDescription)
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
@@ -61,25 +69,33 @@ class TestimonialViewCell: UITableViewCell {
     }
     
     private func setUpView() {
-        contentView.backgroundColor = UIColor(red: 253, green: 255, blue: 164, alpha: 1)
-        contentView.addSubview(memberImage)
+        contentView.backgroundColor = UIColor(red: 253.0 / 255.0, green: 255.0 / 255.0, blue: 164.0 / 255.0, alpha: 1.0)
+        contentView.addSubview(memberName)
         contentView.addSubview(stack)
     }
     
     private func setupConstraints() {
         self.translatesAutoresizingMaskIntoConstraints = false
         
-        memberImage.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-        memberImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
+        NSLayoutConstraint.activate([
+            memberName.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            memberName.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            memberName.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            memberName.heightAnchor.constraint(equalToConstant: 20)
+        ])
         
-        stack.leadingAnchor.constraint(equalTo: memberImage.trailingAnchor, constant: 10).isActive = true
-        stack.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            stack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5),
+            stack.topAnchor.constraint(equalTo: memberName.bottomAnchor, constant: 10),
+            stack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            stack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20)
+        ])
     }
     
     
     func configure(text: String, image: String, description: String) {
         memberName.text = text
         memberImage.image = UIImage(named: image)
-        memberDescription.text = description
+        memberDescription.text = "\"\(description)\""
     }
 }
