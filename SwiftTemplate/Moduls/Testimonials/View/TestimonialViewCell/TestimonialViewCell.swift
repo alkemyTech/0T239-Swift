@@ -33,7 +33,6 @@ class TestimonialViewCell: UITableViewCell {
     lazy var memberDescription: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
         label.sizeToFit()
         label.adjustsFontSizeToFitWidth = true
         return label
