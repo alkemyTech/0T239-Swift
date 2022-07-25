@@ -15,6 +15,7 @@ class HomeViewController: UIViewController {
     let bienvenidosView = BienvenidosView(frame: UIScreen.main.bounds)
     var membersView: MembersView
     var newsView: NewsView
+    let contactView = ContactView(frame: .zero)
     
     private let scrollView: UIScrollView = {
         let view = UIScrollView()
@@ -73,6 +74,7 @@ private extension HomeViewController {
         scrollStackViewContainer.addArrangedSubview(bienvenidosView)
         scrollStackViewContainer.addArrangedSubview(membersView)
         scrollStackViewContainer.addArrangedSubview(newsView)
+        scrollStackViewContainer.addArrangedSubview(contactView)
     }
     
     func setupConstraints() {
