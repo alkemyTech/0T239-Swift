@@ -31,6 +31,7 @@ class TestimonialsView: UIView {
         table.delegate = self
         table.dataSource = self
         table.showsVerticalScrollIndicator = false
+        table.separatorStyle = .none
         table.translatesAutoresizingMaskIntoConstraints = false
         return table
     }()
@@ -40,6 +41,7 @@ class TestimonialsView: UIView {
         let button = UIButton()
         button.setTitle("Ver todos los testimonios", for: .normal)
         button.setTitleColor(UIColor(red: 255, green: 255, blue: 255, alpha: 1), for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         button.backgroundColor = UIColor(red: 255, green: 0, blue: 0, alpha: 1)
         button.layer.cornerRadius = CGFloat(8)
         button.contentEdgeInsets = UIEdgeInsets(top: 12, left: 15, bottom: 12, right: 15)
@@ -52,9 +54,8 @@ class TestimonialsView: UIView {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.spacing = 25
-        stack.alignment = .center
+        stack.alignment = .leading
         stack.distribution = .fillProportionally
-        stack.addArrangedSubview(title)
         stack.addArrangedSubview(testimonialsList)
         stack.addArrangedSubview(button)
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -74,18 +75,30 @@ class TestimonialsView: UIView {
     
     private func setUpView() {
         self.backgroundColor = .clear
+        self.addSubview(title)
         self.addSubview(stackView)
     }
     
     
     private func setUpConstraints() {
-        stackView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -40).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
         
-        testimonialsList.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 1).isActive = true
-        testimonialsList.heightAnchor.constraint(equalToConstant: 500).isActive = true
+        NSLayoutConstraint.activate([
+            title.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 20),
+            title.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 20),
+            stackView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            stackView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -40),
+            stackView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 20)
+        ])
+        
+        NSLayoutConstraint.activate([
+            testimonialsList.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 1),
+            testimonialsList.heightAnchor.constraint(equalToConstant: 450)
+        ])
+    
     }
     
 }
