@@ -24,7 +24,6 @@ class TestimonialsView: UIView {
         return titleLabel
     }()
     
-    
     lazy var testimonialsList: UITableView = {
         let table = UITableView()
         table.register(TestimonialViewCell.self, forCellReuseIdentifier: TestimonialViewCell.identifier)
@@ -33,6 +32,7 @@ class TestimonialsView: UIView {
         table.showsVerticalScrollIndicator = false
         table.separatorStyle = .none
         table.translatesAutoresizingMaskIntoConstraints = false
+        table.isScrollEnabled = false
         return table
     }()
     
@@ -62,6 +62,7 @@ class TestimonialsView: UIView {
         return stack
     }()
     
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUpView()
@@ -72,15 +73,30 @@ class TestimonialsView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    var tableViewHeightConstraint: NSLayoutConstraint?
+    var testimonialHeightKey = "contentSize"
     
     private func setUpView() {
         self.backgroundColor = .clear
         self.addSubview(title)
         self.addSubview(stackView)
+        
     }
     
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if(keyPath == testimonialHeightKey) {
+            tableViewHeightConstraint?.constant = testimonialsList.contentSize.height
+        }
+    }
+    
+    deinit {
+        removeObserver(self, forKeyPath: testimonialHeightKey)
+    }
     
     private func setUpConstraints() {
+        
+        testimonialsList.addObserver(self, forKeyPath: testimonialHeightKey, options: .new, context: nil)
+        tableViewHeightConstraint = testimonialsList.heightAnchor.constraint(equalToConstant: 0)
         
         NSLayoutConstraint.activate([
             title.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 20),
@@ -96,9 +112,10 @@ class TestimonialsView: UIView {
         
         NSLayoutConstraint.activate([
             testimonialsList.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 1),
-            testimonialsList.heightAnchor.constraint(equalToConstant: 450)
         ])
-    
+        
+        button.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        tableViewHeightConstraint?.isActive = true
     }
     
 }
@@ -128,6 +145,4 @@ extension TestimonialsView: UITableViewDelegate, UITableViewDataSource{
         
         return cell
     }
-    
-    
 }

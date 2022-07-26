@@ -79,7 +79,6 @@ class TestimonialViewCell: UITableViewCell {
     }
     
     private func setupConstraints() {
-        self.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             memberName.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
