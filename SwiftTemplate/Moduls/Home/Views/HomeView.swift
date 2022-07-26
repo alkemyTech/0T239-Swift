@@ -13,6 +13,7 @@ class HomeViewController: UIViewController {
     let viewModel: HomeViewModelInterface
     
     let bienvenidosView = BienvenidosView(frame: UIScreen.main.bounds)
+    let testimonialsView = TestimonialsView(frame: UIScreen.main.bounds)
     var membersView: MembersView
     
     private let scrollView: UIScrollView = {
@@ -70,6 +71,7 @@ private extension HomeViewController {
         
         scrollStackViewContainer.addArrangedSubview(bienvenidosView)
         scrollStackViewContainer.addArrangedSubview(membersView)
+        scrollStackViewContainer.addArrangedSubview(testimonialsView)
     }
     
     func setupConstraints() {
