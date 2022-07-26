@@ -24,6 +24,7 @@ class SignUpViewController: UIViewController {
              else { return }
         let newUser = NewUser(name: nameText, email: emailText, password: passwordText)
         signupviewmodel.register(user: newUser, from: self)
+        self.showSpinner()
     }
     
     @IBAction func navigateToLoginAction(_ sender: Any) {
