@@ -13,12 +13,30 @@ class ContactView: UIView {
     override init(frame: CGRect) {
         super.init(frame: .zero)
         setupView()
+        setupKeyboardObservers()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    lazy var scrollView: UIScrollView = {
+        let view = UIScrollView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
+    lazy var logoImage: UIImageView =  {
+        let imageView = UIImageView()
+        let image = UIImage(named: "Logo")
+        imageView.image = image
+        imageView.contentMode = .scaleAspectFill
+        imageView.widthAnchor.constraint(equalToConstant: 74).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+
     lazy var contributeTitle: UILabel = {
         let label = UILabel()
         let text = "¿Quieres contribuir?"
@@ -119,6 +137,41 @@ class ContactView: UIView {
         return button
     }()
     
+    lazy var scrollStackViewContainer: UIStackView = {
+        let view = UIStackView()
+        view.axis = .vertical
+        view.alignment = .fill
+        view.distribution = .fill
+        view.spacing = 0
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
+    private func setupKeyboardObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardDidHideNotification, object: nil)
+    }
+    
+    @objc private func keyboardWillShow(notification: NSNotification) {
+        guard let userInfo = notification.userInfo,
+              let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+            return
+        }
+        
+        let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardFrame.height, right: 0)
+        scrollView.contentInset = contentInsets
+    }
+    
+    @objc private func keyboardWillHide(notification: NSNotification) {
+        UIView.animate(withDuration: 0.2) {
+            self.scrollView.contentInset = .zero
+        }
+    }
+    
+    private func removeObservers() {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     private func setupView() {
         translatesAutoresizingMaskIntoConstraints = false
         addSubViews()
@@ -127,31 +180,67 @@ class ContactView: UIView {
     }
     
     private func addSubViews() {
-        addSubview(contributeTitle)
-        addSubview(donateButton)
-        addSubview(contactUsTitle)
-        addSubview(fieldsStackView)
-        addSubview(sendMessageButton)
+        addSubview(scrollView)
+        scrollView.addSubview(scrollStackViewContainer)
+        scrollStackViewContainer.addSubview(logoImage)
+        scrollStackViewContainer.addSubview(contributeTitle)
+        scrollStackViewContainer.addSubview(donateButton)
+        scrollStackViewContainer.addSubview(contactUsTitle)
+        scrollStackViewContainer.addSubview(fieldsStackView)
+        scrollStackViewContainer.addSubview(sendMessageButton)
     }
     
     private func setupConstraints() {
         
-        contributeTitle.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        contributeTitle.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true
+        NSLayoutConstraint.activate([
+            scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            scrollView.topAnchor.constraint(equalTo: topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
         
-        donateButton.topAnchor.constraint(equalTo: contributeTitle.bottomAnchor, constant: 16).isActive = true
-        donateButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true
+        NSLayoutConstraint.activate([
+            scrollStackViewContainer.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            scrollStackViewContainer.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            scrollStackViewContainer.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            scrollStackViewContainer.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            scrollStackViewContainer.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            scrollStackViewContainer.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
+        ])
         
-        contactUsTitle.topAnchor.constraint(equalTo: donateButton.bottomAnchor, constant: 40).isActive = true
-        contactUsTitle.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true
+        NSLayoutConstraint.activate([
+            logoImage.topAnchor.constraint(equalTo: scrollStackViewContainer.topAnchor, constant: 10),
+            logoImage.centerXAnchor.constraint(equalTo: scrollStackViewContainer.centerXAnchor)
+        ])
         
-        fieldsStackView.topAnchor.constraint(equalTo: contactUsTitle.bottomAnchor, constant: 16).isActive = true
-        fieldsStackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true
-        fieldsStackView.rightAnchor.constraint(equalTo: rightAnchor, constant: -16).isActive = true
+        NSLayoutConstraint.activate([
+            contributeTitle.topAnchor.constraint(equalTo: logoImage.bottomAnchor, constant: 16),
+            contributeTitle.leadingAnchor.constraint(equalTo: scrollStackViewContainer.leadingAnchor, constant: 16),
+            contributeTitle.trailingAnchor.constraint(equalTo: scrollStackViewContainer.trailingAnchor, constant: -16),
+        ])
         
-        sendMessageButton.topAnchor.constraint(equalTo: fieldsStackView.bottomAnchor, constant: 24).isActive = true
-        sendMessageButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true
-        sendMessageButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -30).isActive = true
+        NSLayoutConstraint.activate([
+            donateButton.topAnchor.constraint(equalTo: contributeTitle.bottomAnchor, constant: 16),
+            donateButton.leadingAnchor.constraint(equalTo: scrollStackViewContainer.leadingAnchor, constant: 16),
+        ])
+        
+        NSLayoutConstraint.activate([
+            contactUsTitle.topAnchor.constraint(equalTo: donateButton.bottomAnchor, constant: 40),
+            contactUsTitle.leadingAnchor.constraint(equalTo: scrollStackViewContainer.leadingAnchor, constant: 16),
+        ])
+        
+        NSLayoutConstraint.activate([
+            fieldsStackView.topAnchor.constraint(equalTo: contactUsTitle.bottomAnchor, constant: 16),
+            fieldsStackView.leadingAnchor.constraint(equalTo: scrollStackViewContainer.leadingAnchor, constant: 16),
+            fieldsStackView.trailingAnchor.constraint(equalTo: scrollStackViewContainer.trailingAnchor, constant: -16),
+        ])
+        
+        NSLayoutConstraint.activate([
+            sendMessageButton.topAnchor.constraint(equalTo: fieldsStackView.bottomAnchor, constant: 24),
+            sendMessageButton.leadingAnchor.constraint(equalTo: scrollStackViewContainer.leadingAnchor, constant: 16),
+            sendMessageButton.bottomAnchor.constraint(equalTo: scrollStackViewContainer.bottomAnchor, constant: -20)
+        ])
+    
     }
     
     private func hideKeyboard() {
