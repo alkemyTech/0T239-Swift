@@ -14,7 +14,6 @@ class HomeViewController: UIViewController {
     
     let bienvenidosView = BienvenidosView(frame: UIScreen.main.bounds)
     var membersView: MembersView
-    var newsView: NewsView
     
     private let scrollView: UIScrollView = {
         let view = UIScrollView()
@@ -45,10 +44,9 @@ class HomeViewController: UIViewController {
         setupConstraints()
     }
     
-    required init(viewModel: HomeViewModelInterface, membersViewModel: MembersViewModel, newsViewModel: NewsViewModel) {
+    required init(viewModel: HomeViewModelInterface, membersViewModel: MembersViewModelInterface) {
         self.viewModel = viewModel
         self.membersView = MembersView(membersViewModel: membersViewModel)
-        self.newsView = NewsView(newsViewModel: newsViewModel)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -72,7 +70,6 @@ private extension HomeViewController {
         
         scrollStackViewContainer.addArrangedSubview(bienvenidosView)
         scrollStackViewContainer.addArrangedSubview(membersView)
-        scrollStackViewContainer.addArrangedSubview(newsView)
     }
     
     func setupConstraints() {
@@ -106,5 +103,11 @@ private extension HomeViewController {
 extension HomeViewController: DropDownMenuViewProtocol {
     func didTapMenuButton() {
         viewModel.presentDropDownMenu(viewController: self)
+    }
+}
+
+extension HomeViewController: DropDownMenuViewControllerInterface {
+    func presentView(menuItem: Int) {
+        viewModel.presentView(viewController: self, menuItem: menuItem)
     }
 }

@@ -19,7 +19,7 @@
 		141149192864FAC2003F172A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141149182864FAC2003F172A /* LoginViewController.swift */; };
 		1411491B2864FAD5003F172A /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1411491A2864FAD5003F172A /* LoginViewController.xib */; };
 		14119A26288856EF0028C83B /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14119A25288856EF0028C83B /* NewsModel.swift */; };
-		14119A28288857E40028C83B /* NewsRespository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14119A27288857E40028C83B /* NewsRespository.swift */; };
+		14119A28288857E40028C83B /* NewsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14119A27288857E40028C83B /* NewsRepository.swift */; };
 		14119A2A28885B760028C83B /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14119A2928885B760028C83B /* NewsViewModel.swift */; };
 		14119A2C28885C790028C83B /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14119A2B28885C790028C83B /* NewsView.swift */; };
 		14184DD1287C91E9002F51F4 /* DropDownMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14184DD0287C91E9002F51F4 /* DropDownMenuView.xib */; };
@@ -89,7 +89,7 @@
 		141149182864FAC2003F172A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1411491A2864FAD5003F172A /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		14119A25288856EF0028C83B /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
-		14119A27288857E40028C83B /* NewsRespository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsRespository.swift; sourceTree = "<group>"; };
+		14119A27288857E40028C83B /* NewsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsRepository.swift; sourceTree = "<group>"; };
 		14119A2928885B760028C83B /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
 		14119A2B28885C790028C83B /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
 		14184DD0287C91E9002F51F4 /* DropDownMenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DropDownMenuView.xib; sourceTree = "<group>"; };
@@ -345,7 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				14119A25288856EF0028C83B /* NewsModel.swift */,
-				14119A27288857E40028C83B /* NewsRespository.swift */,
+				14119A27288857E40028C83B /* NewsRepository.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -824,7 +824,7 @@
 				82E35B0E286F31CE0042437B /* SignUpViewController.swift in Sources */,
 				C13ECE122867FDAB0040BE72 /* UsersService.swift in Sources */,
 				141149192864FAC2003F172A /* LoginViewController.swift in Sources */,
-				14119A28288857E40028C83B /* NewsRespository.swift in Sources */,
+				14119A28288857E40028C83B /* NewsRepository.swift in Sources */,
 				03398C6227DFDFCC001BC793 /* SceneDelegate.swift in Sources */,
 				148461DA28735DCC008BFBD6 /* RestApi.swift in Sources */,
 				14B594992885F005006DFEA6 /* MembersRepository.swift in Sources */,

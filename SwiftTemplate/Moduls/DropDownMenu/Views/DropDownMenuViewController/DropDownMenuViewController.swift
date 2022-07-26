@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol DropDownMenuViewControllerInterface: AnyObject {
+    func presentView(menuItem: Int)
+}
+
 class DropDownMenuViewController: UIViewController {
 
     @IBOutlet weak var containerView: UIView!
@@ -14,6 +18,7 @@ class DropDownMenuViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     let dropDownMenuViewModel: DropDownMenuViewModelInterface
+    weak var delegate: DropDownMenuViewControllerInterface?
     
     init(dropDownMenuViewModel: DropDownMenuViewModelInterface) {
         self.dropDownMenuViewModel = dropDownMenuViewModel
@@ -81,8 +86,8 @@ extension DropDownMenuViewController: UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let menuItem = dropDownMenuViewModel.getMenuItems()[indexPath.row]        
-        showToastMessage(message: menuItem.title, seconds: 0.6)
+        dismiss(animated: true)
+        delegate?.presentView(menuItem: indexPath.row)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

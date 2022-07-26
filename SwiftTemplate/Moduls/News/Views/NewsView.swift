@@ -8,22 +8,29 @@
 import Foundation
 import UIKit
 
-class NewsView: UIView {
+class NewsViewController: UIViewController {
     
     let newsViewModel: NewsViewModelInterface
     var news: [News]?
     
-    init(newsViewModel: NewsViewModelInterface) {
-        self.newsViewModel = newsViewModel
-        super.init(frame: .zero)
-        setupView()
-    }
+    lazy var scrollView: UIScrollView = {
+        let view = UIScrollView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    lazy var logoImage: UIImageView =  {
+        let imageView = UIImageView()
+        let image = UIImage(named: "Logo")
+        imageView.image = image
+        imageView.contentMode = .scaleAspectFill
+        imageView.widthAnchor.constraint(equalToConstant: 74).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
     
-    lazy var title: UILabel = {
+    lazy var newsTitle: UILabel = {
         let label = UILabel()
         let text = "Novedades"
         let attribute = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24, weight: .medium)]
@@ -40,6 +47,7 @@ class NewsView: UIView {
         collection.register(NewsCollectionViewCell.self, forCellWithReuseIdentifier: "newsCell")
         collection.dataSource = self
         collection.delegate = self
+        collection.heightAnchor.constraint(equalToConstant: 170).isActive = true
         collection.showsHorizontalScrollIndicator = false
         collection.translatesAutoresizingMaskIntoConstraints = false
         return collection
@@ -77,6 +85,30 @@ class NewsView: UIView {
         return button
     }()
     
+    lazy var logoAndTitleView: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.spacing = 22
+        stack.alignment = .center
+        stack.distribution = .fill
+        stack.addArrangedSubview(logoImage)
+        stack.addArrangedSubview(newsTitle)
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
+    }()
+    
+    lazy var logoTitleAndCollectionView: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.spacing = 8
+        stack.alignment = .fill
+        stack.distribution = .fill
+        stack.addArrangedSubview(logoAndTitleView)
+        stack.addArrangedSubview(collectionView)
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
+    }()
+    
     lazy var newsStackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
@@ -89,8 +121,45 @@ class NewsView: UIView {
         return stack
     }()
     
+    lazy var newsAndButtomView: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.spacing = 40
+        stack.alignment = .leading
+        stack.distribution = .fill
+        stack.addArrangedSubview(newsStackView)
+        stack.addArrangedSubview(iWantToBeAPartButton)
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
+    }()
+    
+    lazy var scrollStackViewContainer: UIStackView = {
+        let view = UIStackView()
+        view.axis = .vertical
+        view.alignment = .fill
+        view.distribution = .fill
+        view.spacing = 0
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupView()
+    }
+    
+    init(newsViewModel: NewsViewModelInterface) {
+        self.newsViewModel = newsViewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     private func setupView() {
-        translatesAutoresizingMaskIntoConstraints = false
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .white
         getNews()
         addSubViews()
         setupConstraints()
@@ -101,32 +170,45 @@ class NewsView: UIView {
     }
     
     private func addSubViews() {
-        addSubview(title)
-        addSubview(newsStackView)
-        addSubview(collectionView)
-        addSubview(iWantToBeAPartButton)
+        view.addSubview(scrollView)
+        scrollView.addSubview(scrollStackViewContainer)
+        scrollStackViewContainer.addSubview(logoTitleAndCollectionView)
+        scrollStackViewContainer.addSubview(newsAndButtomView)
     }
     
     private func setupConstraints() {
-        title.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        title.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         
-        collectionView.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 8).isActive = true
-        collectionView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-        collectionView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-        collectionView.heightAnchor.constraint(equalToConstant: 170).isActive = true
+        NSLayoutConstraint.activate([
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+       
+        NSLayoutConstraint.activate([
+            scrollStackViewContainer.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            scrollStackViewContainer.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            scrollStackViewContainer.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            scrollStackViewContainer.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            scrollStackViewContainer.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
+        ])
         
-        newsStackView.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 16).isActive = true
-        newsStackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true
-        newsStackView.rightAnchor.constraint(equalTo: rightAnchor, constant: -16).isActive = true
+        NSLayoutConstraint.activate([
+            logoTitleAndCollectionView.topAnchor.constraint(equalTo: scrollStackViewContainer.topAnchor, constant: 10),
+            logoTitleAndCollectionView.leadingAnchor.constraint(equalTo: scrollStackViewContainer.leadingAnchor),
+            logoTitleAndCollectionView.trailingAnchor.constraint(equalTo: scrollStackViewContainer.trailingAnchor)
+        ])
         
-        iWantToBeAPartButton.topAnchor.constraint(equalTo: newsStackView.bottomAnchor, constant: 40).isActive = true
-        iWantToBeAPartButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true
-        iWantToBeAPartButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -30).isActive = true
+        NSLayoutConstraint.activate([
+            newsAndButtomView.topAnchor.constraint(equalTo: logoTitleAndCollectionView.bottomAnchor, constant: 16),
+            newsAndButtomView.leadingAnchor.constraint(equalTo: scrollStackViewContainer.leadingAnchor, constant: 16),
+            newsAndButtomView.trailingAnchor.constraint(equalTo: scrollStackViewContainer.trailingAnchor, constant: -16),
+            newsAndButtomView.bottomAnchor.constraint(equalTo: scrollStackViewContainer.bottomAnchor, constant: -40),
+        ])
     }
 }
 
-extension NewsView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension NewsViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return newsViewModel.getNews().count
