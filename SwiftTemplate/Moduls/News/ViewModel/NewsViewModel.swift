@@ -13,9 +13,9 @@ protocol NewsViewModelInterface {
 
 class NewsViewModel: NewsViewModelInterface {
     
-    let repository: NewsRespositoryProtocol
+    let repository: NewsRepositoryProtocol
     
-    init(repository: NewsRespositoryProtocol) {
+    init(repository: NewsRepositoryProtocol) {
         self.repository = repository
     }
     

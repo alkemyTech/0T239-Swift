@@ -74,14 +74,15 @@ final class LoginViewModel: LoginViewModelInterface {
     private func navigateToHome(navigationController: UINavigationController) {
         let dropDownMenuRepository = DropDownMenuRepository()
         let dropDownMenuViewModel = DropDownMenuViewModel(repository: dropDownMenuRepository)
-        let homeViewModel = HomeViewModel(dropDownMenuViewModel: dropDownMenuViewModel)
+        
+        let newsRepository = NewsRepository()
+        let newsViewModel = NewsViewModel(repository: newsRepository)
+        let homeViewModel = HomeViewModel(dropDownMenuViewModel: dropDownMenuViewModel, newsViewModel: newsViewModel)
         
         let membersRepository = MembersRepository()
         let membersViewModel = MembersViewModel(repository: membersRepository)
         
-        let newsRepository = NewsRespository()
-        let newsViewModel = NewsViewModel(repository: newsRepository)
-        let homeViewController = HomeViewController(viewModel: homeViewModel, membersViewModel: membersViewModel, newsViewModel: newsViewModel)
+        let homeViewController = HomeViewController(viewModel: homeViewModel, membersViewModel: membersViewModel)
         
         DispatchQueue.main.async {
             navigationController.setViewControllers([homeViewController], animated: true)
