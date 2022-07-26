@@ -12,7 +12,7 @@ var spinnerView: UIView?
 
 extension UIViewController {
     
-    func showSpinner(_ view: UIView) {
+    func showSpinner() {
         
         spinnerView = UIView.init(frame: view.bounds)
         spinnerView?.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
@@ -24,7 +24,7 @@ extension UIViewController {
         
         DispatchQueue.main.async {
             spinnerView?.addSubview(spinner)
-            view.addSubview(spinnerView!)
+            self.view.addSubview(spinnerView!)
         }
         
     }
