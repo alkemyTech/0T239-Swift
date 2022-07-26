@@ -8,24 +8,14 @@
 import Foundation
 import UIKit
 
-class ContactView: UIView {
-    
-    override init(frame: CGRect) {
-        super.init(frame: .zero)
-        setupView()
-        setupKeyboardObservers()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+class ContactViewController: UIViewController {
     
     lazy var scrollView: UIScrollView = {
         let view = UIScrollView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-
+    
     lazy var logoImage: UIImageView =  {
         let imageView = UIImageView()
         let image = UIImage(named: "Logo")
@@ -36,7 +26,7 @@ class ContactView: UIView {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-
+    
     lazy var contributeTitle: UILabel = {
         let label = UILabel()
         let text = "¿Quieres contribuir?"
@@ -146,7 +136,25 @@ class ContactView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupView()
+        setupKeyboardObservers()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        removeObservers()
+    }
+    
+    init() {
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     private func setupKeyboardObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardDidHideNotification, object: nil)
@@ -158,7 +166,7 @@ class ContactView: UIView {
             return
         }
         
-        let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardFrame.height, right: 0)
+        let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardFrame.height + 30, right: 0)
         scrollView.contentInset = contentInsets
     }
     
@@ -173,14 +181,15 @@ class ContactView: UIView {
     }
     
     private func setupView() {
-        translatesAutoresizingMaskIntoConstraints = false
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .white
         addSubViews()
         setupConstraints()
         hideKeyboard()
     }
     
     private func addSubViews() {
-        addSubview(scrollView)
+        view.addSubview(scrollView)
         scrollView.addSubview(scrollStackViewContainer)
         scrollStackViewContainer.addSubview(logoImage)
         scrollStackViewContainer.addSubview(contributeTitle)
@@ -193,10 +202,10 @@ class ContactView: UIView {
     private func setupConstraints() {
         
         NSLayoutConstraint.activate([
-            scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            scrollView.topAnchor.constraint(equalTo: topAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
         NSLayoutConstraint.activate([
@@ -205,7 +214,6 @@ class ContactView: UIView {
             scrollStackViewContainer.topAnchor.constraint(equalTo: scrollView.topAnchor),
             scrollStackViewContainer.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             scrollStackViewContainer.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
-            scrollStackViewContainer.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
         ])
         
         NSLayoutConstraint.activate([
@@ -238,22 +246,21 @@ class ContactView: UIView {
         NSLayoutConstraint.activate([
             sendMessageButton.topAnchor.constraint(equalTo: fieldsStackView.bottomAnchor, constant: 24),
             sendMessageButton.leadingAnchor.constraint(equalTo: scrollStackViewContainer.leadingAnchor, constant: 16),
-            sendMessageButton.bottomAnchor.constraint(equalTo: scrollStackViewContainer.bottomAnchor, constant: -20)
+            sendMessageButton.bottomAnchor.constraint(equalTo: scrollStackViewContainer.bottomAnchor, constant: -10)
         ])
-    
     }
     
     private func hideKeyboard() {
         let tapGesture = UITapGestureRecognizer(target:self, action: #selector(didTapView(gesture:)))
-        addGestureRecognizer(tapGesture)
+        view.addGestureRecognizer(tapGesture)
     }
     
     @objc private func didTapView(gesture: UITapGestureRecognizer) {
-        endEditing(true)
+        view.endEditing(true)
     }
 }
 
-extension ContactView: UITextViewDelegate {
+extension ContactViewController: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == .lightGray {
