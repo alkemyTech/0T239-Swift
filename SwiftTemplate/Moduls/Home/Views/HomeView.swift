@@ -111,5 +111,16 @@ extension HomeViewController: DropDownMenuViewProtocol {
 extension HomeViewController: DropDownMenuViewControllerInterface {
     func presentView(menuItem: Int) {
         viewModel.presentView(viewController: self, menuItem: menuItem)
-    }
-}
+        
+        switch menuItem {
+             case 0:
+                 scrollView.scrollToView(view: bienvenidosView, animated: true)
+             case 1:
+                 scrollView.scrollToView(view: membersView, animated: true)
+             case 3:
+                 scrollView.scrollToView(view: testimonialsView, animated: true)
+             default:
+                 return
+             }
+         }
+     }
