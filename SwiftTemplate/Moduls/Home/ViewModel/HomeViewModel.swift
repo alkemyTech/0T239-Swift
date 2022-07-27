@@ -35,8 +35,11 @@ class HomeViewModel: HomeViewModelInterface {
         case 2:
             let newsViewController = NewsViewController(newsViewModel: newsViewModel)
             viewController.present(newsViewController, animated: true)
+        case 4:
+            let contactViewController = ContactViewController()
+            viewController.present(contactViewController, animated: true)
         default:
-            print(menuItem)
+            return
         }
     }
 }
