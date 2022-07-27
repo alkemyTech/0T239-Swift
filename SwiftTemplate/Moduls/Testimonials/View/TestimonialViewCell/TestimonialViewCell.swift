@@ -22,7 +22,7 @@ class TestimonialViewCell: UITableViewCell {
     
     lazy var memberName: UILabel = {
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 16.0)
+        label.font = UIFont.boldSystemFont(ofSize: 14.0)
         label.textAlignment = .left
         label.sizeToFit()
         label.adjustsFontSizeToFitWidth = true
@@ -33,6 +33,7 @@ class TestimonialViewCell: UITableViewCell {
     lazy var memberDescription: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
+        label.font = UIFont.systemFont(ofSize: 14.0)
         label.sizeToFit()
         label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -69,6 +70,8 @@ class TestimonialViewCell: UITableViewCell {
     }
     
     private func setUpView() {
+        contentView.layer.cornerRadius = 8.0
+        self.layer.masksToBounds = true
         self.selectionStyle = .none
         contentView.backgroundColor = UIColor(red: 253.0 / 255.0, green: 255.0 / 255.0, blue: 164.0 / 255.0, alpha: 1.0)
         contentView.addSubview(memberName)
@@ -76,7 +79,6 @@ class TestimonialViewCell: UITableViewCell {
     }
     
     private func setupConstraints() {
-        self.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             memberName.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
