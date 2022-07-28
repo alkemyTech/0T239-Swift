@@ -51,6 +51,7 @@ final class LoginViewModel: LoginViewModelInterface {
     }
     
     func loginUser(email: String, password: String, from vc: UIViewController) {
+        vc.showSpinner()
         Task {
             do {
                 let login = try await loginRepository.loginUser(email: email, password: password)
@@ -59,6 +60,7 @@ final class LoginViewModel: LoginViewModelInterface {
                 
                 guard let navigationController = await vc.navigationController else { return }
                 navigateToHome(navigationController: navigationController)
+                await vc.removeSpinner()
             } catch {
                 print("Error")
             }
