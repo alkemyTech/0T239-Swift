@@ -144,6 +144,10 @@ class MembersView: UIView {
         button.layer.cornerRadius = 8
         button.contentEdgeInsets = UIEdgeInsets(top: 10, left: 16, bottom: 10, right: 16)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.shadowRadius = 4
+        button.layer.shadowOpacity = 1
+        button.layer.shadowColor = UIColor.systemGray3.cgColor
+        button.layer.shadowOffset = CGSize(width: 0 , height: 4)
         return button
     }()
     
