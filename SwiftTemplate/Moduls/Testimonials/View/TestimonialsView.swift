@@ -46,6 +46,10 @@ class TestimonialsView: UIView {
         button.layer.cornerRadius = CGFloat(8)
         button.contentEdgeInsets = UIEdgeInsets(top: 12, left: 15, bottom: 12, right: 15)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.shadowRadius = 4
+        button.layer.shadowOpacity = 1
+        button.layer.shadowColor = UIColor.systemGray3.cgColor
+        button.layer.shadowOffset = CGSize(width: 0 , height: 4)
         return button
     }()
     
