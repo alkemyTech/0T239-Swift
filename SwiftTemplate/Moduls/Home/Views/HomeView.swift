@@ -38,6 +38,17 @@ class HomeViewController: UIViewController {
         return menu
     }()
     
+    lazy var logoImage: UIImageView =  {
+            let imageView = UIImageView()
+            let image = UIImage(named: "Logo")
+            imageView.image = image
+            imageView.contentMode = .scaleAspectFill
+            imageView.widthAnchor.constraint(equalToConstant: 74).isActive = true
+            imageView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+            return imageView
+        }()
+
     // MARK: Initialize
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +73,7 @@ private extension HomeViewController {
     
     func setupViews() {
         self.view.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
+        navigationItem.titleView = logoImage
 
         [ scrollView, dropDownMenu ].forEach { subview in
             view.addSubview(subview)

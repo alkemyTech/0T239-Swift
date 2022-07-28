@@ -11,16 +11,6 @@ import UIKit
 
 class BienvenidosView: UIView {
     
-    lazy var logoImage: UIImageView =  {
-        let imageView = UIImageView()
-        let image = UIImage(named: "iconWithoutText")
-        imageView.image = image
-        imageView.contentMode = .scaleAspectFill
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
-    
-    
     lazy var bienvenidosImage: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "bienvenidosImage"))
         imageView.contentMode = .scaleAspectFit
@@ -108,18 +98,14 @@ porttitor ut.
     
     private func setupView() {
         self.backgroundColor = .clear
-        self.addSubview(logoImage)
         self.addSubview(stackView)
         addSubview(contactButton)
     }
     
     private func setupConstraints() {
         self.translatesAutoresizingMaskIntoConstraints = false
-        logoImage.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        logoImage.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        logoImage.heightAnchor.constraint(equalToConstant: 80).isActive = true
         stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16).isActive = true
-        stackView.topAnchor.constraint(equalTo: logoImage.bottomAnchor).isActive = true
+        stackView.topAnchor.constraint(equalTo: topAnchor, constant: 8).isActive = true
         stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant:  -16).isActive = true
         contactButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 24).isActive = true
         contactButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
